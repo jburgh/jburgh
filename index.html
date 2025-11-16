@@ -210,6 +210,79 @@
             background: var(--accent-primary);
         }
 
+        /* Mobile hamburger menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: var(--transition-fast);
+            transform-origin: center;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile navigation menu */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 999;
+            padding: var(--space-md) 0;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: var(--space-md) var(--space-xl);
+            transition: var(--transition-fast);
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            color: var(--accent-primary);
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid var(--accent-primary);
+        }
+
         /* Main container */
         .container {
             max-width: 1200px;
@@ -1975,6 +2048,10 @@
                 display: none;
             }
 
+            .menu-toggle {
+                display: flex;
+            }
+
             .hero-text h1 {
                 font-size: 2.2rem;
             }
@@ -2041,6 +2118,11 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="#" class="nav-brand">Jill <span>Shaheen</span></a>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#expertise" class="nav-link">Expertise</a></li>
@@ -2050,6 +2132,18 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <nav class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="#about" class="mobile-nav-link">About</a></li>
+            <li><a href="#expertise" class="mobile-nav-link">Expertise</a></li>
+            <li><a href="#work" class="mobile-nav-link">Projects</a></li>
+            <li><a href="#experience" class="mobile-nav-link">Jobs</a></li>
+            <li><a href="#education" class="mobile-nav-link">School</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
     </nav>
 
     <!-- Hero Section -->
@@ -3021,6 +3115,32 @@ and scaling documentation practices across AWS.`,
                 matchingSwatch.click();
             }
         }
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+            }
+        });
 
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
