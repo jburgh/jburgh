@@ -424,6 +424,19 @@
             margin: 0 auto;
         }
 
+        .philosophy-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-fast);
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .philosophy-link:hover {
+            color: var(--accent-highlight);
+        }
+
         /* Interactive Terminal */
         .terminal {
             background: var(--terminal-bg);
@@ -528,10 +541,14 @@
 
         .terminal-hint {
             text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: var(--space-sm);
-            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            margin-top: var(--space-md);
+            font-weight: 500;
+            padding: var(--space-md);
+            background: var(--bg-card);
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-secondary);
         }
 
         /* Writing Philosophy */
@@ -2068,7 +2085,7 @@
                 <div class="section-label">My approach</div>
                 <h2 class="section-title">Documentation philosophy</h2>
                 <p class="section-subtitle">
-                    Great documentation isn't just about accuracy. It's about empathy, clarity, and reducing friction at every step.
+                    Great documentation isn't just about accuracy. It's about empathy, clarity, and reducing friction at every step. <a href="#" id="philosophyStyleLink" class="philosophy-link">Learn more about my style →</a>
                 </p>
             </div>
 
@@ -2881,6 +2898,15 @@ and scaling documentation practices across AWS.`,
         sidebarToggle.addEventListener('click', openSidebar);
         sidebarClose.addEventListener('click', closeSidebar);
         sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Philosophy link opens sidebar
+        const philosophyLink = document.getElementById('philosophyStyleLink');
+        if (philosophyLink) {
+            philosophyLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                openSidebar();
+            });
+        }
 
         // Close sidebar on Escape key
         document.addEventListener('keydown', (e) => {
