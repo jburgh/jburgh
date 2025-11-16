@@ -17,6 +17,8 @@
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Optional: Font Awesome for modal icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <style>
         :root {
@@ -1241,6 +1243,370 @@
             height: 16px;
         }
 
+        /* Project Card Styles */
+        .project-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: var(--space-lg);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .project-card-type {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .project-card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .project-card-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .project-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+            margin-top: var(--space-sm);
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: var(--bg-card);
+            color: var(--text-muted);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        /* Project Modal Styles */
+        .project-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: var(--space-lg);
+        }
+
+        .project-modal-overlay.active {
+            display: flex;
+        }
+
+        .project-modal {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid var(--border);
+        }
+
+        .project-modal-close {
+            position: sticky;
+            top: 0;
+            right: 0;
+            background: var(--bg-card);
+            border: none;
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: var(--space-md);
+            transition: var(--transition-fast);
+            float: right;
+            z-index: 2001;
+        }
+
+        .project-modal-close:hover {
+            background: var(--bg-elevated);
+            color: var(--accent-primary);
+        }
+
+        .project-modal-close i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .project-modal-body {
+            padding: var(--space-lg);
+        }
+
+        .project-detail-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        .project-detail-header {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .project-detail-type {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .project-detail-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .project-title-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: var(--transition-fast);
+        }
+
+        .project-title-link:hover {
+            color: var(--accent-highlight);
+        }
+
+        .project-detail-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+        }
+
+        .project-detail-description-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        .project-detail-description-section.has-image {
+            flex-direction: row;
+            gap: var(--space-xl);
+            align-items: flex-start;
+        }
+
+        .project-detail-thumbnail {
+            flex-shrink: 0;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            min-width: 200px;
+            width: 200px;
+        }
+
+        .project-thumbnail-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-thumbnail-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-detail-thumbnail:hover .project-thumbnail-overlay {
+            opacity: 1;
+        }
+
+        .project-thumbnail-overlay i {
+            color: #ffffff;
+            font-size: 1.5rem;
+        }
+
+        .project-detail-description {
+            flex: 1;
+        }
+
+        .project-detail-description p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .project-detail-skills {
+            background: var(--bg-card);
+            padding: var(--space-lg);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-secondary);
+        }
+
+        .project-detail-skills h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-secondary);
+            margin: 0 0 var(--space-md) 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-detail-skills ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .project-detail-skills li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: var(--space-lg);
+        }
+
+        .project-detail-skills li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .project-detail-results {
+            background: var(--bg-card);
+            padding: var(--space-lg);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-primary);
+        }
+
+        .project-detail-results h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin: 0 0 var(--space-md) 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-detail-results p {
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        .project-detail-link {
+            text-align: center;
+        }
+
+        .fullscreen-image-viewer {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2100;
+        }
+
+        .fullscreen-image-viewer.active {
+            display: flex;
+        }
+
+        .fullscreen-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .fullscreen-image-container {
+            position: relative;
+            z-index: 2101;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-lg);
+        }
+
+        .fullscreen-image {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .fullscreen-image-close {
+            position: absolute;
+            top: var(--space-lg);
+            right: var(--space-lg);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+            z-index: 2102;
+        }
+
+        .fullscreen-image-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .fullscreen-image-close i {
+            width: 24px;
+            height: 24px;
+        }
+
+
         /* Experience Timeline */
         .timeline {
             position: relative;
@@ -2044,153 +2410,23 @@ I build AI tools that scale content production.</div>
                 </p>
             </div>
 
-            <div class="samples-grid">
-                <div class="sample-card">
-                    <div class="sample-card-tabs">
-                        <div class="sample-tab active">
-                            <i data-lucide="file-text" class="sample-tab-icon"></i>
-                            wal-guide.md
-                        </div>
-                    </div>
-                    <div class="sample-card-header">
-                        <span class="sample-type-comment">// Feature documentation</span>
-                    </div>
-                    <div class="sample-body">
-                        <h3 class="sample-title">Write-ahead logs implementation guide</h3>
-                        <p class="sample-description">
-                            Created complete documentation suite for Amazon EMR's HBase WAL feature from scratch—implementation guides, CLI reference, service-linked roles, and troubleshooting scenarios.
-                        </p>
-                        <div class="sample-outcomes">
-                            <h4>Impact</h4>
-                            <p>Launched with feature. Became definitive resource for WAL implementation, enabling day-one customer adoption.</p>
-                        </div>
-                        <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-wal.html" target="_blank" class="sample-link">
-                            View documentation <i data-lucide="external-link"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="sample-card">
-                    <div class="sample-card-tabs">
-                        <div class="sample-tab active">
-                            <i data-lucide="layout" class="sample-tab-icon"></i>
-                            console-ux.tsx
-                        </div>
-                    </div>
-                    <div class="sample-card-header">
-                        <span class="sample-type-comment">// UX writing</span>
-                    </div>
-                    <div class="sample-body">
-                        <h3 class="sample-title">Amazon EMR console redesign</h3>
-                        <p class="sample-description">
-                            Led content design for complete redesign of cluster creation workflows. Wrote all interface text—labels, help panels, descriptions, and navigation—collaborating with designers through Figma iterations.
-                        </p>
-                        <div class="sample-outcomes">
-                            <h4>Impact</h4>
-                            <p>Improved clarity for millions of AWS developers. Reduced user errors through clearer labeling and contextual help.</p>
-                        </div>
-                        <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/whats-new-in-console.html" target="_blank" class="sample-link">
-                            View console guide <i data-lucide="external-link"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="sample-card">
-                    <div class="sample-card-tabs">
-                        <div class="sample-tab active">
-                            <i data-lucide="alert-circle" class="sample-tab-icon"></i>
-                            error-framework.ts
-                        </div>
-                    </div>
-                    <div class="sample-card-header">
-                        <span class="sample-type-comment">// Content strategy</span>
-                    </div>
-                    <div class="sample-body">
-                        <h3 class="sample-title">Error message standardization</h3>
-                        <p class="sample-description">
-                            Led initiative to refactor top 20 most-emitted EMR errors. Added plain-language ErrorMessage field to error structure, wrote customer-facing messages, and created troubleshooting pages.
-                        </p>
-                        <div class="sample-outcomes">
-                            <h4>Impact</h4>
-                            <p>Enabled self-service support, reducing case volume. Framework adopted as standard across EMR service.</p>
-                        </div>
-                        <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-troubleshoot-error-errordetail.html" target="_blank" class="sample-link">
-                            View error guide <i data-lucide="external-link"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="sample-card">
-                    <div class="sample-card-tabs">
-                        <div class="sample-tab active">
-                            <i data-lucide="shield" class="sample-tab-icon"></i>
-                            encryption.md
-                        </div>
-                    </div>
-                    <div class="sample-card-header">
-                        <span class="sample-type-comment">// Security documentation</span>
-                    </div>
-                    <div class="sample-body">
-                        <h3 class="sample-title">Aurora DSQL data encryption</h3>
-                        <p class="sample-description">
-                            Created comprehensive documentation for encryption at rest and in transit. Worked with engineering to explain key management, rotation procedures, and security model with code examples.
-                        </p>
-                        <div class="sample-outcomes">
-                            <h4>Impact</h4>
-                            <p>Provided developers with clear guidance for compliance-sensitive workloads.</p>
-                        </div>
-                        <a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/data-encryption.html" target="_blank" class="sample-link">
-                            View documentation <i data-lucide="external-link"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="sample-card">
-                    <div class="sample-card-tabs">
-                        <div class="sample-tab active">
-                            <i data-lucide="bot" class="sample-tab-icon"></i>
-                            ai-tools.py
-                        </div>
-                    </div>
-                    <div class="sample-card-header">
-                        <span class="sample-type-comment">// AI tool development</span>
-                    </div>
-                    <div class="sample-body">
-                        <h3 class="sample-title">AWS AI upskilling program</h3>
-                        <p class="sample-description">
-                            Contributed to AI transformation program for 200+ technical writers. Built GenAI tools with 2,000+ executions, created org-wide context files, and established best practices for AI-assisted workflows.
-                        </p>
-                        <div class="sample-outcomes">
-                            <h4>Impact</h4>
-                            <p>Scaled AI adoption across AWS documentation org while maintaining quality standards.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sample-card">
-                    <div class="sample-card-tabs">
-                        <div class="sample-tab active">
-                            <i data-lucide="folder-tree" class="sample-tab-icon"></i>
-                            wiki-config.yaml
-                        </div>
-                    </div>
-                    <div class="sample-card-header">
-                        <span class="sample-type-comment">// Content governance</span>
-                    </div>
-                    <div class="sample-body">
-                        <h3 class="sample-title">Wiki infrastructure redesign</h3>
-                        <p class="sample-description">
-                            Led comprehensive restructure of wiki ecosystem serving 200+ writers. Designed standardized templates, governance framework, and optimized information architecture for AI-powered discovery.
-                        </p>
-                        <div class="sample-outcomes">
-                            <h4>Impact</h4>
-                            <p>Enabled consistent structure across AWS doc org and improved content findability.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="samples-grid" id="projectsGrid">
+                <!-- Projects will be rendered here by JavaScript -->
             </div>
         </div>
     </section>
+
+    <!-- Project Modal -->
+    <div class="project-modal-overlay" id="projectModal">
+        <div class="project-modal">
+            <button class="project-modal-close" id="closeModal">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="project-modal-body" id="projectModalBody">
+                <!-- Project details will be rendered here -->
+            </div>
+        </div>
+    </div>
 
     <!-- Experience Timeline -->
     <section id="experience">
@@ -2199,7 +2435,7 @@ I build AI tools that scale content production.</div>
                 <div class="section-label">Career path</div>
                 <h2 class="section-title">Professional experience</h2>
                 <p class="section-subtitle">
-                    From marketing to technical writing to documentation leadership—a progression built on clear communication.
+                    From marketing to technical writing to documentation leadership, my progression is built on clear communication.
                 </p>
             </div>
 
@@ -2227,7 +2463,7 @@ I build AI tools that scale content production.</div>
                     <div class="timeline-role">Senior manager, knowledge management</div>
                     <div class="timeline-company">SugarCRM</div>
                     <div class="timeline-description">
-                        Managed content strategy for enterprise CRM platform across 150+ releases annually and 20+ product versions.
+                        Managed content strategy for enterprise CRM platform across 150+ releases annually and 20 product versions.
                     </div>
                     <ul class="timeline-achievements">
                         <li>Led team through 3 product acquisitions with 100% retention</li>
@@ -2261,9 +2497,9 @@ I build AI tools that scale content production.</div>
                         Managed integrated marketing strategies and CRM platform for precision motion control company.
                     </div>
                     <ul class="timeline-achievements">
-                        <li>Deployed CRM for 120+ global users with 90%+ adoption</li>
+                        <li>Deployed CRM for 120+ global users with over 90% adoption</li>
                         <li>Executed campaigns across 5 business segments</li>
-                        <li>Designed ticketing system tracking 10,000+ inquiries</li>
+                        <li>Designed ticketing system tracking tens of thousands of inquiries</li>
                     </ul>
                 </div>
             </div>
@@ -2296,7 +2532,8 @@ I build AI tools that scale content production.</div>
                         <span class="skill-item">Content strategy</span>
                         <span class="skill-item">Release notes</span>
                         <span class="skill-item">Tutorials</span>
-                        <span class="skill-item">CLI references</span>
+                        <span class="skill-item">CLI and SDK references</span>
+                        <span class="skill-item">Stored procedures</span>
                         <span class="skill-item">Error messages</span>
                     </div>
                 </div>
@@ -2307,10 +2544,13 @@ I build AI tools that scale content production.</div>
                         Tools and platforms
                     </h3>
                     <div class="skill-list">
-                        <span class="skill-item">Git/GitHub</span>
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">GitHub</span>
+                        <span class="skill-item">GitHub Actions</span>
                         <span class="skill-item">Markdown</span>
                         <span class="skill-item">AsciiDoc</span>
-                        <span class="skill-item">OpenAPI/Swagger</span>
+                        <span class="skill-item">OpenAPI</span>
+                        <span class="skill-item">Swagger</span>
                         <span class="skill-item">Postman</span>
                         <span class="skill-item">Confluence</span>
                         <span class="skill-item">Jira</span>
@@ -2318,6 +2558,10 @@ I build AI tools that scale content production.</div>
                         <span class="skill-item">MadCap Flare</span>
                         <span class="skill-item">Oxygen</span>
                         <span class="skill-item">GitBook</span>
+                        <span class="skill-item">DocBook</span>
+                        <span class="skill-item">Wordpress</span>
+                        <span class="skill-item">SharePoint</span>
+                        <span class="skill-item">Notion</span>
                     </div>
                 </div>
 
@@ -2329,12 +2573,14 @@ I build AI tools that scale content production.</div>
                     <div class="skill-list">
                         <span class="skill-item">Claude</span>
                         <span class="skill-item">ChatGPT</span>
+                        <span class="skill-item">GitHub Copilot</span>
+                        <span class="skill-item">PartyRock</span>
                         <span class="skill-item">Q Developer</span>
                         <span class="skill-item">Bedrock</span>
                         <span class="skill-item">Cursor AI</span>
                         <span class="skill-item">Prompt engineering</span>
                         <span class="skill-item">GenAI tool development</span>
-                        <span class="skill-item">Model Context Protocol</span>
+                        <span class="skill-item">Model Context Protocol (MCP)</span>
                         <span class="skill-item">Agentic workflows</span>
                         <span class="skill-item">Content automation</span>
                     </div>
@@ -2351,8 +2597,12 @@ I build AI tools that scale content production.</div>
                         <span class="skill-item">SQL</span>
                         <span class="skill-item">HTML/CSS</span>
                         <span class="skill-item">REST APIs</span>
-                        <span class="skill-item">JSON</span>
+                        <span class="skill-item">JSON/YAML</span>
                         <span class="skill-item">Webhooks</span>
+                        <span class="skill-item">CloudFormation</span>
+                        <span class="skill-item">CI/CD pipelines</span>
+                        <span class="skill-item">Static site generators</span>
+                        <span class="skill-item">Identity management</span>
                         <span class="skill-item">Docs-as-code</span>
                     </div>
                 </div>
@@ -2363,11 +2613,17 @@ I build AI tools that scale content production.</div>
                         Design and media
                     </h3>
                     <div class="skill-list">
-                        <span class="skill-item">CloudScape design system</span>
-                        <span class="skill-item">Adobe Creative Suite</span>
+                        <span class="skill-item">Figma</span>
                         <span class="skill-item">Snagit</span>
                         <span class="skill-item">Camtasia</span>
                         <span class="skill-item">Canva</span>
+                        <span class="skill-item">Adobe Creative Suite</span>
+                        <span class="skill-item">CloudScape design system</span>
+                        <span class="skill-item">UX writing</span>
+                        <span class="skill-item">Progressive disclosure</span>
+                        <span class="skill-item">Conversational design</span>
+                        <span class="skill-item">User-centered design</span>
+                        <span class="skill-item">Accessibility standards (a11y)</span>
                     </div>
                 </div>
 
@@ -2434,7 +2690,7 @@ I build AI tools that scale content production.</div>
 
             <div class="contact-content">
                 <p class="contact-intro">
-                    Whether you're looking for a documentation leader, want to discuss content strategy, or have questions about AI-powered documentation workflows—I'd love to hear from you.
+                    Whether you're looking for a documentation leader, want to discuss content strategy, or have questions about AI-powered documentation workflows, I'd love to hear from you.
                 </p>
 
                 <div class="contact-methods">
@@ -2786,7 +3042,7 @@ and scaling documentation practices across AWS.`,
 
         // Apply to animatable elements
         const animatableElements = document.querySelectorAll(
-            '.philosophy-card, .expertise-card, .sample-card, .timeline-item, .skill-group, .education-card, .stat-card'
+            '.philosophy-card, .expertise-card, .project-card, .timeline-item, .skill-group, .education-card, .stat-card'
         );
 
         animatableElements.forEach((el, index) => {
@@ -2796,6 +3052,12 @@ and scaling documentation practices across AWS.`,
             el.style.transitionDelay = `${index * 0.03}s`;
             observer.observe(el);
         });
-    </script>
+</script>
+
+    <!-- Include jQuery (required by js/script.js) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include external JavaScript file for project functionality -->
+    <script src="js/script.js"></script>
 </body>
 </html>
