@@ -3,9 +3,2793 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jill Shaheen</title>
+    <title>Jill Shaheen | Technical writing leader and content strategist</title>
+    <meta name="description" content="Senior Documentation Manager specializing in developer documentation, content strategy, and AI-powered content automation at AWS.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            /* Professional, readable color palette */
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #334155;
+            --bg-elevated: #475569;
+            
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            
+            /* Accent colors */
+            --accent-primary: #f59e0b;
+            --accent-secondary: #10b981;
+            --accent-tertiary: #6366f1;
+            --accent-highlight: #fbbf24;
+            
+            /* Dev/code colors */
+            --code-bg: #1e293b;
+            --code-border: #334155;
+            --code-text: #a5d6ff;
+            --syntax-keyword: #ff7b72;
+            --syntax-string: #a5d6ff;
+            --syntax-function: #d2a8ff;
+            --syntax-variable: #ffa657;
+            --syntax-comment: #8b949e;
+            --syntax-number: #79c0ff;
+            --syntax-class: #7ee787;
+            
+            /* Terminal colors */
+            --terminal-bg: #0d1117;
+            --terminal-text: #7ee787;
+            --terminal-prompt: #58a6ff;
+            
+            /* Functional colors */
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --border: #334155;
+            
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4xl: 6rem;
+            
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-normal: 300ms ease;
+        }
+
+        /* Light mode theme */
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #e2e8f0;
+            --bg-elevated: #cbd5e1;
+            
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #475569;
+            
+            --accent-primary: #d97706;
+            --accent-secondary: #059669;
+            --accent-tertiary: #4f46e5;
+            --accent-highlight: #f59e0b;
+            
+            --code-bg: #f1f5f9;
+            --code-border: #e2e8f0;
+            --code-text: #0369a1;
+            --syntax-keyword: #be185d;
+            --syntax-string: #0369a1;
+            --syntax-function: #7c3aed;
+            --syntax-variable: #c2410c;
+            --syntax-comment: #64748b;
+            --syntax-number: #0284c7;
+            --syntax-class: #15803d;
+            
+            --terminal-bg: #1e293b;
+            --terminal-text: #7ee787;
+            --terminal-prompt: #58a6ff;
+            
+            --success: #16a34a;
+            --warning: #d97706;
+            --info: #2563eb;
+            --border: #cbd5e1;
+        }
+
+        /* Light mode specific overrides */
+        [data-theme="light"] .nav {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        [data-theme="light"] .terminal {
+            background: var(--terminal-bg);
+        }
+
+        [data-theme="light"] .terminal-input-line {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: var(--space-md) 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-brand span {
+            color: var(--accent-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-primary);
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: calc(var(--space-4xl) + 60px) 0 var(--space-4xl);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: var(--space-3xl);
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--accent-primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+            max-width: 600px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .meta-item i {
+            color: var(--accent-secondary);
+            width: 20px;
+            height: 20px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .btn {
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            transition: var(--transition-normal);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-highlight);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        /* Profile image */
+        .hero-image {
+            position: relative;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: 0 auto;
+            overflow: visible;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 3px solid var(--border);
+            filter: grayscale(10%);
+            transition: var(--transition-normal);
+        }
+
+        .profile-img:hover {
+            filter: grayscale(0%);
+            border-color: var(--accent-primary);
+        }
+
+        .profile-badge {
+            position: absolute;
+            background: var(--code-bg);
+            border: 1px solid var(--code-border);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--code-text);
+            z-index: 10;
+        }
+
+        .profile-badge.top {
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .profile-badge.bottom {
+            bottom: -10px;
+            right: 20px;
+        }
+
+        /* Stats bar */
+        .stats-bar {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: var(--space-xl) 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Section styling */
+        section {
+            padding: var(--space-4xl) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Interactive Terminal */
+        .terminal {
+            background: var(--terminal-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: var(--space-xl) 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .terminal-header {
+            background: var(--bg-card);
+            padding: var(--space-sm) var(--space-md);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27c93f; }
+
+        .terminal-title {
+            flex: 1;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .terminal-body {
+            padding: var(--space-md);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            min-height: 250px;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .terminal-line {
+            margin-bottom: var(--space-xs);
+        }
+
+        .terminal-prompt {
+            color: var(--terminal-prompt);
+        }
+
+        .terminal-command {
+            color: var(--text-primary);
+        }
+
+        .terminal-output {
+            color: var(--terminal-text);
+            padding-left: var(--space-md);
+            white-space: pre-wrap;
+        }
+
+        .terminal-input-line {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .terminal-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            outline: none;
+            caret-color: var(--terminal-text);
+        }
+
+        .terminal-cursor {
+            color: var(--terminal-text);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .terminal-hint {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: var(--space-sm);
+            font-style: italic;
+        }
+
+        /* Writing Philosophy */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .philosophy-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-xl);
+            transition: var(--transition-normal);
+        }
+
+        .philosophy-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+        }
+
+        .philosophy-icon {
+            width: 48px;
+            height: 48px;
+            color: var(--accent-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .philosophy-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .philosophy-text {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Interactive Style Guide */
+        .style-guide {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: var(--space-xl) 0;
+        }
+
+        .style-guide-header {
+            background: var(--bg-card);
+            padding: var(--space-md) var(--space-lg);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .style-guide-title {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            color: var(--syntax-function);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .style-guide-tabs {
+            display: flex;
+            gap: var(--space-xs);
+        }
+
+        .style-guide-tab {
+            padding: var(--space-xs) var(--space-md);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .style-guide-tab:hover {
+            color: var(--text-primary);
+            border-color: var(--text-muted);
+        }
+
+        .style-guide-tab.active {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .style-guide-content {
+            padding: var(--space-lg);
+        }
+
+        .style-guide-section {
+            display: none;
+        }
+
+        .style-guide-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Collapsible Sidebar Styles */
+        .sidebar-toggle {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            background: var(--accent-primary);
+            border: 2px solid var(--accent-highlight);
+            border-right: none;
+            border-radius: 12px 0 0 12px;
+            padding: var(--space-md) var(--space-lg);
+            min-height: 150px;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            transition: var(--transition-normal);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            box-shadow: -4px 0 20px rgba(245, 158, 11, 0.3);
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: -4px 0 20px rgba(245, 158, 11, 0.3); }
+            50% { box-shadow: -6px 0 30px rgba(245, 158, 11, 0.5); }
+        }
+
+        .sidebar-toggle:hover {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+            transform: translateY(-50%) translateX(-4px);
+            box-shadow: -8px 0 30px rgba(245, 158, 11, 0.5);
+        }
+
+        .sidebar-toggle i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .style-guide-sidebar {
+            position: fixed;
+            right: -420px;
+            top: 0;
+            bottom: 0;
+            width: 400px;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            z-index: 1001;
+            transition: right 0.3s ease-out;
+            overflow-y: auto;
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .style-guide-sidebar.open {
+            right: 0;
+        }
+
+        .style-guide-sidebar .style-guide {
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            margin: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .style-guide-sidebar .style-guide-header {
+            background: var(--bg-card);
+            padding: var(--space-lg);
+            border-bottom: 1px solid var(--border);
+            flex-direction: column;
+            align-items: stretch;
+            gap: var(--space-md);
+        }
+
+        .style-guide-sidebar .style-guide-title {
+            justify-content: space-between;
+        }
+
+        .style-guide-sidebar .style-guide-tabs {
+            flex-wrap: wrap;
+        }
+
+        .style-guide-sidebar .style-guide-content {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .sidebar-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: var(--space-xs);
+            transition: var(--transition-fast);
+        }
+
+        .sidebar-close:hover {
+            color: var(--text-primary);
+        }
+
+        .sidebar-close i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .sidebar-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dev-guide-reference {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .dev-guide-reference h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: var(--space-sm);
+            font-family: var(--font-mono);
+        }
+
+        .dev-guide-reference p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Mini Style Guide */
+        .mini-style-guide {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            /* match the top spacing used inside .style-rule */
+            margin-top: var(--space-md);
+        }
+
+        .style-rule {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: var(--space-md);
+            border-left: 3px solid var(--accent-secondary);
+        }
+
+        .style-rule-header {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-secondary);
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .style-example {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .style-dont {
+            color: var(--syntax-keyword);
+            font-size: 0.85rem;
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .style-do {
+            color: var(--syntax-class);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .style-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .style-label.dont {
+            color: var(--syntax-keyword);
+        }
+
+        .style-label.do {
+            color: var(--syntax-class);
+        }
+
+        /* Theme Toggle Switch */
+        .theme-toggle-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .theme-toggle-label {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            display: block;
+        }
+
+        .theme-switch {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .theme-option {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .theme-option i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .switch {
+            position: relative;
+            width: 56px;
+            height: 28px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background: var(--bg-elevated);
+            border: 2px solid var(--border);
+            border-radius: 28px;
+            transition: var(--transition-normal);
+        }
+
+        .slider::before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 2px;
+            bottom: 2px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            transition: var(--transition-normal);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        input:checked + .slider {
+            background: var(--accent-tertiary);
+            border-color: var(--accent-tertiary);
+        }
+
+        input:checked + .slider::before {
+            transform: translateX(28px);
+            background: #ffffff;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .color-swatch {
+            background: var(--bg-card);
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: var(--transition-fast);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .color-swatch:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .color-swatch.selected {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+        }
+
+        .color-swatch.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--accent-primary);
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .color-swatch-hint {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: var(--space-md);
+            text-align: center;
+        }
+
+        .color-preview {
+            height: 50px;
+        }
+
+        .color-info {
+            padding: var(--space-sm);
+        }
+
+        .color-name {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .color-value {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .typography-samples {
+            display: grid;
+            gap: var(--space-lg);
+        }
+
+        .typography-sample {
+            background: var(--bg-card);
+            padding: var(--space-md);
+            border-radius: 6px;
+        }
+
+        .typography-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--accent-secondary);
+            margin-bottom: var(--space-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .syntax-demo {
+            background: var(--terminal-bg);
+            padding: var(--space-md);
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .syntax-line {
+            display: block;
+        }
+
+        .keyword { color: var(--syntax-keyword); }
+        .string { color: var(--syntax-string); }
+        .function { color: var(--syntax-function); }
+        .variable { color: var(--syntax-variable); }
+        .comment { color: var(--syntax-comment); font-style: italic; }
+        .number { color: var(--syntax-number); }
+        .class-name { color: var(--syntax-class); }
+
+        /* Core Expertise */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .expertise-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-xl);
+            display: flex;
+            gap: var(--space-lg);
+            transition: var(--transition-normal);
+        }
+
+        .expertise-card:hover {
+            border-color: var(--accent-secondary);
+        }
+
+        .expertise-number {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-tertiary);
+            opacity: 0.5;
+            flex-shrink: 0;
+        }
+
+        .expertise-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .expertise-content p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+        }
+
+        .tag {
+            background: var(--bg-card);
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Project Cards - File Tab Style */
+        .samples-section {
+            background: var(--bg-secondary);
+        }
+
+        .samples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .sample-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition-normal);
+            position: relative;
+        }
+
+        .sample-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .sample-card-tabs {
+            background: var(--bg-card);
+            padding: 0 var(--space-md);
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sample-tab {
+            background: var(--bg-elevated);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 6px 6px 0 0;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            border-bottom: none;
+            margin-bottom: -1px;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .sample-tab.active {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--bg-primary);
+        }
+
+        .sample-tab-icon {
+            width: 12px;
+            height: 12px;
+            color: var(--syntax-variable);
+        }
+
+        .sample-card-header {
+            padding: var(--space-sm) var(--space-md);
+            border-bottom: 1px solid var(--border);
+            font-family: var(--font-mono);
+        }
+
+        .sample-type-comment {
+            font-size: 0.8rem;
+            color: var(--syntax-comment);
+            font-style: italic;
+        }
+
+        .sample-body {
+            padding: var(--space-lg);
+        }
+
+        .sample-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .sample-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+        }
+
+        .sample-outcomes {
+            margin-bottom: var(--space-md);
+            background: var(--bg-secondary);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-primary);
+        }
+
+        .sample-outcomes h4 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: var(--space-xs);
+            font-family: var(--font-mono);
+        }
+
+        .sample-outcomes p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .sample-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+
+        .sample-link:hover {
+            color: var(--accent-highlight);
+        }
+
+        .sample-link i {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: var(--space-3xl);
+            padding-bottom: var(--space-3xl);
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-primary);
+            border: 3px solid var(--accent-primary);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            font-weight: 500;
+            margin-bottom: var(--space-xs);
+        }
+
+        .timeline-role {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+        }
+
+        .timeline-company {
+            font-size: 1.1rem;
+            color: var(--accent-secondary);
+            font-weight: 500;
+            margin-bottom: var(--space-md);
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .timeline-achievements {
+            list-style: none;
+        }
+
+        .timeline-achievements li {
+            position: relative;
+            padding-left: var(--space-lg);
+            margin-bottom: var(--space-sm);
+            color: var(--text-secondary);
+        }
+
+        .timeline-achievements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+        }
+
+        .skill-group {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-xl);
+        }
+
+        .skill-group-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .skill-group-title i {
+            color: var(--accent-primary);
+            width: 24px;
+            height: 24px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+
+        .skill-item {
+            background: var(--bg-card);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: var(--transition-fast);
+        }
+
+        .skill-item:hover {
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+        }
+
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .education-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-xl);
+            text-align: center;
+            transition: var(--transition-normal);
+        }
+
+        .education-card:hover {
+            border-color: var(--accent-tertiary);
+        }
+
+        .education-degree {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-tertiary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .education-field {
+            font-size: 1rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .education-school {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--bg-secondary);
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-intro {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: var(--transition-normal);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 6px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+        }
+
+        .contact-method:hover {
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .contact-method svg {
+            flex-shrink: 0;
+        }
+
+        .contact-method span {
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border);
+            padding: var(--space-xl) 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: var(--space-lg);
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-link:hover {
+            color: var(--accent-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                margin: 0 auto var(--space-xl);
+            }
+
+            .hero-meta {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .style-guide-header {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .profile-wrapper {
+                width: 250px;
+                height: 250px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--space-md);
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: var(--space-md);
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-elevated);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Page!</h1>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">Jill <span>Shaheen</span></a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#expertise" class="nav-link">Expertise</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>
+                        I help developers <span class="highlight">succeed</span> through exceptional documentation
+                    </h1>
+                    <p class="hero-subtitle">
+                        Senior Documentation Manager at AWS. I lead teams, build AI-powered content tools, and create documentation that reduces time-to-first-success for millions of developers.
+                    </p>
+                    <div class="hero-meta">
+                        <div class="meta-item">
+                            <i data-lucide="map-pin"></i>
+                            Pittsburgh, PA
+                        </div>
+                        <div class="meta-item">
+                            <i data-lucide="briefcase"></i>
+                            AWS
+                        </div>
+                        <div class="meta-item">
+                            <i data-lucide="clock"></i>
+                            15+ years experience
+                        </div>
+                    </div>
+                    <div class="hero-cta">
+                        <a href="#work" class="btn btn-primary">
+                            <i data-lucide="file-text"></i>
+                            View my work
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i data-lucide="mail"></i>
+                            Get in touch
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-wrapper">
+                        <span class="profile-badge top">docs.lead()</span>
+                        <img src="profile.jpg" alt="Jill Shaheen" class="profile-img">
+                        <span class="profile-badge bottom">// content strategist</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years in technical writing</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Writers supported</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30%</div>
+                    <div class="stat-label">Support case reduction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2K+</div>
+                    <div class="stat-label">AI tool executions</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section with Interactive Terminal -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">My approach</div>
+                <h2 class="section-title">Documentation philosophy</h2>
+                <p class="section-subtitle">
+                    Great documentation isn't just about accuracy. It's about empathy, clarity, and reducing friction at every step.
+                </p>
+            </div>
+
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <i data-lucide="target" class="philosophy-icon"></i>
+                    <h3 class="philosophy-title">Reduce time-to-success</h3>
+                    <p class="philosophy-text">
+                        Every piece of content I create is designed to get developers productive faster. I measure success by how quickly users can accomplish their goals, not by word count.
+                    </p>
+                </div>
+
+                <div class="philosophy-card">
+                    <i data-lucide="users" class="philosophy-icon"></i>
+                    <h3 class="philosophy-title">Build exceptional teams</h3>
+                    <p class="philosophy-text">
+                        I hire and develop writers who care about craft. My teams consistently deliver under pressure because I focus on removing roadblocks and creating systems that work.
+                    </p>
+                </div>
+
+                <div class="philosophy-card">
+                    <i data-lucide="sparkles" class="philosophy-icon"></i>
+                    <h3 class="philosophy-title">Leverage AI thoughtfully</h3>
+                    <p class="philosophy-text">
+                        I build AI tools that scale content production without sacrificing quality. Technology should augment human expertise, not replace the careful thinking behind great docs.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Terminal -->
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="terminal-dot red"></span>
+                        <span class="terminal-dot yellow"></span>
+                        <span class="terminal-dot green"></span>
+                    </div>
+                    <span class="terminal-title">jill@portfolio ~ % interactive-bio</span>
+                </div>
+                <div class="terminal-body" id="terminalOutput">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">$</span>
+                        <span class="terminal-command"> whoami</span>
+                    </div>
+                    <div class="terminal-output">Technical writer, content strategist, and documentation leader with 15+ years of experience building teams, shipping docs, and automating content workflows.</div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">$</span>
+                        <span class="terminal-command"> cat mission.txt</span>
+                    </div>
+                    <div class="terminal-output">I create documentation that reduces time-to-first-success.
+I lead teams that deliver under pressure.
+I build AI tools that scale content production.</div>
+                </div>
+                <div class="terminal-input-line">
+                    <span class="terminal-prompt">$</span>
+                    <input type="text" class="terminal-input" id="terminalInput" placeholder="Type a command..." autocomplete="off">
+                    <span class="terminal-cursor">_</span>
+                </div>
+            </div>
+            <p class="terminal-hint">Try: skills, contact, experience, education, projects, help, or clear</p>
+        </div>
+    </section>
+
+    <!-- Collapsible Style Guide Sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <i data-lucide="book-open"></i>
+        Style
+    </button>
+    <div class="style-guide-sidebar" id="styleGuideSidebar">
+        <div class="style-guide">
+            <div class="style-guide-header">
+                <div class="style-guide-title">
+                    <span style="display: flex; align-items: center; gap: var(--space-sm);">
+                        <i data-lucide="book-open"></i>
+                        style.config
+                    </span>
+                    <button class="sidebar-close" id="sidebarClose">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+                <div class="style-guide-tabs">
+                    <button class="style-guide-tab active" data-tab="syntax">Syntax</button>
+                    <button class="style-guide-tab" data-tab="colors">Colors</button>
+                </div>
+            </div>
+            <div class="style-guide-content">
+                <div class="style-guide-section active" id="syntax-section">
+                    <div class="dev-guide-reference">
+                        <h4>My style philosophy</h4>
+                        <p>My content follows the Google Developer Documentation Style Guide, emphasizing conditions-first sentence structure, translation-ready clarity, and precise technical specifications. I address developers directly as collaborators, front-load critical information, and trust reader intelligence. Every sentence earns its place by reducing friction and accelerating time-to-success.</p>
+                    </div>
+                    <div class="mini-style-guide">
+                        <div class="style-rule">
+                            <div class="style-rule-header">Voice: Knowledgeable colleague</div>
+                            <div class="style-example">
+                                <div class="style-label dont">✗ Don't</div>
+                                <div class="style-dont">Please note that it is important for the user to configure their settings appropriately.</div>
+                                <div class="style-label do">✓ Do</div>
+                                <div class="style-do">Configure your settings before you deploy.</div>
+                            </div>
+                        </div>
+                        <div class="style-rule">
+                            <div class="style-rule-header">Front-load critical information</div>
+                            <div class="style-example">
+                                <div class="style-label dont">✗ Don't</div>
+                                <div class="style-dont">After you've set up your environment and configured the basics, you'll want to know that the API rate limit is 1000 requests per hour.</div>
+                                <div class="style-label do">✓ Do</div>
+                                <div class="style-do">The API rate limit is 1000 requests per hour. Configure your retry logic accordingly.</div>
+                            </div>
+                        </div>
+                        <div class="style-rule">
+                            <div class="style-rule-header">Conditions before actions</div>
+                            <div class="style-example">
+                                <div class="style-label dont">✗ Don't</div>
+                                <div class="style-dont">Choose <strong>Submit</strong> to save your changes when you finish your edits.</div>
+                                <div class="style-label do">✓ Do</div>
+                                <div class="style-do">When you finish your edits, choose <strong>Submit</strong> to save your changes.</div>
+                            </div>
+                        </div>
+                        <div class="style-rule">
+                            <div class="style-rule-header">Optimize for translation</div>
+                            <div class="style-example">
+                                <div class="style-label dont">✗ Don't</div>
+                                <div class="style-dont">Verify the file contains valid JSON using the validator.</div>
+                                <div class="style-label do">✓ Do</div>
+                                <div class="style-do">Verify that the file contains valid JSON. Use the validator to check syntax.</div>
+                            </div>
+                        </div>
+                        <div class="style-rule">
+                            <div class="style-rule-header">Eliminate gerunds in headings</div>
+                            <div class="style-example">
+                                <div class="style-label dont">✗ Don't</div>
+                                <div class="style-dont">Configuring clusters using templates</div>
+                                <div class="style-label do">✓ Do</div>
+                                <div class="style-do">Configure clusters that use templates</div>
+                            </div>
+                        </div>
+                        <div class="style-rule">
+                            <div class="style-rule-header">Strong verbs over weak constructions</div>
+                            <div class="style-example">
+                                <div class="style-label dont">✗ Don't</div>
+                                <div class="style-dont">Perform configuration of the database. Utilize the dashboard to facilitate implementation.</div>
+                                <div class="style-label do">✓ Do</div>
+                                <div class="style-do">Configure the database. Use the dashboard to create the implementation.</div>
+                            </div>
+                        </div>
+                        <div class="style-rule">
+                            <div class="style-rule-header">Technical precision with versions</div>
+                            <div class="style-example">
+                                <div class="style-label dont">✗ Don't</div>
+                                <div class="style-dont">This feature is available in recent versions.</div>
+                                <div class="style-label do">✓ Do</div>
+                                <div class="style-do">This feature is available in EMR 6.1.0 and later. For EMR 5.x, see <strong>Legacy configuration</strong>.</div>
+                            </div>
+                        </div>
+                        <div class="style-rule">
+                            <div class="style-rule-header">Explain parameters at first use</div>
+                            <div class="style-example">
+                                <div class="style-label dont">✗ Don't</div>
+                                <div class="style-dont">Set the <code>MAX_RETRIES</code> parameter. The default value is documented elsewhere.</div>
+                                <div class="style-label do">✓ Do</div>
+                                <div class="style-do">Set the <code>MAX_RETRIES</code> parameter. The default value is <code>3</code>. Values above <code>10</code> might cause timeout errors.</div>
+                            </div>
+                        </div>
+                        <div class="style-rule">
+                            <div class="style-rule-header">State goals before actions</div>
+                            <div class="style-example">
+                                <div class="style-label dont">✗ Don't</div>
+                                <div class="style-dont">Run <code>npm install</code> and then <code>npm build</code>.</div>
+                                <div class="style-label do">✓ Do</div>
+                                <div class="style-do">To prepare your application for deployment, run <code>npm install</code> and then <code>npm build</code>.</div>
+                            </div>
+                        </div>
+                        <div class="style-rule">
+                            <div class="style-rule-header">Every word earns its place</div>
+                            <div class="style-example">
+                                <div class="style-label dont">✗ Don't</div>
+                                <div class="style-dont">In order to successfully complete the process, it is absolutely essential that you ensure the connection is active.</div>
+                                <div class="style-label do">✓ Do</div>
+                                <div class="style-do">Before you start, verify that the connection is active.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="style-guide-section" id="colors-section">
+                    <div class="theme-toggle-container">
+                        <label class="theme-toggle-label">Theme Mode</label>
+                        <div class="theme-switch">
+                            <span class="theme-option">
+                                <i data-lucide="moon"></i>
+                                Dark
+                            </span>
+                            <label class="switch">
+                                <input type="checkbox" id="themeToggle">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="theme-option">
+                                <i data-lucide="sun"></i>
+                                Light
+                            </span>
+                        </div>
+                    </div>
+                    <div class="color-swatch-hint">Choose a color to set it as the accent color for the site</div>
+                    <div class="color-palette">
+                        <div class="color-swatch selected" data-color="#f59e0b" data-name="amber">
+                            <div class="color-preview" style="background: #f59e0b;"></div>
+                            <div class="color-info">
+                                <div class="color-name">Primary accent</div>
+                                <div class="color-value">#f59e0b</div>
+                            </div>
+                        </div>
+                        <div class="color-swatch" data-color="#10b981" data-name="emerald">
+                            <div class="color-preview" style="background: #10b981;"></div>
+                            <div class="color-info">
+                                <div class="color-name">Success</div>
+                                <div class="color-value">#10b981</div>
+                            </div>
+                        </div>
+                        <div class="color-swatch" data-color="#6366f1" data-name="indigo">
+                            <div class="color-preview" style="background: #6366f1;"></div>
+                            <div class="color-info">
+                                <div class="color-name">Tertiary</div>
+                                <div class="color-value">#6366f1</div>
+                            </div>
+                        </div>
+                        <div class="color-swatch" data-color="#ff7b72" data-name="coral">
+                            <div class="color-preview" style="background: #ff7b72;"></div>
+                            <div class="color-info">
+                                <div class="color-name">Keywords</div>
+                                <div class="color-value">#ff7b72</div>
+                            </div>
+                        </div>
+                        <div class="color-swatch" data-color="#a5d6ff" data-name="sky">
+                            <div class="color-preview" style="background: #a5d6ff;"></div>
+                            <div class="color-info">
+                                <div class="color-name">Strings</div>
+                                <div class="color-value">#a5d6ff</div>
+                            </div>
+                        </div>
+                        <div class="color-swatch" data-color="#7ee787" data-name="green">
+                            <div class="color-preview" style="background: #7ee787;"></div>
+                            <div class="color-info">
+                                <div class="color-name">Functions</div>
+                                <div class="color-value">#7ee787</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Expertise -->
+    <section id="expertise">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">What I do</div>
+                <h2 class="section-title">Core expertise</h2>
+                <p class="section-subtitle">
+                    From hands-on writing to team leadership, I bring a comprehensive skill set to technical documentation.
+                </p>
+            </div>
+
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-number">01</div>
+                    <div class="expertise-content">
+                        <h3>Developer documentation</h3>
+                        <p>
+                            API references, SDK guides, implementation tutorials, and code examples. I create content that developers actually use to build production applications.
+                        </p>
+                        <div class="expertise-tags">
+                            <span class="tag">API Docs</span>
+                            <span class="tag">Code Samples</span>
+                            <span class="tag">Tutorials</span>
+                            <span class="tag">CLI References</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-number">02</div>
+                    <div class="expertise-content">
+                        <h3>UX writing and in-product content</h3>
+                        <p>
+                            Interface labels, help panels, error messages, and onboarding flows. I collaborate with design teams to create clear, actionable microcopy.
+                        </p>
+                        <div class="expertise-tags">
+                            <span class="tag">Microcopy</span>
+                            <span class="tag">Error Messages</span>
+                            <span class="tag">Help Panels</span>
+                            <span class="tag">Design Systems</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-number">03</div>
+                    <div class="expertise-content">
+                        <h3>Content strategy and governance</h3>
+                        <p>
+                            Information architecture, style guides, templates, and editorial workflows. I build systems that enable consistent, high-quality content at scale.
+                        </p>
+                        <div class="expertise-tags">
+                            <span class="tag">Style Guides</span>
+                            <span class="tag">Templates</span>
+                            <span class="tag">IA</span>
+                            <span class="tag">Content Audits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-number">04</div>
+                    <div class="expertise-content">
+                        <h3>AI-powered documentation</h3>
+                        <p>
+                            LLM prompt engineering, GenAI tool development, and automated workflows. I create AI solutions that enhance writer productivity and content quality.
+                        </p>
+                        <div class="expertise-tags">
+                            <span class="tag">GenAI Tools</span>
+                            <span class="tag">Prompt Engineering</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">MCP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Samples with File Tab Styling -->
+    <section id="work" class="samples-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Portfolio</div>
+                <h2 class="section-title">Documentation samples</h2>
+                <p class="section-subtitle">
+                    Selected projects demonstrating range across developer docs, UX writing, content strategy, and AI tooling.
+                </p>
+            </div>
+
+            <div class="samples-grid">
+                <div class="sample-card">
+                    <div class="sample-card-tabs">
+                        <div class="sample-tab active">
+                            <i data-lucide="file-text" class="sample-tab-icon"></i>
+                            wal-guide.md
+                        </div>
+                    </div>
+                    <div class="sample-card-header">
+                        <span class="sample-type-comment">// Feature documentation</span>
+                    </div>
+                    <div class="sample-body">
+                        <h3 class="sample-title">Write-ahead logs implementation guide</h3>
+                        <p class="sample-description">
+                            Created complete documentation suite for Amazon EMR's HBase WAL feature from scratch—implementation guides, CLI reference, service-linked roles, and troubleshooting scenarios.
+                        </p>
+                        <div class="sample-outcomes">
+                            <h4>Impact</h4>
+                            <p>Launched with feature. Became definitive resource for WAL implementation, enabling day-one customer adoption.</p>
+                        </div>
+                        <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-wal.html" target="_blank" class="sample-link">
+                            View documentation <i data-lucide="external-link"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sample-card">
+                    <div class="sample-card-tabs">
+                        <div class="sample-tab active">
+                            <i data-lucide="layout" class="sample-tab-icon"></i>
+                            console-ux.tsx
+                        </div>
+                    </div>
+                    <div class="sample-card-header">
+                        <span class="sample-type-comment">// UX writing</span>
+                    </div>
+                    <div class="sample-body">
+                        <h3 class="sample-title">Amazon EMR console redesign</h3>
+                        <p class="sample-description">
+                            Led content design for complete redesign of cluster creation workflows. Wrote all interface text—labels, help panels, descriptions, and navigation—collaborating with designers through Figma iterations.
+                        </p>
+                        <div class="sample-outcomes">
+                            <h4>Impact</h4>
+                            <p>Improved clarity for millions of AWS developers. Reduced user errors through clearer labeling and contextual help.</p>
+                        </div>
+                        <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/whats-new-in-console.html" target="_blank" class="sample-link">
+                            View console guide <i data-lucide="external-link"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sample-card">
+                    <div class="sample-card-tabs">
+                        <div class="sample-tab active">
+                            <i data-lucide="alert-circle" class="sample-tab-icon"></i>
+                            error-framework.ts
+                        </div>
+                    </div>
+                    <div class="sample-card-header">
+                        <span class="sample-type-comment">// Content strategy</span>
+                    </div>
+                    <div class="sample-body">
+                        <h3 class="sample-title">Error message standardization</h3>
+                        <p class="sample-description">
+                            Led initiative to refactor top 20 most-emitted EMR errors. Added plain-language ErrorMessage field to error structure, wrote customer-facing messages, and created troubleshooting pages.
+                        </p>
+                        <div class="sample-outcomes">
+                            <h4>Impact</h4>
+                            <p>Enabled self-service support, reducing case volume. Framework adopted as standard across EMR service.</p>
+                        </div>
+                        <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-troubleshoot-error-errordetail.html" target="_blank" class="sample-link">
+                            View error guide <i data-lucide="external-link"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sample-card">
+                    <div class="sample-card-tabs">
+                        <div class="sample-tab active">
+                            <i data-lucide="shield" class="sample-tab-icon"></i>
+                            encryption.md
+                        </div>
+                    </div>
+                    <div class="sample-card-header">
+                        <span class="sample-type-comment">// Security documentation</span>
+                    </div>
+                    <div class="sample-body">
+                        <h3 class="sample-title">Aurora DSQL data encryption</h3>
+                        <p class="sample-description">
+                            Created comprehensive documentation for encryption at rest and in transit. Worked with engineering to explain key management, rotation procedures, and security model with code examples.
+                        </p>
+                        <div class="sample-outcomes">
+                            <h4>Impact</h4>
+                            <p>Provided developers with clear guidance for compliance-sensitive workloads.</p>
+                        </div>
+                        <a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/data-encryption.html" target="_blank" class="sample-link">
+                            View documentation <i data-lucide="external-link"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sample-card">
+                    <div class="sample-card-tabs">
+                        <div class="sample-tab active">
+                            <i data-lucide="bot" class="sample-tab-icon"></i>
+                            ai-tools.py
+                        </div>
+                    </div>
+                    <div class="sample-card-header">
+                        <span class="sample-type-comment">// AI tool development</span>
+                    </div>
+                    <div class="sample-body">
+                        <h3 class="sample-title">AWS AI upskilling program</h3>
+                        <p class="sample-description">
+                            Contributed to AI transformation program for 200+ technical writers. Built GenAI tools with 2,000+ executions, created org-wide context files, and established best practices for AI-assisted workflows.
+                        </p>
+                        <div class="sample-outcomes">
+                            <h4>Impact</h4>
+                            <p>Scaled AI adoption across AWS documentation org while maintaining quality standards.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sample-card">
+                    <div class="sample-card-tabs">
+                        <div class="sample-tab active">
+                            <i data-lucide="folder-tree" class="sample-tab-icon"></i>
+                            wiki-config.yaml
+                        </div>
+                    </div>
+                    <div class="sample-card-header">
+                        <span class="sample-type-comment">// Content governance</span>
+                    </div>
+                    <div class="sample-body">
+                        <h3 class="sample-title">Wiki infrastructure redesign</h3>
+                        <p class="sample-description">
+                            Led comprehensive restructure of wiki ecosystem serving 200+ writers. Designed standardized templates, governance framework, and optimized information architecture for AI-powered discovery.
+                        </p>
+                        <div class="sample-outcomes">
+                            <h4>Impact</h4>
+                            <p>Enabled consistent structure across AWS doc org and improved content findability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Career path</div>
+                <h2 class="section-title">Professional experience</h2>
+                <p class="section-subtitle">
+                    From marketing to technical writing to documentation leadership—a progression built on clear communication.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-date">2022 – Present</div>
+                    <div class="timeline-role">Senior documentation manager and writer</div>
+                    <div class="timeline-company">Amazon Web Services (AWS)</div>
+                    <div class="timeline-description">
+                        Lead content strategy for AWS database and analytics services. Hire and develop globally distributed teams of technical writers while personally authoring developer documentation.
+                    </div>
+                    <ul class="timeline-achievements">
+                        <li>Author developer guides and API docs for EMR, Aurora, RDS, QuickSight</li>
+                        <li>Build GenAI tools with 2,000+ uses across AWS services</li>
+                        <li>Contribute to AI transformation program for 200+ writers</li>
+                        <li>Author in-product UX content for AWS Management Console</li>
+                        <li>Define KPIs using analytics and customer feedback</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-date">2017 – 2022</div>
+                    <div class="timeline-role">Senior manager, knowledge management</div>
+                    <div class="timeline-company">SugarCRM</div>
+                    <div class="timeline-description">
+                        Managed content strategy for enterprise CRM platform across 150+ releases annually and 20+ product versions.
+                    </div>
+                    <ul class="timeline-achievements">
+                        <li>Led team through 3 product acquisitions with 100% retention</li>
+                        <li>Reduced customer support cases by 30% through strategic improvements</li>
+                        <li>Established cross-team feedback loops with product and support</li>
+                        <li>Redesigned release workflows for concurrent version documentation</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-date">2014 – 2017</div>
+                    <div class="timeline-role">Senior technical writer</div>
+                    <div class="timeline-company">SugarCRM</div>
+                    <div class="timeline-description">
+                        Created documentation for technical and non-technical users of marketing and sales automation platforms.
+                    </div>
+                    <ul class="timeline-achievements">
+                        <li>Contributed to UX design for mobile apps</li>
+                        <li>Partnered with developer relations on API documentation</li>
+                        <li>Established concurrent version documentation practices</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-date">2007 – 2014</div>
+                    <div class="timeline-role">Corporate manager of marketing and CRM</div>
+                    <div class="timeline-company">Aerotech Inc.</div>
+                    <div class="timeline-description">
+                        Managed integrated marketing strategies and CRM platform for precision motion control company.
+                    </div>
+                    <ul class="timeline-achievements">
+                        <li>Deployed CRM for 120+ global users with 90%+ adoption</li>
+                        <li>Executed campaigns across 5 business segments</li>
+                        <li>Designed ticketing system tracking 10,000+ inquiries</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Toolkit</div>
+                <h2 class="section-title">Skills and tools</h2>
+                <p class="section-subtitle">
+                    The technical and strategic capabilities I bring to documentation projects.
+                </p>
+            </div>
+
+            <div class="skills-container">
+                <div class="skill-group">
+                    <h3 class="skill-group-title">
+                        <i data-lucide="file-text"></i>
+                        Documentation and writing
+                    </h3>
+                    <div class="skill-list">
+                        <span class="skill-item">API documentation</span>
+                        <span class="skill-item">Developer guides</span>
+                        <span class="skill-item">UX writing</span>
+                        <span class="skill-item">Style guides</span>
+                        <span class="skill-item">Information architecture</span>
+                        <span class="skill-item">Content strategy</span>
+                        <span class="skill-item">Release notes</span>
+                        <span class="skill-item">Tutorials</span>
+                        <span class="skill-item">CLI references</span>
+                        <span class="skill-item">Error messages</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-title">
+                        <i data-lucide="wrench"></i>
+                        Tools and platforms
+                    </h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Git/GitHub</span>
+                        <span class="skill-item">Markdown</span>
+                        <span class="skill-item">AsciiDoc</span>
+                        <span class="skill-item">OpenAPI/Swagger</span>
+                        <span class="skill-item">Postman</span>
+                        <span class="skill-item">Confluence</span>
+                        <span class="skill-item">Jira</span>
+                        <span class="skill-item">Figma</span>
+                        <span class="skill-item">MadCap Flare</span>
+                        <span class="skill-item">Oxygen</span>
+                        <span class="skill-item">GitBook</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-title">
+                        <i data-lucide="sparkles"></i>
+                        AI and automation
+                    </h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Claude</span>
+                        <span class="skill-item">ChatGPT</span>
+                        <span class="skill-item">Q Developer</span>
+                        <span class="skill-item">Bedrock</span>
+                        <span class="skill-item">Cursor AI</span>
+                        <span class="skill-item">Prompt engineering</span>
+                        <span class="skill-item">GenAI tool development</span>
+                        <span class="skill-item">Model Context Protocol</span>
+                        <span class="skill-item">Agentic workflows</span>
+                        <span class="skill-item">Content automation</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-title">
+                        <i data-lucide="code"></i>
+                        Development
+                    </h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">SQL</span>
+                        <span class="skill-item">HTML/CSS</span>
+                        <span class="skill-item">REST APIs</span>
+                        <span class="skill-item">JSON</span>
+                        <span class="skill-item">Webhooks</span>
+                        <span class="skill-item">Docs-as-code</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-title">
+                        <i data-lucide="palette"></i>
+                        Design and media
+                    </h3>
+                    <div class="skill-list">
+                        <span class="skill-item">CloudScape design system</span>
+                        <span class="skill-item">Adobe Creative Suite</span>
+                        <span class="skill-item">Snagit</span>
+                        <span class="skill-item">Camtasia</span>
+                        <span class="skill-item">Canva</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-title">
+                        <i data-lucide="users"></i>
+                        Leadership and process
+                    </h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Team management</span>
+                        <span class="skill-item">Stakeholder communication</span>
+                        <span class="skill-item">Content governance</span>
+                        <span class="skill-item">Process design</span>
+                        <span class="skill-item">Cross-functional collaboration</span>
+                        <span class="skill-item">KPI definition</span>
+                        <span class="skill-item">Change management</span>
+                        <span class="skill-item">Agile/Scrum</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Academic background</div>
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">
+                    Three degrees from Duquesne University combining technical, communication, and organizational expertise.
+                </p>
+            </div>
+
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-degree">M.S.</div>
+                    <div class="education-field">Database Development & Multimedia Technology</div>
+                    <div class="education-school">Duquesne University</div>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-degree">M.A.</div>
+                    <div class="education-field">Integrated Marketing Communication</div>
+                    <div class="education-school">Duquesne University</div>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-degree">B.S.</div>
+                    <div class="education-field">Organizational Behavior</div>
+                    <div class="education-school">Duquesne University</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Let's connect</div>
+                <h2 class="section-title">Get in touch</h2>
+            </div>
+
+            <div class="contact-content">
+                <p class="contact-intro">
+                    Whether you're looking for a documentation leader, want to discuss content strategy, or have questions about AI-powered documentation workflows—I'd love to hear from you.
+                </p>
+
+                <div class="contact-methods">
+                    <a href="https://www.linkedin.com/in/jillshaheen" target="_blank" class="contact-method">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="/cdn-cgi/l/email-protection#fb9192979788939a939e9e95bb9c969a9297d5989496" class="contact-method" onclick="this.href='mailto:' + 'jillshaheen' + '@' + 'gmail.com'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <span>jillshaheen&#64;gmail&#46;com</span>
+                    </a>
+                    <a href="https://github.com/jburgh" target="_blank" class="contact-method">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    © 2025 Jill Shaheen. Technical writing leader and content strategist.
+                </div>
+                <div class="footer-right">
+                    <a href="/cdn-cgi/l/email-protection#deb4b7b2b2adb6bfb6bbbbb09eb9b3bfb7b2f0bdb1b3" class="footer-link">Email</a>
+                    <a href="https://www.linkedin.com/in/jillshaheen" target="_blank" class="footer-link">LinkedIn</a>
+                    <a href="https://github.com/jburgh" target="_blank" class="footer-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Interactive Terminal
+        const terminalInput = document.getElementById('terminalInput');
+        const terminalOutput = document.getElementById('terminalOutput');
+
+        const commands = {
+            help: `Available commands:
+  whoami      - About me
+  skills      - Technical skills
+  contact     - Contact information
+  experience  - Career history
+  education   - Academic background
+  projects    - Featured work
+  clear       - Clear terminal`,
+            
+            skills: `Technical Skills:
+  📝 Documentation: API docs, UX writing, style guides, IA
+  🛠️  Tools: Git, Markdown, Figma, Jira, OpenAPI, Postman
+  🤖 AI: Claude, ChatGPT, prompt engineering, MCP, agentic workflows
+  💻 Dev: Python, JavaScript, SQL, REST APIs, docs-as-code
+  🎨 Design: CloudScape, Adobe Suite, Snagit, Camtasia
+  👥 Leadership: Team management, governance, process design`,
+            
+            contact: `Contact Information:
+  📧 Email: jillshaheen@gmail.com
+  💼 LinkedIn: linkedin.com/in/jillshaheen
+  🐙 GitHub: github.com/jburgh
+  📍 Location: Pittsburgh, PA`,
+            
+            experience: `Career Timeline:
+  2022-Present  Senior Doc Manager @ AWS
+                → Lead content strategy for database services
+                → Build AI tools with 2,000+ executions
+                → Manage globally distributed teams
+
+  2017-2022     Sr Manager, Knowledge @ SugarCRM
+                → 100% team retention through 3 acquisitions
+                → Reduced support cases by 30%
+
+  2014-2017     Senior Technical Writer @ SugarCRM
+  2007-2014     Corp Manager Marketing @ Aerotech`,
+            
+            education: `Education (Duquesne University):
+  🎓 M.S. Database Development & Multimedia Technology
+  🎓 M.A. Integrated Marketing Communication
+  🎓 B.S. Organizational Behavior`,
+            
+            projects: `Featured Projects:
+  📄 WAL Implementation Guide - AWS EMR feature docs
+  🎨 EMR Console Redesign - UX writing for AWS console
+  ⚠️  Error Message Framework - Standardized EMR errors
+  🔐 Aurora DSQL Encryption - Security documentation
+  🤖 AI Upskilling Program - GenAI tools for 200+ writers
+  📁 Wiki Infrastructure - Content governance at scale`,
+            
+            whoami: `Jill Shaheen
+Senior Documentation Manager & Writer @ AWS
+
+I help developers succeed through exceptional documentation.
+15+ years building teams, shipping docs, automating workflows.
+
+Current focus: AI-powered content tools, developer experience,
+and scaling documentation practices across AWS.`,
+            
+            clear: 'CLEAR'
+        };
+
+        function addTerminalLine(prompt, command) {
+            const line = document.createElement('div');
+            line.className = 'terminal-line';
+            line.innerHTML = `<span class="terminal-prompt">${prompt}</span><span class="terminal-command"> ${command}</span>`;
+            terminalOutput.appendChild(line);
+        }
+
+        function addTerminalOutput(text) {
+            const output = document.createElement('div');
+            output.className = 'terminal-output';
+            output.textContent = text;
+            terminalOutput.appendChild(output);
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }
+
+        terminalInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const command = terminalInput.value.trim().toLowerCase();
+                
+                if (command) {
+                    addTerminalLine('$', command);
+                    
+                    if (command === 'clear') {
+                        terminalOutput.innerHTML = '';
+                    } else if (commands[command]) {
+                        addTerminalOutput(commands[command]);
+                    } else {
+                        addTerminalOutput(`Command not found: ${command}. Type 'help' for available commands.`);
+                    }
+                }
+                
+                terminalInput.value = '';
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            }
+        });
+
+        // Focus terminal input when clicking on terminal
+        document.querySelector('.terminal').addEventListener('click', () => {
+            terminalInput.focus();
+        });
+
+        // Style Guide Tab Switching
+        const styleGuideTabs = document.querySelectorAll('.style-guide-tab');
+        const styleGuideSections = document.querySelectorAll('.style-guide-section');
+
+        styleGuideTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = tab.dataset.tab;
+                
+                styleGuideTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                styleGuideSections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === `${targetTab}-section`) {
+                        section.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Sidebar Toggle Functionality
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebarClose = document.getElementById('sidebarClose');
+        const styleGuideSidebar = document.getElementById('styleGuideSidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function openSidebar() {
+            styleGuideSidebar.classList.add('open');
+            sidebarOverlay.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            styleGuideSidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('visible');
+            document.body.style.overflow = '';
+        }
+
+        sidebarToggle.addEventListener('click', openSidebar);
+        sidebarClose.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Close sidebar on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && styleGuideSidebar.classList.contains('open')) {
+                closeSidebar();
+            }
+        });
+
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference, or use system preference as default
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        let currentTheme;
+        if (savedTheme) {
+            currentTheme = savedTheme;
+        } else {
+            currentTheme = systemPrefersDark ? 'dark' : 'light';
+        }
+        
+        if (currentTheme === 'light') {
+            htmlElement.setAttribute('data-theme', 'light');
+            themeToggle.checked = true;
+        } else {
+            htmlElement.removeAttribute('data-theme');
+            themeToggle.checked = false;
+        }
+
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                htmlElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Interactive Color Swatch - Change Accent Color
+        const colorSwatches = document.querySelectorAll('.color-swatch[data-color]');
+        
+        // Helper function to adjust color brightness
+        function adjustColor(hex, percent) {
+            const num = parseInt(hex.replace('#', ''), 16);
+            const amt = Math.round(2.55 * percent);
+            const R = Math.min(255, Math.max(0, (num >> 16) + amt));
+            const G = Math.min(255, Math.max(0, ((num >> 8) & 0x00FF) + amt));
+            const B = Math.min(255, Math.max(0, (num & 0x0000FF) + amt));
+            return `#${(0x1000000 + (R << 16) + (G << 8) + B).toString(16).slice(1)}`;
+        }
+
+        colorSwatches.forEach(swatch => {
+            swatch.addEventListener('click', () => {
+                const color = swatch.dataset.color;
+                
+                // Update selection UI
+                colorSwatches.forEach(s => s.classList.remove('selected'));
+                swatch.classList.add('selected');
+                
+                // Update CSS variables for accent colors
+                document.documentElement.style.setProperty('--accent-primary', color);
+                document.documentElement.style.setProperty('--accent-highlight', adjustColor(color, 15));
+                
+                // Update sidebar toggle glow effect
+                const glowColor = color.replace('#', '');
+                const r = parseInt(glowColor.substr(0, 2), 16);
+                const g = parseInt(glowColor.substr(2, 2), 16);
+                const b = parseInt(glowColor.substr(4, 2), 16);
+                
+                // Create new keyframes for the glow animation
+                const styleSheet = document.styleSheets[0];
+                const rules = styleSheet.cssRules || styleSheet.rules;
+                
+                // Find and update the pulseGlow animation
+                for (let i = 0; i < rules.length; i++) {
+                    if (rules[i].name === 'pulseGlow') {
+                        styleSheet.deleteRule(i);
+                        styleSheet.insertRule(`
+                            @keyframes pulseGlow {
+                                0%, 100% { box-shadow: -4px 0 20px rgba(${r}, ${g}, ${b}, 0.3); }
+                                50% { box-shadow: -6px 0 30px rgba(${r}, ${g}, ${b}, 0.5); }
+                            }
+                        `, i);
+                        break;
+                    }
+                }
+                
+                // Save preference
+                localStorage.setItem('accentColor', color);
+            });
+        });
+
+        // Restore saved accent color
+        const savedAccent = localStorage.getItem('accentColor');
+        if (savedAccent) {
+            const matchingSwatch = document.querySelector(`.color-swatch[data-color="${savedAccent}"]`);
+            if (matchingSwatch) {
+                matchingSwatch.click();
+            }
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function updateActiveNav() {
+            const scrollPos = window.scrollY + 150;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Apply to animatable elements
+        const animatableElements = document.querySelectorAll(
+            '.philosophy-card, .expertise-card, .sample-card, .timeline-item, .skill-group, .education-card, .stat-card'
+        );
+
+        animatableElements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(15px)';
+            el.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+            el.style.transitionDelay = `${index * 0.03}s`;
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
