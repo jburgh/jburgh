@@ -248,8 +248,9 @@
             top: 60px;
             left: 0;
             right: 0;
-            background: rgba(15, 23, 42, 0.98);
-            backdrop-filter: blur(10px);
+            /* use theme-aware background so mobile nav matches light/dark */
+            background: var(--bg-secondary);
+            backdrop-filter: blur(6px);
             border-bottom: 1px solid var(--border);
             z-index: 999;
             padding: var(--space-md) 0;
@@ -279,7 +280,8 @@
         .mobile-nav a:hover,
         .mobile-nav a.active {
             color: var(--accent-primary);
-            background: rgba(245, 158, 11, 0.1);
+            /* subtle accent-tinted background that works on both themes */
+            background: rgba(245, 158, 11, 0.08);
             border-left: 3px solid var(--accent-primary);
         }
 
