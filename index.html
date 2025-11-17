@@ -691,30 +691,73 @@
 
         .style-guide-tabs {
             display: flex;
-            gap: var(--space-xs);
+            gap: var(--space-sm);
+            align-items: center;
+            padding: 0 var(--space-xs);
         }
 
         .style-guide-tab {
-            padding: var(--space-xs) var(--space-md);
-            background: var(--bg-elevated);
+            padding: calc(var(--space-sm) / 2) var(--space-lg);
+            background: linear-gradient(180deg, var(--bg-elevated), var(--bg-card));
             border: 1px solid var(--border);
-            border-radius: 4px;
+            border-radius: 10px;
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
             cursor: pointer;
-            transition: var(--transition-fast);
+            transition: transform 160ms ease, box-shadow 160ms ease, color var(--transition-fast);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
         }
 
-        .style-guide-tab:hover {
+        .style-guide-tab:hover,
+        .style-guide-tab:focus {
             color: var(--text-primary);
-            border-color: var(--text-muted);
+            border-color: var(--accent-highlight);
+            transform: translateY(-2px);
+            outline: none;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
         }
 
         .style-guide-tab.active {
-            background: var(--accent-primary);
+            background: linear-gradient(180deg, var(--accent-primary), var(--accent-highlight));
             color: var(--bg-primary);
             border-color: var(--accent-primary);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Colors tab swatch + pulse (attention cue) */
+        .style-guide-tab[data-tab="colors"] { position: relative; padding-right: 2.25rem; }
+        .style-guide-tab[data-tab="colors"] .tab-swatch {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.08);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+            background: var(--accent-primary);
+            transition: transform 180ms ease, box-shadow 180ms ease;
+            opacity: 0.98;
+        }
+
+        @keyframes swatchPulse {
+            0% { box-shadow: 0 0 0 0 rgba(245,158,11,0.18); }
+            50% { box-shadow: 0 0 0 8px rgba(245,158,11,0.06); }
+            100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.00); }
+        }
+
+        .style-guide-tab[data-tab="colors"].pulse .tab-swatch {
+            animation: swatchPulse 1.6s ease 0s 3;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .style-guide-tab[data-tab="colors"].pulse .tab-swatch { animation: none; }
         }
 
         .style-guide-content {
@@ -2308,7 +2351,10 @@ I build AI tools that scale content production.</div>
                 </div>
                 <div class="style-guide-tabs">
                     <button class="style-guide-tab active" data-tab="syntax">Syntax</button>
-                    <button class="style-guide-tab" data-tab="colors">Colors</button>
+                    <button class="style-guide-tab" data-tab="colors" aria-label="Colors (open color settings)">
+                        Colors
+                        <span class="tab-swatch" aria-hidden="true"></span>
+                    </button>
                 </div>
             </div>
             <div class="style-guide-content">
@@ -2992,6 +3038,8 @@ and scaling documentation practices across AWS.`,
             styleGuideSidebar.classList.add('open');
             sidebarOverlay.classList.add('visible');
             document.body.style.overflow = 'hidden';
+            // show one-time attention cue for Colors tab
+            sidebarOpenHandler();
         }
 
         function closeSidebar() {
@@ -3003,6 +3051,23 @@ and scaling documentation practices across AWS.`,
         sidebarToggle.addEventListener('click', openSidebar);
         sidebarClose.addEventListener('click', closeSidebar);
         sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // One-time hint: pulse the Colors tab when the sidebar is first opened
+        function sidebarOpenHandler() {
+            const colorsTab = document.querySelector('.style-guide-tab[data-tab="colors"]');
+            if (!colorsTab) return;
+            try {
+                const hasSeen = localStorage.getItem('styleColorsHintSeen');
+                if (!hasSeen) {
+                    colorsTab.classList.add('pulse');
+                    // remove pulse class after animation cycles finish (duration 1.6s * 3 + buffer)
+                    setTimeout(() => colorsTab.classList.remove('pulse'), 1600 * 3 + 300);
+                    localStorage.setItem('styleColorsHintSeen', '1');
+                }
+            } catch (e) {
+                // localStorage might be unavailable; fail silently
+            }
+        }
 
         // Philosophy link opens sidebar
         const philosophyLink = document.getElementById('philosophyStyleLink');
