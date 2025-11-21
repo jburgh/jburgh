@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jill Shaheen | Technical writing leader and content strategist</title>
-    <meta name="description" content="Senior Documentation Manager specializing in developer documentation, content strategy, and AI-powered content automation at AWS.">
-    
+    <meta name="description"
+        content="Senior Documentation Manager specializing in developer documentation, content strategy, and AI-powered content automation at AWS.">
+
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -13,13 +15,16 @@
     <link rel="manifest" href="favicon/site.webmanifest">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Optional: Font Awesome for modal icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity=""
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         :root {
             /* Professional, readable color palette */
@@ -27,17 +32,17 @@
             --bg-secondary: #1e293b;
             --bg-card: #334155;
             --bg-elevated: #475569;
-            
+
             --text-primary: #f1f5f9;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
-            
+
             /* Accent colors */
             --accent-primary: #f59e0b;
             --accent-secondary: #10b981;
             --accent-tertiary: #6366f1;
             --accent-highlight: #fbbf24;
-            
+
             /* Dev/code colors */
             --code-bg: #1e293b;
             --code-border: #334155;
@@ -49,18 +54,18 @@
             --syntax-comment: #8b949e;
             --syntax-number: #79c0ff;
             --syntax-class: #7ee787;
-            
+
             /* Terminal colors */
             --terminal-bg: #0d1117;
             --terminal-text: #7ee787;
             --terminal-prompt: #58a6ff;
-            
+
             /* Functional colors */
             --success: #22c55e;
             --warning: #f59e0b;
             --info: #3b82f6;
             --border: #334155;
-            
+
             /* Spacing */
             --space-xs: 0.25rem;
             --space-sm: 0.5rem;
@@ -70,11 +75,11 @@
             --space-2xl: 3rem;
             --space-3xl: 4rem;
             --space-4xl: 6rem;
-            
+
             /* Typography */
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
-            
+
             /* Transitions */
             --transition-fast: 150ms ease;
             --transition-normal: 300ms ease;
@@ -86,16 +91,16 @@
             --bg-secondary: #f8fafc;
             --bg-card: #e2e8f0;
             --bg-elevated: #cbd5e1;
-            
+
             --text-primary: #0f172a;
             --text-secondary: #334155;
             --text-muted: #475569;
-            
+
             --accent-primary: #d97706;
             --accent-secondary: #059669;
             --accent-tertiary: #4f46e5;
             --accent-highlight: #f59e0b;
-            
+
             --code-bg: #f1f5f9;
             --code-border: #e2e8f0;
             --code-text: #0369a1;
@@ -106,11 +111,11 @@
             --syntax-comment: #64748b;
             --syntax-number: #0284c7;
             --syntax-class: #15803d;
-            
+
             --terminal-bg: #1e293b;
             --terminal-text: #7ee787;
             --terminal-prompt: #58a6ff;
-            
+
             --success: #16a34a;
             --warning: #d97706;
             --info: #2563eb;
@@ -544,9 +549,17 @@
             border-radius: 50%;
         }
 
-        .terminal-dot.red { background: #ff5f56; }
-        .terminal-dot.yellow { background: #ffbd2e; }
-        .terminal-dot.green { background: #27c93f; }
+        .terminal-dot.red {
+            background: #ff5f56;
+        }
+
+        .terminal-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .terminal-dot.green {
+            background: #27c93f;
+        }
 
         .terminal-title {
             flex: 1;
@@ -611,7 +624,9 @@
         }
 
         @keyframes blink {
-            50% { opacity: 0; }
+            50% {
+                opacity: 0;
+            }
         }
 
         .terminal-hint {
@@ -711,7 +726,7 @@
             font-weight: 600;
             letter-spacing: 0.02em;
             text-transform: uppercase;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
         }
 
         .style-guide-tab:hover,
@@ -720,19 +735,23 @@
             border-color: var(--accent-highlight);
             transform: translateY(-2px);
             outline: none;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
         }
 
         .style-guide-tab.active {
             background: linear-gradient(180deg, var(--accent-primary), var(--accent-highlight));
             color: var(--bg-primary);
             border-color: var(--accent-primary);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
             transform: translateY(-2px);
         }
 
         /* Colors tab swatch + pulse (attention cue) */
-        .style-guide-tab[data-tab="colors"] { position: relative; padding-right: 2.25rem; }
+        .style-guide-tab[data-tab="colors"] {
+            position: relative;
+            padding-right: 2.25rem;
+        }
+
         .style-guide-tab[data-tab="colors"] .tab-swatch {
             position: absolute;
             right: 12px;
@@ -741,17 +760,25 @@
             width: 14px;
             height: 14px;
             border-radius: 50%;
-            border: 2px solid rgba(255,255,255,0.08);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
             background: var(--accent-primary);
             transition: transform 180ms ease, box-shadow 180ms ease;
             opacity: 0.98;
         }
 
         @keyframes swatchPulse {
-            0% { box-shadow: 0 0 0 0 rgba(245,158,11,0.18); }
-            50% { box-shadow: 0 0 0 8px rgba(245,158,11,0.06); }
-            100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.00); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.18);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(245, 158, 11, 0.06);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.00);
+            }
         }
 
         .style-guide-tab[data-tab="colors"].pulse .tab-swatch {
@@ -759,7 +786,9 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .style-guide-tab[data-tab="colors"].pulse .tab-swatch { animation: none; }
+            .style-guide-tab[data-tab="colors"].pulse .tab-swatch {
+                animation: none;
+            }
         }
 
         .style-guide-content {
@@ -786,7 +815,7 @@
             border: 2px solid var(--accent-highlight);
             border-right: none;
             border-radius: 12px 0 0 12px;
-            padding: var(--space-md) var(--space-lg);
+            padding: var(--space-md) 12px;
             min-height: 150px;
             cursor: pointer;
             color: #ffffff;
@@ -805,8 +834,15 @@
         }
 
         @keyframes pulseGlow {
-            0%, 100% { box-shadow: -4px 0 20px rgba(245, 158, 11, 0.3); }
-            50% { box-shadow: -6px 0 30px rgba(245, 158, 11, 0.5); }
+
+            0%,
+            100% {
+                box-shadow: -4px 0 20px rgba(245, 158, 11, 0.3);
+            }
+
+            50% {
+                box-shadow: -6px 0 30px rgba(245, 158, 11, 0.5);
+            }
         }
 
         .sidebar-toggle:hover {
@@ -1059,23 +1095,30 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
-        input:checked + .slider {
+        input:checked+.slider {
             background: var(--accent-tertiary);
             border-color: var(--accent-tertiary);
         }
 
-        input:checked + .slider::before {
+        input:checked+.slider::before {
             transform: translateX(28px);
             background: #ffffff;
         }
 
-        input:focus + .slider {
+        input:focus+.slider {
             box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .color-palette {
@@ -1183,13 +1226,34 @@
             display: block;
         }
 
-        .keyword { color: var(--syntax-keyword); }
-        .string { color: var(--syntax-string); }
-        .function { color: var(--syntax-function); }
-        .variable { color: var(--syntax-variable); }
-        .comment { color: var(--syntax-comment); font-style: italic; }
-        .number { color: var(--syntax-number); }
-        .class-name { color: var(--syntax-class); }
+        .keyword {
+            color: var(--syntax-keyword);
+        }
+
+        .string {
+            color: var(--syntax-string);
+        }
+
+        .function {
+            color: var(--syntax-function);
+        }
+
+        .variable {
+            color: var(--syntax-variable);
+        }
+
+        .comment {
+            color: var(--syntax-comment);
+            font-style: italic;
+        }
+
+        .number {
+            color: var(--syntax-number);
+        }
+
+        .class-name {
+            color: var(--syntax-class);
+        }
 
         /* Core Expertise */
         .expertise-grid {
@@ -2129,6 +2193,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -2158,6 +2223,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="nav">
@@ -2200,7 +2266,8 @@
                         I help developers <span class="highlight">succeed</span> through exceptional documentation
                     </h1>
                     <p class="hero-subtitle">
-                        Senior Documentation Manager at AWS. I lead teams, build AI-powered content tools, and create documentation that reduces time-to-first-success for millions of developers.
+                        Senior Documentation Manager at AWS. I lead teams, build AI-powered content tools, and create
+                        documentation that reduces time-to-first-success for millions of developers.
                     </p>
                     <div class="hero-meta">
                         <div class="meta-item">
@@ -2269,7 +2336,9 @@
                 <div class="section-label">My approach</div>
                 <h2 class="section-title">Documentation philosophy</h2>
                 <p class="section-subtitle">
-                    Great documentation isn't just about accuracy. It's about empathy, clarity, and reducing friction at every step. <a href="#" id="philosophyStyleLink" class="philosophy-link">Learn more about my style →</a>
+                    Great documentation isn't just about accuracy. It's about empathy, clarity, and reducing friction at
+                    every step. <a href="#" id="philosophyStyleLink" class="philosophy-link">Learn more about my style
+                        →</a>
                 </p>
             </div>
 
@@ -2278,7 +2347,8 @@
                     <i data-lucide="target" class="philosophy-icon"></i>
                     <h3 class="philosophy-title">Reduce time-to-success</h3>
                     <p class="philosophy-text">
-                        Every piece of content I create is designed to get developers productive faster. I measure success by how quickly users can accomplish their goals, not by word count.
+                        Every piece of content I create is designed to get developers productive faster. I measure
+                        success by how quickly users can accomplish their goals, not by word count.
                     </p>
                 </div>
 
@@ -2286,7 +2356,8 @@
                     <i data-lucide="users" class="philosophy-icon"></i>
                     <h3 class="philosophy-title">Build exceptional teams</h3>
                     <p class="philosophy-text">
-                        I hire and develop writers who care about craft. My teams consistently deliver under pressure because I focus on removing roadblocks and creating systems that work.
+                        I hire and develop writers who care about craft. My teams consistently deliver under pressure
+                        because I focus on removing roadblocks and creating systems that work.
                     </p>
                 </div>
 
@@ -2294,7 +2365,8 @@
                     <i data-lucide="sparkles" class="philosophy-icon"></i>
                     <h3 class="philosophy-title">Leverage AI thoughtfully</h3>
                     <p class="philosophy-text">
-                        I build AI tools that scale content production without sacrificing quality. Technology should augment human expertise, not replace the careful thinking behind great docs.
+                        I build AI tools that scale content production without sacrificing quality. Technology should
+                        augment human expertise, not replace the careful thinking behind great docs.
                     </p>
                 </div>
             </div>
@@ -2314,18 +2386,20 @@
                         <span class="terminal-prompt">$</span>
                         <span class="terminal-command"> whoami</span>
                     </div>
-                    <div class="terminal-output">Technical writer, content strategist, and documentation leader with 15+ years of experience building teams, shipping docs, and automating content workflows.</div>
+                    <div class="terminal-output">Technical writer, content strategist, and documentation leader with 15+
+                        years of experience building teams, shipping docs, and automating content workflows.</div>
                     <div class="terminal-line">
                         <span class="terminal-prompt">$</span>
                         <span class="terminal-command"> cat mission.txt</span>
                     </div>
                     <div class="terminal-output">I create documentation that reduces time-to-first-success.
-I lead teams that deliver under pressure.
-I build AI tools that scale content production.</div>
+                        I lead teams that deliver under pressure.
+                        I build AI tools that scale content production.</div>
                 </div>
                 <div class="terminal-input-line">
                     <span class="terminal-prompt">$</span>
-                    <input type="text" class="terminal-input" id="terminalInput" placeholder="Type a command..." autocomplete="off">
+                    <input type="text" class="terminal-input" id="terminalInput" placeholder="Type a command..."
+                        autocomplete="off">
                     <span class="terminal-cursor">_</span>
                 </div>
             </div>
@@ -2363,167 +2437,153 @@ I build AI tools that scale content production.</div>
                 <div class="style-guide-section active" id="syntax-section">
                     <div class="dev-guide-reference">
                         <h4>My style philosophy</h4>
-                        <p>My content follows the Google Developer Documentation Style Guide, emphasizing conditions-first sentence structure, translation-ready clarity, and precise technical specifications. I address developers directly as collaborators, front-load critical information, and trust reader intelligence. Every sentence earns its place by reducing friction and accelerating time-to-success.</p>
+                        <p>I serve up content with translation-ready clarity. I address developers directly as
+                            collaborators, front-load critical
+                            information, and trust reader intelligence. Every sentence earns its place by reducing
+                            friction and accelerating time-to-success.</p>
                     </div>
                     <div class="mini-style-guide">
-                        <div class="style-rule">
-                            <div class="style-rule-header">Voice: Knowledgeable colleague</div>
-                            <div class="style-example">
-                                <div class="style-label dont">✗ Don't</div>
-                                <div class="style-dont">Please note that it is important for the user to configure their settings appropriately.</div>
-                                <div class="style-label do">✓ Do</div>
-                                <div class="style-do">Configure your settings before you deploy.</div>
-                            </div>
+                                            <div class="style-rule">
+                        <div class="style-rule-header">Explain the why, not just the what</div>
+                        <div class="style-example">
+                            <div class="style-label dont">✗ Don't</div>
+                            <div class="style-dont">Set <code>timeout</code> to <code>30</code>.</div>
+                            <div class="style-label do">✓ Do</div>
+                            <div class="style-do">To reduce the risk that a long-running query blocks other operations, set <code>timeout</code> to <code>30</code>.</div>
                         </div>
+                    </div>
                         <div class="style-rule">
                             <div class="style-rule-header">Front-load critical information</div>
                             <div class="style-example">
                                 <div class="style-label dont">✗ Don't</div>
-                                <div class="style-dont">After you've set up your environment and configured the basics, you'll want to know that the API rate limit is 1000 requests per hour.</div>
+                                <div class="style-dont">This release includes several improvements to performance
+                                    and adds new features. Note that the authentication method has changed and is
+                                    not backward compatible.</div>
                                 <div class="style-label do">✓ Do</div>
-                                <div class="style-do">The API rate limit is 1000 requests per hour. Configure your retry logic accordingly.</div>
+                                <div class="style-do">Version 3.0 breaks backward compatibility with the
+                                    authentication method. Before you upgrade, migrate to OAuth 2.0.</div>
                             </div>
                         </div>
-                        <div class="style-rule">
-                            <div class="style-rule-header">Conditions before actions</div>
-                            <div class="style-example">
-                                <div class="style-label dont">✗ Don't</div>
-                                <div class="style-dont">Choose <strong>Submit</strong> to save your changes when you finish your edits.</div>
-                                <div class="style-label do">✓ Do</div>
-                                <div class="style-do">When you finish your edits, choose <strong>Submit</strong> to save your changes.</div>
+
+                    </div>
+
+
+                    <div class="style-rule">
+                        <div class="style-rule-header">Anticipate the next question</div>
+                        <div class="style-example">
+                            <div class="style-label dont">✗ Don't</div>
+                            <div class="style-dont">Enable caching to improve performance.</div>
+                            <div class="style-label do">✓ Do</div>
+                            <div class="style-do">To improve performance, enable caching. If your data changes
+                                frequently, set <code>cache_ttl</code> to
+                                <code>60</code> seconds or less to prevent stale results.
                             </div>
                         </div>
-                        <div class="style-rule">
-                            <div class="style-rule-header">Optimize for translation</div>
-                            <div class="style-example">
-                                <div class="style-label dont">✗ Don't</div>
-                                <div class="style-dont">Verify the file contains valid JSON using the validator.</div>
-                                <div class="style-label do">✓ Do</div>
-                                <div class="style-do">Verify that the file contains valid JSON. Use the validator to check syntax.</div>
-                            </div>
+                    </div>
+
+                    <div class="style-rule">
+                        <div class="style-rule-header">Trust technical competence</div>
+                        <div class="style-example">
+                            <div class="style-label dont">✗ Don't</div>
+                            <div class="style-dont">A database is a system that stores data. Configure your
+                                database connection string, which is the text that tells your application where
+                                to find the database.</div>
+                            <div class="style-label do">✓ Do</div>
+                            <div class="style-do">Configure your connection string to point to the primary
+                                replica. Use the secondary replica only for read operations.</div>
                         </div>
-                        <div class="style-rule">
-                            <div class="style-rule-header">Eliminate gerunds in headings</div>
-                            <div class="style-example">
-                                <div class="style-label dont">✗ Don't</div>
-                                <div class="style-dont">Configuring clusters using templates</div>
-                                <div class="style-label do">✓ Do</div>
-                                <div class="style-do">Configure clusters that use templates</div>
-                            </div>
+                    </div>
+
+
+                    <div class="style-rule">
+                        <div class="style-rule-header">Every word earns its place</div>
+                        <div class="style-example">
+                            <div class="style-label dont">✗ Don't</div>
+                            <div class="style-dont">In order to successfully complete the process, it is
+                                essential that you ensure the connection is active.</div>
+                            <div class="style-label do">✓ Do</div>
+                            <div class="style-do">Before you start, verify that the connection is active.</div>
                         </div>
-                        <div class="style-rule">
-                            <div class="style-rule-header">Strong verbs over weak constructions</div>
-                            <div class="style-example">
-                                <div class="style-label dont">✗ Don't</div>
-                                <div class="style-dont">Perform configuration of the database. Utilize the dashboard to facilitate implementation.</div>
-                                <div class="style-label do">✓ Do</div>
-                                <div class="style-do">Configure the database. Use the dashboard to create the implementation.</div>
+                    </div>
+                    <div class="style-rule">
+                        <div class="style-rule-header">Optimize for translation</div>
+                        <div class="style-example">
+                            <div class="style-label dont">✗ Don't</div>
+                            <div class="style-dont">Verify the file contains valid JSON using the validator.
                             </div>
-                        </div>
-                        <div class="style-rule">
-                            <div class="style-rule-header">Technical precision with versions</div>
-                            <div class="style-example">
-                                <div class="style-label dont">✗ Don't</div>
-                                <div class="style-dont">This feature is available in recent versions.</div>
-                                <div class="style-label do">✓ Do</div>
-                                <div class="style-do">This feature is available in EMR 6.1.0 and later. For EMR 5.x, see <strong>Legacy configuration</strong>.</div>
-                            </div>
-                        </div>
-                        <div class="style-rule">
-                            <div class="style-rule-header">Explain parameters at first use</div>
-                            <div class="style-example">
-                                <div class="style-label dont">✗ Don't</div>
-                                <div class="style-dont">Set the <code>MAX_RETRIES</code> parameter. The default value is documented elsewhere.</div>
-                                <div class="style-label do">✓ Do</div>
-                                <div class="style-do">Set the <code>MAX_RETRIES</code> parameter. The default value is <code>3</code>. Values above <code>10</code> might cause timeout errors.</div>
-                            </div>
-                        </div>
-                        <div class="style-rule">
-                            <div class="style-rule-header">State goals before actions</div>
-                            <div class="style-example">
-                                <div class="style-label dont">✗ Don't</div>
-                                <div class="style-dont">Run <code>npm install</code> and then <code>npm build</code>.</div>
-                                <div class="style-label do">✓ Do</div>
-                                <div class="style-do">To prepare your application for deployment, run <code>npm install</code> and then <code>npm build</code>.</div>
-                            </div>
-                        </div>
-                        <div class="style-rule">
-                            <div class="style-rule-header">Every word earns its place</div>
-                            <div class="style-example">
-                                <div class="style-label dont">✗ Don't</div>
-                                <div class="style-dont">In order to successfully complete the process, it is absolutely essential that you ensure the connection is active.</div>
-                                <div class="style-label do">✓ Do</div>
-                                <div class="style-do">Before you start, verify that the connection is active.</div>
-                            </div>
+                            <div class="style-label do">✓ Do</div>
+                            <div class="style-do">Use the validator to
+                                verify that the file contains valid JSON.</div>
                         </div>
                     </div>
                 </div>
-                <div class="style-guide-section" id="colors-section">
-                    <div class="theme-toggle-container">
-                        <label class="theme-toggle-label">Theme Mode</label>
-                        <div class="theme-switch">
-                            <span class="theme-option">
-                                <i data-lucide="moon"></i>
-                                Dark
-                            </span>
-                            <label class="switch">
-                                <input type="checkbox" id="themeToggle">
-                                <span class="slider"></span>
-                            </label>
-                            <span class="theme-option">
-                                <i data-lucide="sun"></i>
-                                Light
-                            </span>
+            </div>
+            <div class="style-guide-section" id="colors-section">
+                <div class="theme-toggle-container">
+                    <label class="theme-toggle-label">Theme Mode</label>
+                    <div class="theme-switch">
+                        <span class="theme-option">
+                            <i data-lucide="moon"></i>
+                            Dark
+                        </span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="theme-option">
+                            <i data-lucide="sun"></i>
+                            Light
+                        </span>
+                    </div>
+                </div>
+                <div class="color-swatch-hint">Choose a color to set it as the accent color for the site</div>
+                <div class="color-palette">
+                    <div class="color-swatch selected" data-color="#f59e0b" data-name="amber">
+                        <div class="color-preview" style="background: #f59e0b;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Primary accent</div>
+                            <div class="color-value">#f59e0b</div>
                         </div>
                     </div>
-                    <div class="color-swatch-hint">Choose a color to set it as the accent color for the site</div>
-                    <div class="color-palette">
-                        <div class="color-swatch selected" data-color="#f59e0b" data-name="amber">
-                            <div class="color-preview" style="background: #f59e0b;"></div>
-                            <div class="color-info">
-                                <div class="color-name">Primary accent</div>
-                                <div class="color-value">#f59e0b</div>
-                            </div>
+                    <div class="color-swatch" data-color="#10b981" data-name="emerald">
+                        <div class="color-preview" style="background: #10b981;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Success</div>
+                            <div class="color-value">#10b981</div>
                         </div>
-                        <div class="color-swatch" data-color="#10b981" data-name="emerald">
-                            <div class="color-preview" style="background: #10b981;"></div>
-                            <div class="color-info">
-                                <div class="color-name">Success</div>
-                                <div class="color-value">#10b981</div>
-                            </div>
+                    </div>
+                    <div class="color-swatch" data-color="#6366f1" data-name="indigo">
+                        <div class="color-preview" style="background: #6366f1;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Tertiary</div>
+                            <div class="color-value">#6366f1</div>
                         </div>
-                        <div class="color-swatch" data-color="#6366f1" data-name="indigo">
-                            <div class="color-preview" style="background: #6366f1;"></div>
-                            <div class="color-info">
-                                <div class="color-name">Tertiary</div>
-                                <div class="color-value">#6366f1</div>
-                            </div>
+                    </div>
+                    <div class="color-swatch" data-color="#ff7b72" data-name="coral">
+                        <div class="color-preview" style="background: #ff7b72;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Keywords</div>
+                            <div class="color-value">#ff7b72</div>
                         </div>
-                        <div class="color-swatch" data-color="#ff7b72" data-name="coral">
-                            <div class="color-preview" style="background: #ff7b72;"></div>
-                            <div class="color-info">
-                                <div class="color-name">Keywords</div>
-                                <div class="color-value">#ff7b72</div>
-                            </div>
+                    </div>
+                    <div class="color-swatch" data-color="#a5d6ff" data-name="sky">
+                        <div class="color-preview" style="background: #a5d6ff;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Strings</div>
+                            <div class="color-value">#a5d6ff</div>
                         </div>
-                        <div class="color-swatch" data-color="#a5d6ff" data-name="sky">
-                            <div class="color-preview" style="background: #a5d6ff;"></div>
-                            <div class="color-info">
-                                <div class="color-name">Strings</div>
-                                <div class="color-value">#a5d6ff</div>
-                            </div>
-                        </div>
-                        <div class="color-swatch" data-color="#7ee787" data-name="green">
-                            <div class="color-preview" style="background: #7ee787;"></div>
-                            <div class="color-info">
-                                <div class="color-name">Functions</div>
-                                <div class="color-value">#7ee787</div>
-                            </div>
+                    </div>
+                    <div class="color-swatch" data-color="#7ee787" data-name="green">
+                        <div class="color-preview" style="background: #7ee787;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Functions</div>
+                            <div class="color-value">#7ee787</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Core Expertise -->
@@ -2540,7 +2600,8 @@ I build AI tools that scale content production.</div>
                     <div class="expertise-content">
                         <h3>Developer documentation</h3>
                         <p>
-                            API references, SDK guides, implementation tutorials, and code examples. I create content that developers actually use to build production applications.
+                            API references, SDK guides, implementation tutorials, and code examples. I create
+                            content that developers actually use to build production applications.
                         </p>
                     </div>
                 </div>
@@ -2550,7 +2611,8 @@ I build AI tools that scale content production.</div>
                     <div class="expertise-content">
                         <h3>UX writing and in-product content</h3>
                         <p>
-                            Interface labels, help panels, error messages, and onboarding flows. I collaborate with design teams to create clear, actionable microcopy.
+                            Interface labels, help panels, error messages, and onboarding flows. I collaborate with
+                            design teams to create clear, actionable microcopy.
                         </p>
                     </div>
                 </div>
@@ -2560,7 +2622,8 @@ I build AI tools that scale content production.</div>
                     <div class="expertise-content">
                         <h3>Content strategy and governance</h3>
                         <p>
-                            Information architecture, style guides, templates, and editorial workflows. I build systems that enable consistent, high-quality content at scale.
+                            Information architecture, style guides, templates, and editorial workflows. I build
+                            systems that enable consistent, high-quality content at scale.
                         </p>
                     </div>
                 </div>
@@ -2570,7 +2633,8 @@ I build AI tools that scale content production.</div>
                     <div class="expertise-content">
                         <h3>AI-powered documentation</h3>
                         <p>
-                            LLM prompt engineering, GenAI tool development, and automated workflows. I create AI solutions that enhance writer productivity and content quality.
+                            LLM prompt engineering, GenAI tool development, and automated workflows. I create AI
+                            solutions that enhance writer productivity and content quality.
                         </p>
                     </div>
                 </div>
@@ -2579,7 +2643,8 @@ I build AI tools that scale content production.</div>
             <!-- Tools and Skills Section -->
             <div style="margin-top: var(--space-2xl); padding-top: 0;">
                 <div class="section-header">
-                    <h3 class="section-title" style="font-size: 1.8rem; margin-bottom: var(--space-2xl);">Tools and technologies</h3>
+                    <h3 class="section-title" style="font-size: 1.8rem; margin-bottom: var(--space-2xl);">Tools and
+                        technologies</h3>
                 </div>
 
                 <div class="skills-container">
@@ -2712,7 +2777,8 @@ I build AI tools that scale content production.</div>
                 <div class="section-label">Portfolio</div>
                 <h2 class="section-title">Documentation samples</h2>
                 <p class="section-subtitle">
-                    Selected projects demonstrating range across developer docs, UX writing, content strategy, and AI tooling.
+                    Selected projects demonstrating range across developer docs, UX writing, content strategy, and
+                    AI tooling.
                 </p>
             </div>
 
@@ -2748,7 +2814,8 @@ I build AI tools that scale content production.</div>
                 <div class="section-label">Career path</div>
                 <h2 class="section-title">Professional experience</h2>
                 <p class="section-subtitle">
-                    From marketing to technical writing to documentation leadership, my progression is built on clear communication.
+                    From marketing to technical writing to documentation leadership, my progression is built on
+                    clear communication.
                 </p>
             </div>
 
@@ -2759,7 +2826,8 @@ I build AI tools that scale content production.</div>
                     <div class="timeline-role">Senior documentation manager and writer</div>
                     <div class="timeline-company">Amazon Web Services (AWS)</div>
                     <div class="timeline-description">
-                        Lead content strategy for AWS database and analytics services. Hire and develop globally distributed teams of technical writers while personally authoring developer documentation.
+                        Lead content strategy for AWS database and analytics services. Hire and develop globally
+                        distributed teams of technical writers while personally authoring developer documentation.
                     </div>
                     <ul class="timeline-achievements">
                         <li>Author developer guides and API docs for EMR, Aurora, RDS, QuickSight</li>
@@ -2776,7 +2844,8 @@ I build AI tools that scale content production.</div>
                     <div class="timeline-role">Senior manager, knowledge management</div>
                     <div class="timeline-company">SugarCRM</div>
                     <div class="timeline-description">
-                        Managed content strategy for enterprise CRM platform across 150+ releases annually and 20 product versions.
+                        Managed content strategy for enterprise CRM platform across 150+ releases annually and 20
+                        product versions.
                     </div>
                     <ul class="timeline-achievements">
                         <li>Led team through 3 product acquisitions with 100% retention</li>
@@ -2792,7 +2861,8 @@ I build AI tools that scale content production.</div>
                     <div class="timeline-role">Senior technical writer</div>
                     <div class="timeline-company">SugarCRM</div>
                     <div class="timeline-description">
-                        Created documentation for technical and non-technical users of marketing and sales automation platforms.
+                        Created documentation for technical and non-technical users of marketing and sales
+                        automation platforms.
                     </div>
                     <ul class="timeline-achievements">
                         <li>Contributed to UX design for mobile apps</li>
@@ -2807,7 +2877,8 @@ I build AI tools that scale content production.</div>
                     <div class="timeline-role">Corporate manager of marketing and CRM</div>
                     <div class="timeline-company">Aerotech Inc.</div>
                     <div class="timeline-description">
-                        Managed integrated marketing strategies and CRM platform for precision motion control company.
+                        Managed integrated marketing strategies and CRM platform for precision motion control
+                        company.
                     </div>
                     <ul class="timeline-achievements">
                         <li>Deployed CRM for 120+ global users with over 90% adoption</li>
@@ -2826,7 +2897,8 @@ I build AI tools that scale content production.</div>
                 <div class="section-label">Academic background</div>
                 <h2 class="section-title">Education</h2>
                 <p class="section-subtitle">
-                    Three degrees from Duquesne University combining technical, communication, and organizational expertise.
+                    Three degrees from Duquesne University combining technical, communication, and organizational
+                    expertise.
                 </p>
             </div>
 
@@ -2862,20 +2934,36 @@ I build AI tools that scale content production.</div>
 
             <div class="contact-content">
                 <p class="contact-intro">
-                    Whether you're looking for a documentation leader, want to discuss content strategy, or have questions about AI-powered documentation workflows, I'd love to hear from you.
+                    Whether you're looking for a documentation leader, want to discuss content strategy, or have
+                    questions about AI-powered documentation workflows, I'd love to hear from you.
                 </p>
 
                 <div class="contact-methods">
                     <a href="https://www.linkedin.com/in/jillshaheen" target="_blank" class="contact-method">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect width="4" height="12" x="2" y="9" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
                         <span>LinkedIn</span>
                     </a>
-                    <a href="/cdn-cgi/l/email-protection#fb9192979788939a939e9e95bb9c969a9297d5989496" class="contact-method" onclick="this.href='mailto:' + 'jillshaheen' + '@' + 'gmail.com'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <a href="/cdn-cgi/l/email-protection#fb9192979788939a939e9e95bb9c969a9297d5989496"
+                        class="contact-method" onclick="this.href='mailto:' + 'jillshaheen' + '@' + 'gmail.com'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
                         <span>jillshaheen&#64;gmail&#46;com</span>
                     </a>
                     <a href="https://github.com/jburgh" target="_blank" class="contact-method">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                            <path d="M9 18c-4.51 2-5-2-7-2" />
+                        </svg>
                         <span>GitHub</span>
                     </a>
                 </div>
@@ -2891,7 +2979,8 @@ I build AI tools that scale content production.</div>
                     © 2025 Jill Shaheen. Technical writing leader and content strategist.
                 </div>
                 <div class="footer-right">
-                    <a href="/cdn-cgi/l/email-protection#deb4b7b2b2adb6bfb6bbbbb09eb9b3bfb7b2f0bdb1b3" class="footer-link">Email</a>
+                    <a href="/cdn-cgi/l/email-protection#deb4b7b2b2adb6bfb6bbbbb09eb9b3bfb7b2f0bdb1b3"
+                        class="footer-link">Email</a>
                     <a href="https://www.linkedin.com/in/jillshaheen" target="_blank" class="footer-link">LinkedIn</a>
                     <a href="https://github.com/jburgh" target="_blank" class="footer-link">GitHub</a>
                 </div>
@@ -2899,7 +2988,8 @@ I build AI tools that scale content production.</div>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         // Initialize Lucide icons
         lucide.createIcons();
 
@@ -2916,7 +3006,7 @@ I build AI tools that scale content production.</div>
   education   - Academic background
   projects    - Featured work
   clear       - Clear terminal`,
-            
+
             skills: `Technical Skills:
   📝 Documentation: API docs, UX writing, style guides, IA
   🛠️  Tools: Git, Markdown, Figma, Jira, OpenAPI, Postman
@@ -2924,13 +3014,13 @@ I build AI tools that scale content production.</div>
   💻 Dev: Python, JavaScript, SQL, REST APIs, docs-as-code
   🎨 Design: CloudScape, Adobe Suite, Snagit, Camtasia
   👥 Leadership: Team management, governance, process design`,
-            
+
             contact: `Contact Information:
   📧 Email: jillshaheen@gmail.com
   💼 LinkedIn: linkedin.com/in/jillshaheen
   🐙 GitHub: github.com/jburgh
   📍 Location: Pittsburgh, PA`,
-            
+
             experience: `Career Timeline:
   2022-Present  Senior Doc Manager @ AWS
                 → Lead content strategy for database services
@@ -2943,12 +3033,12 @@ I build AI tools that scale content production.</div>
 
   2014-2017     Senior Technical Writer @ SugarCRM
   2007-2014     Corp Manager Marketing @ Aerotech`,
-            
+
             education: `Education (Duquesne University):
   🎓 M.S. Database Development & Multimedia Technology
   🎓 M.A. Integrated Marketing Communication
   🎓 B.S. Organizational Behavior`,
-            
+
             projects: `Featured Projects:
   📄 WAL Implementation Guide - AWS EMR feature docs
   🎨 EMR Console Redesign - UX writing for AWS console
@@ -2956,7 +3046,7 @@ I build AI tools that scale content production.</div>
   🔐 Aurora DSQL Encryption - Security documentation
   🤖 AI Upskilling Program - GenAI tools for 200+ writers
   📁 Wiki Infrastructure - Content governance at scale`,
-            
+
             whoami: `Jill Shaheen
 Senior Documentation Manager & Writer @ AWS
 
@@ -2965,7 +3055,7 @@ I help developers succeed through exceptional documentation.
 
 Current focus: AI-powered content tools, developer experience,
 and scaling documentation practices across AWS.`,
-            
+
             clear: 'CLEAR'
         };
 
@@ -2987,10 +3077,10 @@ and scaling documentation practices across AWS.`,
         terminalInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 const command = terminalInput.value.trim().toLowerCase();
-                
+
                 if (command) {
                     addTerminalLine('$', command);
-                    
+
                     if (command === 'clear') {
                         terminalOutput.innerHTML = '';
                     } else if (commands[command]) {
@@ -2999,7 +3089,7 @@ and scaling documentation practices across AWS.`,
                         addTerminalOutput(`Command not found: ${command}. Type 'help' for available commands.`);
                     }
                 }
-                
+
                 terminalInput.value = '';
                 terminalOutput.scrollTop = terminalOutput.scrollHeight;
             }
@@ -3017,10 +3107,10 @@ and scaling documentation practices across AWS.`,
         styleGuideTabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 const targetTab = tab.dataset.tab;
-                
+
                 styleGuideTabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
-                
+
                 styleGuideSections.forEach(section => {
                     section.classList.remove('active');
                     if (section.id === `${targetTab}-section`) {
@@ -3094,14 +3184,14 @@ and scaling documentation practices across AWS.`,
         // Check for saved theme preference, or use system preference as default
         const savedTheme = localStorage.getItem('theme');
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
+
         let currentTheme;
         if (savedTheme) {
             currentTheme = savedTheme;
         } else {
             currentTheme = systemPrefersDark ? 'dark' : 'light';
         }
-        
+
         if (currentTheme === 'light') {
             htmlElement.setAttribute('data-theme', 'light');
             themeToggle.checked = true;
@@ -3122,7 +3212,7 @@ and scaling documentation practices across AWS.`,
 
         // Interactive Color Swatch - Change Accent Color
         const colorSwatches = document.querySelectorAll('.color-swatch[data-color]');
-        
+
         // Helper function to adjust color brightness
         function adjustColor(hex, percent) {
             const num = parseInt(hex.replace('#', ''), 16);
@@ -3136,25 +3226,25 @@ and scaling documentation practices across AWS.`,
         colorSwatches.forEach(swatch => {
             swatch.addEventListener('click', () => {
                 const color = swatch.dataset.color;
-                
+
                 // Update selection UI
                 colorSwatches.forEach(s => s.classList.remove('selected'));
                 swatch.classList.add('selected');
-                
+
                 // Update CSS variables for accent colors
                 document.documentElement.style.setProperty('--accent-primary', color);
                 document.documentElement.style.setProperty('--accent-highlight', adjustColor(color, 15));
-                
+
                 // Update sidebar toggle glow effect
                 const glowColor = color.replace('#', '');
                 const r = parseInt(glowColor.substr(0, 2), 16);
                 const g = parseInt(glowColor.substr(2, 2), 16);
                 const b = parseInt(glowColor.substr(4, 2), 16);
-                
+
                 // Create new keyframes for the glow animation
                 const styleSheet = document.styleSheets[0];
                 const rules = styleSheet.cssRules || styleSheet.rules;
-                
+
                 // Find and update the pulseGlow animation
                 for (let i = 0; i < rules.length; i++) {
                     if (rules[i].name === 'pulseGlow') {
@@ -3168,7 +3258,7 @@ and scaling documentation practices across AWS.`,
                         break;
                     }
                 }
-                
+
                 // Save preference
                 localStorage.setItem('accentColor', color);
             });
@@ -3278,7 +3368,7 @@ and scaling documentation practices across AWS.`,
             el.style.transitionDelay = `${index * 0.03}s`;
             observer.observe(el);
         });
-</script>
+    </script>
 
     <!-- Include jQuery (required by project script) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -3289,26 +3379,26 @@ and scaling documentation practices across AWS.`,
         if (!window.PROJECTS_LOADED) {
             window.PROJECTS_LOADED = true;
 
-            (function($){
+            (function ($) {
                 // Minimal subset of PROJECTS_DATA copied from external script
                 const PROJECTS_DATA = [
-                    {"id":"hbase-wal","title":"Write-Ahead Logs (WAL) implementation guide","projectType":"Feature Launch Documentation, CLI Reference","description":"Created complete documentation suite for  HBase Write-Ahead Logs feature for Amazon EMR from scratch. WAL prevents data loss during system failures—a critical data protection capability.","fullDescription":"Created complete documentation suite for Amazon EMR's HBase Write-Ahead Logs feature from scratch. WAL prevents data loss during system failures—a critical data protection capability. Worked with engineering to understand distributed database architecture and translated it into developer-friendly guides. Wrote step-by-step implementation docs, CLI reference, service-linked roles configuration, and troubleshooting scenarios.","skills":["Net-new feature documentation","Complex technical concept explanation","CLI documentation","Decision tree design","Troubleshooting content"],"results":"Launched simultaneously with feature. Became definitive resource for EMR WAL implementation. Enabled day-one customer adoption of critical data protection feature.","link":"https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-wal.html","tags":["Developer Docs","Technical Writing","AWS"]},
-                    {"id":"aurora-encryption","title":"Data encryption for Amazon Aurora DSQL","projectType":"Feature Documentation, Technical Writing","description":"Created comprehensive documentation for Aurora DSQL's data encryption feature from launch. Worked directly with engineering team to understand encryption architecture, key management, and security model.","fullDescription":"Created comprehensive documentation for Aurora DSQL's data encryption feature from launch. Worked directly with engineering team to understand encryption architecture, key management, and security model. Wrote developer guide explaining encryption at rest, in transit, and key rotation procedures. Included code examples and CLI reference.","skills":["Technical documentation for complex features","Security and compliance documentation","Developer audience writing","Code sample creation","Collaboration with engineering"],"results":"Launched with feature. Provided developers with clear guidance on implementing encryption correctly for compliance-sensitive workloads.","link":"https://docs.aws.amazon.com/aurora-dsql/latest/userguide/data-encryption.html","tags":["Developer Docs","Security","AWS"]},
-                    {"id":"s3-access-grants","title":"S3 Access Grants integration","projectType":"Integration Documentation, API Documentation","description":"Documented the integration between Amazon EMR and S3 Access Grants, enabling fine-grained access control for S3 data. Explained concepts, configuration steps, IAM permissions, and troubleshooting.","fullDescription":"Documented the integration between Amazon EMR and S3 Access Grants, enabling fine-grained access control for S3 data. Explained concepts, configuration steps, IAM permissions, and troubleshooting. Created workflow diagrams (collaborated with visual designer on graphics) and code examples.","skills":["Integration documentation","Cross-service technical writing","Conceptual explanation","Procedural documentation","Collaboration with designers"],"results":"Enabled customers to implement advanced S3 access controls with EMR. Clear documentation reduced configuration errors.","link":"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-access-grants.html","image":"projects/s3.png","tags":["Developer Docs","API Documentation","AWS"]},
-                    {"id":"service-linked-roles","title":"Service-linked roles configuration","projectType":"Security Documentation, Configuration Guide","description":"Documented service-linked roles for Amazon EMR—IAM roles that are linked directly to AWS services. Explained when they're created, what permissions they include, how to edit them, and how to delete them.","fullDescription":"Documented service-linked roles for Amazon EMR—IAM roles that are linked directly to AWS services. Explained when they're created, what permissions they include, how to edit them, and how to delete them. Critical for customers managing security and compliance.","skills":["Security and IAM documentation","Permission and role documentation","Audience-appropriate technical depth","Procedural writing"],"results":"Provided clear guidance on IAM security model for EMR. Helped customers implement least-privilege access correctly.","link":"https://docs.aws.amazon.com/emr/latest/ManagementGuide/using-service-linked-roles-wal.html","tags":["Security","Admin Docs","AWS"]},
-                    {"id":"release-notes","title":"Comprehensive release notes","projectType":"Release Communication, Feature Documentation","description":"Created detailed release notes for Amazon EMR releases, documenting new features, improvements, bug fixes, and known issues. Translated engineering changelogs into customer-friendly summaries.","fullDescription":"Created detailed release notes for Amazon EMR releases, documenting new features, improvements, bug fixes, and known issues. Translated engineering changelogs into customer-friendly summaries with links to relevant documentation.","skills":["Release communication","Technical summarization","Customer-focused writing","Cross-linking and information architecture"],"results":"Kept customers informed of product changes. Enabled quick assessment of release value and upgrade decisions.","link":"https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-7x.html","tags":["Developer Docs","Technical Writing","AWS"]},
-                    {"id":"wandb-tutorial","title":"Content improvement: Weights & Biases machine-learning experiment tracking with PyTorch","projectType":"Content Revision, Before/After Improvement","description":"Revised existing tutorial on integrating Weights & Biases with PyTorch projects. Original content was technically accurate but verbose and difficult to follow.","fullDescription":"Revised existing tutorial on integrating Weights & Biases with PyTorch projects. Original content was technically accurate but verbose and difficult to follow. Restructured for clarity, simplified language, improved code examples, and added clearer prerequisites and troubleshooting.","skills":["Content editing and improvement","Tutorial writing","Code example refinement","Information architecture","User-focused revision"],"results":"Improved tutorial comprehension and completion rates. Reduced user friction in adopting ML experiment tracking.","link":"https://github.com/wandb/docs/pull/1385","tags":["Content Strategy","Developer Docs","AI/ML"]},
-                    {"id":"emr-console-redesign","title":"Amazon EMR console redesign","projectType":"UX writing for AWS Management Console","description":"Led content design for the complete redesign of create/modify cluster workflows. Wrote all interface text including section titles, field labels, help panels, descriptions, radio button labels, and navigational elements.","fullDescription":"Led content design for the complete redesign of Amazon EMR's cluster creation and modification workflows. Wrote all interface text including section titles, field labels, help panels, descriptions, radio button labels, and navigational elements. Collaborated with product designers through multiple Figma iterations, ensuring content aligned with CloudScape design system and AWS Style Guide standards for terminology, accessibility, and global audiences.","skills":["UX writing for complex technical workflows","Cross-functional collaboration (design, engineering, product)","Design system implementation (CloudScape)","Progressive disclosure and information architecture","Accessibility and inclusive language","Writing for global/ESL audiences"],"results":"Launched with redesigned console. Improved clarity of cluster configuration process for millions of AWS developers. Reduced user errors through clearer labeling and contextual help.","link":"https://docs.aws.amazon.com/emr/latest/ManagementGuide/whats-new-in-console.html","image":"projects/emr-console-thumb.png","tags":["UX Writing","Design Systems","AWS"]},
-                    {"id":"emr-error-messages","title":"EMR error message standardization","projectType":"Content Strategy, UX Writing","description":"Led initiative to refactor the top 20 most-emitted Amazon EMR console errors. Worked with engineering to add a new plain-language ErrorMessage field to the error structure.","fullDescription":"Led initiative to refactor the top 20 most-emitted Amazon EMR console errors. Worked with engineering to add a new plain-language ErrorMessage field to the error structure (previously only programmatic ErrorCode and ErrorData existed). Wrote customer-facing error messages and created corresponding troubleshooting resolution pages in the developer guide. Designed reusable error message framework adopted across EMR service.","skills":["Technical writing","Error message design","Self-service content strategy","Cross-functional influence (changed product architecture)","Reusable framework creation"],"results":"Transformed programmatic-only errors into actionable guidance. Enabled customers to self-resolve issues, reducing support case volume. Framework adopted as standard across EMR service for consistent, helpful error communication.","link":"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-troubleshoot-error-errordetail.html","image":"projects/error-thumb.png","tags":["UX Writing","Content Strategy","AWS"]},
-                    {"id":"notebooks-workspaces","title":"EMR Notebooks to Workspaces transition","projectType":"UX Writing, Change Management","description":"Wrote in-product guidance to educate users on major conceptual changes in the redesigned EMR Studio console. The product was shifting from a \"Notebooks\" model to a \"Workspaces\" model.","fullDescription":"Wrote in-product guidance to educate users on major conceptual changes in the redesigned EMR Studio console. The product was shifting from a \"Notebooks\" model to a \"Workspaces\" model, requiring clear explanation of new concepts, migration paths, and updated workflows. Created content for landing page, action panels, and contextual help to support smooth transition.","skills":["Conceptual explanation","Change management through content","User education in-product","Information design","Action-oriented writing"],"link":"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-migration.html","results":"Enabled smooth migration from legacy console to new experience. Users could understand new model and take appropriate actions without requiring extensive support.","image":"projects/notebooks.png","tags":["UX Writing","Content Strategy","AWS"]},
-                    {"id":"sugarbpm","title":"SugarBPM administrator guide","projectType":"Administrator Documentation, Business Process Documentation","description":"Created comprehensive administrator guide for SugarBPM, SugarCRM's business process management and workflow automation tool. Documented process design, automation rules, email templates, approval workflows, and system administration.","fullDescription":"Created comprehensive administrator guide for SugarBPM—SugarCRM's business process management and workflow automation tool. Documented process design, automation rules, email templates, approval workflows, and system administration. Wrote for technical administrators managing complex business processes.","skills":["Administrator-level technical writing","Business process documentation","Workflow documentation","System configuration writing"],"results":"Enabled administrators to successfully configure and manage automated business processes. Reduced support inquiries for BPM configuration.","link":"https://support.sugarcrm.com/smartlinks/administration_guide/sugarbpm/","tags":["Admin Docs","Technical Writing","SugarCRM"]},
-                    {"id":"status-tracking","title":"Admin tutorial: Tracking record status duration","projectType":"Tutorial, Technical How-To","description":"Created step-by-step tutorial showing administrators how to track and report on how long CRM records spend in each status (e.g., how long a sales opportunity stays in \"Negotiation\" stage).","fullDescription":"Created step-by-step tutorial showing administrators how to track and report on how long CRM records spend in each status (e.g., how long a sales opportunity stays in \"Negotiation\" stage). Included calculated fields, workflow automation, and reporting configuration.","skills":["Tutorial writing","Use case documentation","Step-by-step instruction","Configuration documentation"],"link":"https://support.sugarcrm.com/knowledge_base/sugarbpm/capturing_how_long_a_record_spends_in_each_status_using_sugarbpm/","results":"Provided customers with solution to common reporting need. Reduced support tickets for status duration tracking.","tags":["Admin Docs","Technical Writing","SugarCRM"]},
-                    {"id":"team-permissions","title":"Admin documentation: Permissions management","projectType":"Security Documentation, Permissions Documentation","description":"Documented SugarCRM's team-based security and permissions model. Explained how to create teams, assign users, configure role permissions, and implement data access controls.","fullDescription":"Documented SugarCRM's team-based security and permissions model. Explained how to create teams, assign users, configure role permissions, and implement data access controls. Critical for enterprises with complex organizational structures and security requirements.","link":"https://support.sugarcrm.com/smartlinks/administration_guide/team_management/","results":"Enabled administrators to correctly implement team-based security. Supported enterprise compliance requirements.","tags":["Security","Admin Docs","SugarCRM"]},
-                    {"id":"upsert-products","title":"Product descriptions: SugarCRM Marketplace addons","projectType":"Product Marketing, Technical Marketing Content","description":"Created product descriptions and technical marketing content for CRM enhancements sold on SugarCRM Marketplace. Wrote for both business decision-makers and technical administrators.","fullDescription":"Created product descriptions and technical marketing content for CRM enhancements sold on SugarCRM Marketplace. Wrote for both business decision-makers and technical administrators. Explained features, benefits, use cases, and technical requirements.","skills":["Product marketing writing","Technical marketing content","Multi-audience writing (business + technical)","Benefit-focused writing"],"results":"Supported product sales on SugarCRM Marketplace. Communicated value proposition to potential customers.","link":"https://upsertconsulting.com/#/plugins","tags":["Content Strategy","Marketing","SugarCRM"]},
-                    {"id":"wiki-refactor","title":"AWS service documentation wiki refactor","projectType":"Content Governance, Information Architecture","description":"Led comprehensive restructure of AWS Technical Content Experience wiki ecosystem serving 200+ writers. Designed standardized templates, editorial guidelines, and governance framework.","fullDescription":"Led comprehensive restructure of AWS Technical Content Experience wiki ecosystem serving 200+ writers. Designed standardized templates, editorial guidelines, and governance framework for org-wide content consistency. Managed 8-week, 4-workstream delivery plan with cross-functional team of 10 contributors. Optimized content architecture for AI-powered knowledge management.","skills":["Content governance at scale","Information architecture","Template and framework design","Program management","Cross-functional leadership","Change management"],"results":"Consistent structure across AWS doc org. Enables AI-powered discovery and content findability.","tags":["Content Strategy","Leadership","AWS"]},
-                    {"id":"ai-upskilling","title":"AWS documentation AI upskilling program","projectType":"Training Program, AI Tool Development","description":"Contributed to design and implementation of AI transformation program for 200+ AWS technical writers. Built internal GenAI tool for content creation and review—now has thousands of executions across AWS services.","fullDescription":"Contributed to design and implementation of AI transformation program for 200+ AWS technical writers. Built internal GenAI tool for content creation and review—now has thousands of executions across AWS services. Created organization-wide AI context files and training materials for content automation. Established best practices for AI-assisted writing workflows and quality assurance.","skills":["AI tool training and development","Organizational change management","Training material creation","Quality assurance framework","Best practices development","Scale thinking"],"results":"GenAI tool achieved thousands of uses across AWS services. Increased writer efficiency while maintaining quality standards. Established framework for responsible AI use in technical content.","tags":["AI/ML","Leadership","AWS"]},
-                    {"id":"task-migration","title":"AWS task management tool migration","projectType":"Process Improvement, Change Management","description":"Led pilot program transitioning AWS documentation intake from legacy SIM ticket system to modern Taskei platform. Analyzed feedback from 15+ service verticals.","fullDescription":"Led pilot program transitioning AWS documentation intake from legacy SIM ticket system to modern Taskei platform. Analyzed feedback from 15+ service verticals. Documented 40 data-driven recommendations for organization-wide rollout. Created comprehensive training materials and migration checklists.","skills":["Process analysis and improvement","Stakeholder feedback synthesis","Training material creation","Change management","Data-driven recommendations"],"results":"Reduced task processing overhead. Improved cross-team collaboration workflows. Recommendations informed organization-wide migration strategy.","tags":["Content Strategy","Leadership","AWS"]},
-                    {"id":"multi-company","title":"Multi-company documentation integration","projectType":"Content Consolidation, Change Management","description":"Managed documentation consolidation during 3 SugarCRM product acquisitions. Standardized content processes across 150+ annual releases and 20+ product versions.","fullDescription":"Managed documentation consolidation during 3 SugarCRM product acquisitions. Standardized content processes across 150+ annual releases and 20+ product versions. Integrated newly acquired product documentation into existing content ecosystem while maintaining quality and team morale.","skills":["M&A documentation management","Content standardization at scale","Process design","Team leadership","Quality management"],"results":"Maintained 100% team retention through 3 acquisitions. Successfully integrated all acquired product documentation. Reduced customer support case volume by 30% through strategic content improvements.","tags":["Content Strategy","Leadership","SugarCRM"]}
+                    { "id": "hbase-wal", "title": "Write-Ahead Logs (WAL) implementation guide", "projectType": "Feature Launch Documentation, CLI Reference", "description": "Created complete documentation suite for  HBase Write-Ahead Logs feature for Amazon EMR from scratch. WAL prevents data loss during system failures—a critical data protection capability.", "fullDescription": "Created complete documentation suite for Amazon EMR's HBase Write-Ahead Logs feature from scratch. WAL prevents data loss during system failures—a critical data protection capability. Worked with engineering to understand distributed database architecture and translated it into developer-friendly guides. Wrote step-by-step implementation docs, CLI reference, service-linked roles configuration, and troubleshooting scenarios.", "skills": ["Net-new feature documentation", "Complex technical concept explanation", "CLI documentation", "Decision tree design", "Troubleshooting content"], "results": "Launched simultaneously with feature. Became definitive resource for EMR WAL implementation. Enabled day-one customer adoption of critical data protection feature.", "link": "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-wal.html", "tags": ["Developer Docs", "Technical Writing", "AWS"] },
+                    { "id": "aurora-encryption", "title": "Data encryption for Amazon Aurora DSQL", "projectType": "Feature Documentation, Technical Writing", "description": "Created comprehensive documentation for Aurora DSQL's data encryption feature from launch. Worked directly with engineering team to understand encryption architecture, key management, and security model.", "fullDescription": "Created comprehensive documentation for Aurora DSQL's data encryption feature from launch. Worked directly with engineering team to understand encryption architecture, key management, and security model. Wrote developer guide explaining encryption at rest, in transit, and key rotation procedures. Included code examples and CLI reference.", "skills": ["Technical documentation for complex features", "Security and compliance documentation", "Developer audience writing", "Code sample creation", "Collaboration with engineering"], "results": "Launched with feature. Provided developers with clear guidance on implementing encryption correctly for compliance-sensitive workloads.", "link": "https://docs.aws.amazon.com/aurora-dsql/latest/userguide/data-encryption.html", "tags": ["Developer Docs", "Security", "AWS"] },
+                    { "id": "s3-access-grants", "title": "S3 Access Grants integration", "projectType": "Integration Documentation, API Documentation", "description": "Documented the integration between Amazon EMR and S3 Access Grants, enabling fine-grained access control for S3 data. Explained concepts, configuration steps, IAM permissions, and troubleshooting.", "fullDescription": "Documented the integration between Amazon EMR and S3 Access Grants, enabling fine-grained access control for S3 data. Explained concepts, configuration steps, IAM permissions, and troubleshooting. Created workflow diagrams (collaborated with visual designer on graphics) and code examples.", "skills": ["Integration documentation", "Cross-service technical writing", "Conceptual explanation", "Procedural documentation", "Collaboration with designers"], "results": "Enabled customers to implement advanced S3 access controls with EMR. Clear documentation reduced configuration errors.", "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-access-grants.html", "image": "projects/s3.png", "tags": ["Developer Docs", "API Documentation", "AWS"] },
+                    { "id": "service-linked-roles", "title": "Service-linked roles configuration", "projectType": "Security Documentation, Configuration Guide", "description": "Documented service-linked roles for Amazon EMR—IAM roles that are linked directly to AWS services. Explained when they're created, what permissions they include, how to edit them, and how to delete them.", "fullDescription": "Documented service-linked roles for Amazon EMR—IAM roles that are linked directly to AWS services. Explained when they're created, what permissions they include, how to edit them, and how to delete them. Critical for customers managing security and compliance.", "skills": ["Security and IAM documentation", "Permission and role documentation", "Audience-appropriate technical depth", "Procedural writing"], "results": "Provided clear guidance on IAM security model for EMR. Helped customers implement least-privilege access correctly.", "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/using-service-linked-roles-wal.html", "tags": ["Security", "Admin Docs", "AWS"] },
+                    { "id": "release-notes", "title": "Comprehensive release notes", "projectType": "Release Communication, Feature Documentation", "description": "Created detailed release notes for Amazon EMR releases, documenting new features, improvements, bug fixes, and known issues. Translated engineering changelogs into customer-friendly summaries.", "fullDescription": "Created detailed release notes for Amazon EMR releases, documenting new features, improvements, bug fixes, and known issues. Translated engineering changelogs into customer-friendly summaries with links to relevant documentation.", "skills": ["Release communication", "Technical summarization", "Customer-focused writing", "Cross-linking and information architecture"], "results": "Kept customers informed of product changes. Enabled quick assessment of release value and upgrade decisions.", "link": "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-7x.html", "tags": ["Developer Docs", "Technical Writing", "AWS"] },
+                    { "id": "wandb-tutorial", "title": "Content improvement: Weights & Biases machine-learning experiment tracking with PyTorch", "projectType": "Content Revision, Before/After Improvement", "description": "Revised existing tutorial on integrating Weights & Biases with PyTorch projects. Original content was technically accurate but verbose and difficult to follow.", "fullDescription": "Revised existing tutorial on integrating Weights & Biases with PyTorch projects. Original content was technically accurate but verbose and difficult to follow. Restructured for clarity, simplified language, improved code examples, and added clearer prerequisites and troubleshooting.", "skills": ["Content editing and improvement", "Tutorial writing", "Code example refinement", "Information architecture", "User-focused revision"], "results": "Improved tutorial comprehension and completion rates. Reduced user friction in adopting ML experiment tracking.", "link": "https://github.com/wandb/docs/pull/1385", "tags": ["Content Strategy", "Developer Docs", "AI/ML"] },
+                    { "id": "emr-console-redesign", "title": "Amazon EMR console redesign", "projectType": "UX writing for AWS Management Console", "description": "Led content design for the complete redesign of create/modify cluster workflows. Wrote all interface text including section titles, field labels, help panels, descriptions, radio button labels, and navigational elements.", "fullDescription": "Led content design for the complete redesign of Amazon EMR's cluster creation and modification workflows. Wrote all interface text including section titles, field labels, help panels, descriptions, radio button labels, and navigational elements. Collaborated with product designers through multiple Figma iterations, ensuring content aligned with CloudScape design system and AWS Style Guide standards for terminology, accessibility, and global audiences.", "skills": ["UX writing for complex technical workflows", "Cross-functional collaboration (design, engineering, product)", "Design system implementation (CloudScape)", "Progressive disclosure and information architecture", "Accessibility and inclusive language", "Writing for global/ESL audiences"], "results": "Launched with redesigned console. Improved clarity of cluster configuration process for millions of AWS developers. Reduced user errors through clearer labeling and contextual help.", "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/whats-new-in-console.html", "image": "projects/emr-console-thumb.png", "tags": ["UX Writing", "Design Systems", "AWS"] },
+                    { "id": "emr-error-messages", "title": "EMR error message standardization", "projectType": "Content Strategy, UX Writing", "description": "Led initiative to refactor the top 20 most-emitted Amazon EMR console errors. Worked with engineering to add a new plain-language ErrorMessage field to the error structure.", "fullDescription": "Led initiative to refactor the top 20 most-emitted Amazon EMR console errors. Worked with engineering to add a new plain-language ErrorMessage field to the error structure (previously only programmatic ErrorCode and ErrorData existed). Wrote customer-facing error messages and created corresponding troubleshooting resolution pages in the developer guide. Designed reusable error message framework adopted across EMR service.", "skills": ["Technical writing", "Error message design", "Self-service content strategy", "Cross-functional influence (changed product architecture)", "Reusable framework creation"], "results": "Transformed programmatic-only errors into actionable guidance. Enabled customers to self-resolve issues, reducing support case volume. Framework adopted as standard across EMR service for consistent, helpful error communication.", "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-troubleshoot-error-errordetail.html", "image": "projects/error-thumb.png", "tags": ["UX Writing", "Content Strategy", "AWS"] },
+                    { "id": "notebooks-workspaces", "title": "EMR Notebooks to Workspaces transition", "projectType": "UX Writing, Change Management", "description": "Wrote in-product guidance to educate users on major conceptual changes in the redesigned EMR Studio console. The product was shifting from a \"Notebooks\" model to a \"Workspaces\" model.", "fullDescription": "Wrote in-product guidance to educate users on major conceptual changes in the redesigned EMR Studio console. The product was shifting from a \"Notebooks\" model to a \"Workspaces\" model, requiring clear explanation of new concepts, migration paths, and updated workflows. Created content for landing page, action panels, and contextual help to support smooth transition.", "skills": ["Conceptual explanation", "Change management through content", "User education in-product", "Information design", "Action-oriented writing"], "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-migration.html", "results": "Enabled smooth migration from legacy console to new experience. Users could understand new model and take appropriate actions without requiring extensive support.", "image": "projects/notebooks.png", "tags": ["UX Writing", "Content Strategy", "AWS"] },
+                    { "id": "sugarbpm", "title": "SugarBPM administrator guide", "projectType": "Administrator Documentation, Business Process Documentation", "description": "Created comprehensive administrator guide for SugarBPM, SugarCRM's business process management and workflow automation tool. Documented process design, automation rules, email templates, approval workflows, and system administration.", "fullDescription": "Created comprehensive administrator guide for SugarBPM—SugarCRM's business process management and workflow automation tool. Documented process design, automation rules, email templates, approval workflows, and system administration. Wrote for technical administrators managing complex business processes.", "skills": ["Administrator-level technical writing", "Business process documentation", "Workflow documentation", "System configuration writing"], "results": "Enabled administrators to successfully configure and manage automated business processes. Reduced support inquiries for BPM configuration.", "link": "https://support.sugarcrm.com/smartlinks/administration_guide/sugarbpm/", "tags": ["Admin Docs", "Technical Writing", "SugarCRM"] },
+                    { "id": "status-tracking", "title": "Admin tutorial: Tracking record status duration", "projectType": "Tutorial, Technical How-To", "description": "Created step-by-step tutorial showing administrators how to track and report on how long CRM records spend in each status (e.g., how long a sales opportunity stays in \"Negotiation\" stage).", "fullDescription": "Created step-by-step tutorial showing administrators how to track and report on how long CRM records spend in each status (e.g., how long a sales opportunity stays in \"Negotiation\" stage). Included calculated fields, workflow automation, and reporting configuration.", "skills": ["Tutorial writing", "Use case documentation", "Step-by-step instruction", "Configuration documentation"], "link": "https://support.sugarcrm.com/knowledge_base/sugarbpm/capturing_how_long_a_record_spends_in_each_status_using_sugarbpm/", "results": "Provided customers with solution to common reporting need. Reduced support tickets for status duration tracking.", "tags": ["Admin Docs", "Technical Writing", "SugarCRM"] },
+                    { "id": "team-permissions", "title": "Admin documentation: Permissions management", "projectType": "Security Documentation, Permissions Documentation", "description": "Documented SugarCRM's team-based security and permissions model. Explained how to create teams, assign users, configure role permissions, and implement data access controls.", "fullDescription": "Documented SugarCRM's team-based security and permissions model. Explained how to create teams, assign users, configure role permissions, and implement data access controls. Critical for enterprises with complex organizational structures and security requirements.", "link": "https://support.sugarcrm.com/smartlinks/administration_guide/team_management/", "results": "Enabled administrators to correctly implement team-based security. Supported enterprise compliance requirements.", "tags": ["Security", "Admin Docs", "SugarCRM"] },
+                    { "id": "upsert-products", "title": "Product descriptions: SugarCRM Marketplace addons", "projectType": "Product Marketing, Technical Marketing Content", "description": "Created product descriptions and technical marketing content for CRM enhancements sold on SugarCRM Marketplace. Wrote for both business decision-makers and technical administrators.", "fullDescription": "Created product descriptions and technical marketing content for CRM enhancements sold on SugarCRM Marketplace. Wrote for both business decision-makers and technical administrators. Explained features, benefits, use cases, and technical requirements.", "skills": ["Product marketing writing", "Technical marketing content", "Multi-audience writing (business + technical)", "Benefit-focused writing"], "results": "Supported product sales on SugarCRM Marketplace. Communicated value proposition to potential customers.", "link": "https://upsertconsulting.com/#/plugins", "tags": ["Content Strategy", "Marketing", "SugarCRM"] },
+                    { "id": "wiki-refactor", "title": "AWS service documentation wiki refactor", "projectType": "Content Governance, Information Architecture", "description": "Led comprehensive restructure of AWS Technical Content Experience wiki ecosystem serving 200+ writers. Designed standardized templates, editorial guidelines, and governance framework.", "fullDescription": "Led comprehensive restructure of AWS Technical Content Experience wiki ecosystem serving 200+ writers. Designed standardized templates, editorial guidelines, and governance framework for org-wide content consistency. Managed 8-week, 4-workstream delivery plan with cross-functional team of 10 contributors. Optimized content architecture for AI-powered knowledge management.", "skills": ["Content governance at scale", "Information architecture", "Template and framework design", "Program management", "Cross-functional leadership", "Change management"], "results": "Consistent structure across AWS doc org. Enables AI-powered discovery and content findability.", "tags": ["Content Strategy", "Leadership", "AWS"] },
+                    { "id": "ai-upskilling", "title": "AWS documentation AI upskilling program", "projectType": "Training Program, AI Tool Development", "description": "Contributed to design and implementation of AI transformation program for 200+ AWS technical writers. Built internal GenAI tool for content creation and review—now has thousands of executions across AWS services.", "fullDescription": "Contributed to design and implementation of AI transformation program for 200+ AWS technical writers. Built internal GenAI tool for content creation and review—now has thousands of executions across AWS services. Created organization-wide AI context files and training materials for content automation. Established best practices for AI-assisted writing workflows and quality assurance.", "skills": ["AI tool training and development", "Organizational change management", "Training material creation", "Quality assurance framework", "Best practices development", "Scale thinking"], "results": "GenAI tool achieved thousands of uses across AWS services. Increased writer efficiency while maintaining quality standards. Established framework for responsible AI use in technical content.", "tags": ["AI/ML", "Leadership", "AWS"] },
+                    { "id": "task-migration", "title": "AWS task management tool migration", "projectType": "Process Improvement, Change Management", "description": "Led pilot program transitioning AWS documentation intake from legacy SIM ticket system to modern Taskei platform. Analyzed feedback from 15+ service verticals.", "fullDescription": "Led pilot program transitioning AWS documentation intake from legacy SIM ticket system to modern Taskei platform. Analyzed feedback from 15+ service verticals. Documented 40 data-driven recommendations for organization-wide rollout. Created comprehensive training materials and migration checklists.", "skills": ["Process analysis and improvement", "Stakeholder feedback synthesis", "Training material creation", "Change management", "Data-driven recommendations"], "results": "Reduced task processing overhead. Improved cross-team collaboration workflows. Recommendations informed organization-wide migration strategy.", "tags": ["Content Strategy", "Leadership", "AWS"] },
+                    { "id": "multi-company", "title": "Multi-company documentation integration", "projectType": "Content Consolidation, Change Management", "description": "Managed documentation consolidation during 3 SugarCRM product acquisitions. Standardized content processes across 150+ annual releases and 20+ product versions.", "fullDescription": "Managed documentation consolidation during 3 SugarCRM product acquisitions. Standardized content processes across 150+ annual releases and 20+ product versions. Integrated newly acquired product documentation into existing content ecosystem while maintaining quality and team morale.", "skills": ["M&A documentation management", "Content standardization at scale", "Process design", "Team leadership", "Quality management"], "results": "Maintained 100% team retention through 3 acquisitions. Successfully integrated all acquired product documentation. Reduced customer support case volume by 30% through strategic content improvements.", "tags": ["Content Strategy", "Leadership", "SugarCRM"] }
                 ];
 
                 function renderProjects(projects) {
@@ -3318,48 +3408,48 @@ and scaling documentation practices across AWS.`,
                         $grid.html('<p class="text-center">No projects found.</p>');
                         return;
                     }
-                    projects.forEach(function(p){
+                    projects.forEach(function (p) {
                         const $card = $(
-                            '<div class="project-card" data-project-id="'+p.id+'">'+
-                                '<div class="project-card-content">'+
-                                    '<div class="project-card-type">'+(p.projectType||'')+'</div>'+
-                                    '<h3 class="project-card-title">'+(p.title||'')+'</h3>'+
-                                    '<p class="project-card-description">'+(p.description||'')+'</p>'+
-                                    '<div class="project-card-tags">'+(p.tags? p.tags.map(t=>'<span class="project-tag">'+t+'</span>').join('') : '')+'</div>'+
-                                '</div>'+
+                            '<div class="project-card" data-project-id="' + p.id + '">' +
+                            '<div class="project-card-content">' +
+                            '<div class="project-card-type">' + (p.projectType || '') + '</div>' +
+                            '<h3 class="project-card-title">' + (p.title || '') + '</h3>' +
+                            '<p class="project-card-description">' + (p.description || '') + '</p>' +
+                            '<div class="project-card-tags">' + (p.tags ? p.tags.map(t => '<span class="project-tag">' + t + '</span>').join('') : '') + '</div>' +
+                            '</div>' +
                             '</div>'
                         );
                         $grid.append($card);
                     });
 
                     // Click handlers
-                    $('.project-card').on('click', function(){
+                    $('.project-card').on('click', function () {
                         const id = $(this).data('project-id');
-                        const project = PROJECTS_DATA.find(x=>x.id===id);
+                        const project = PROJECTS_DATA.find(x => x.id === id);
                         if (!project) return;
                         const hasImage = project.image && project.image.trim() !== '';
-                        const content = '<div class="project-detail-content">'+
-                            '<div class="project-detail-header">'+
-                                '<div class="project-detail-type">'+(project.projectType||'')+'</div>'+
-                                '<h2 class="project-detail-title">'+(project.title||'')+'</h2>'+
-                                '<div class="project-detail-tags">'+(project.tags? project.tags.map(t=>'<span class="project-tag">'+t+'</span>').join('') : '')+'</div>'+
-                            '</div>'+
-                            '<div class="project-detail-description-section '+(hasImage? 'has-image':'')+'">'+
-                                (hasImage? '<div class="project-detail-thumbnail"><img src="'+project.image+'" alt="'+project.title+'" class="project-thumbnail-img"></div>':'')+
-                                '<div class="project-detail-description"><p>'+ (project.fullDescription||project.description||'') +'</p></div>'+
-                            '</div>'+
-                            '<div class="project-detail-skills"><h4>Skills Demonstrated:</h4><ul>'+(project.skills? project.skills.map(s=>'<li>'+s+'</li>').join(''):'')+'</ul></div>'+
-                            '<div class="project-detail-results"><h4>Results/Impact:</h4><p>'+(project.results||'')+'</p></div>'+
-                            (project.link? '<div class="project-detail-link"><a href="'+project.link+'" target="_blank" class="btn btn-primary">View project</a></div>':'')+
-                        '</div>';
+                        const content = '<div class="project-detail-content">' +
+                            '<div class="project-detail-header">' +
+                            '<div class="project-detail-type">' + (project.projectType || '') + '</div>' +
+                            '<h2 class="project-detail-title">' + (project.title || '') + '</h2>' +
+                            '<div class="project-detail-tags">' + (project.tags ? project.tags.map(t => '<span class="project-tag">' + t + '</span>').join('') : '') + '</div>' +
+                            '</div>' +
+                            '<div class="project-detail-description-section ' + (hasImage ? 'has-image' : '') + '">' +
+                            (hasImage ? '<div class="project-detail-thumbnail"><img src="' + project.image + '" alt="' + project.title + '" class="project-thumbnail-img"></div>' : '') +
+                            '<div class="project-detail-description"><p>' + (project.fullDescription || project.description || '') + '</p></div>' +
+                            '</div>' +
+                            '<div class="project-detail-skills"><h4>Skills Demonstrated:</h4><ul>' + (project.skills ? project.skills.map(s => '<li>' + s + '</li>').join('') : '') + '</ul></div>' +
+                            '<div class="project-detail-results"><h4>Results/Impact:</h4><p>' + (project.results || '') + '</p></div>' +
+                            (project.link ? '<div class="project-detail-link"><a href="' + project.link + '" target="_blank" class="btn btn-primary">View project</a></div>' : '') +
+                            '</div>';
                         $('#projectModalBody').html(content);
                         $('#projectModal').addClass('active');
-                        $('body').css('overflow','hidden');
+                        $('body').css('overflow', 'hidden');
                     });
                 }
 
                 // Close modal
-                $(document).on('click', '#closeModal', function(e){ e.preventDefault(); $('#projectModal').removeClass('active'); $('body').css('overflow',''); });
+                $(document).on('click', '#closeModal', function (e) { e.preventDefault(); $('#projectModal').removeClass('active'); $('body').css('overflow', ''); });
 
                 // Extract unique tags from all projects
                 function getUniqueTags(projects) {
@@ -3379,21 +3469,21 @@ and scaling documentation practices across AWS.`,
                     const uniqueTags = getUniqueTags(projects);
                     const $filterContainer = $('#filterButtons');
                     $filterContainer.empty();
-                    
+
                     // Add "All projects" button
                     $filterContainer.append('<button class="filter-btn active" data-filter="all">All projects</button>');
-                    
+
                     // Add buttons for each unique tag
                     uniqueTags.forEach(tag => {
                         $filterContainer.append('<button class="filter-btn" data-filter="' + tag + '">' + tag + '</button>');
                     });
 
                     // Attach click handlers
-                    $('.filter-btn').on('click', function() {
+                    $('.filter-btn').on('click', function () {
                         const filterValue = $(this).data('filter');
                         $('.filter-btn').removeClass('active');
                         $(this).addClass('active');
-                        
+
                         let filteredProjects = PROJECTS_DATA;
                         if (filterValue !== 'all') {
                             filteredProjects = PROJECTS_DATA.filter(p => {
@@ -3405,13 +3495,14 @@ and scaling documentation practices across AWS.`,
                 }
 
                 // Initialize
-                $(function(){ 
+                $(function () {
                     initializeFilters(PROJECTS_DATA);
-                    renderProjects(PROJECTS_DATA); 
+                    renderProjects(PROJECTS_DATA);
                 });
 
             })(jQuery);
         }
     </script>
 </body>
+
 </html>
