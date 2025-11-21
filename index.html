@@ -815,7 +815,7 @@
             border: 2px solid var(--accent-highlight);
             border-right: none;
             border-radius: 12px 0 0 12px;
-            padding: var(--space-md) 12px;
+            padding: var(--space-md) var(--space-md);
             min-height: 150px;
             cursor: pointer;
             color: #ffffff;
@@ -1132,6 +1132,8 @@
             border-radius: 6px;
             overflow: hidden;
             border: 1px solid var(--border);
+            /* restored: use the smaller swatch padding so appearance matches previous layout */
+            padding: var(--space-sm);
             transition: var(--transition-fast);
             cursor: pointer;
             position: relative;
@@ -2464,10 +2466,6 @@
                                     authentication method. Before you upgrade, migrate to OAuth 2.0.</div>
                             </div>
                         </div>
-
-                    </div>
-
-
                     <div class="style-rule">
                         <div class="style-rule-header">Anticipate the next question</div>
                         <div class="style-example">
@@ -2476,11 +2474,9 @@
                             <div class="style-label do">✓ Do</div>
                             <div class="style-do">To improve performance, enable caching. If your data changes
                                 frequently, set <code>cache_ttl</code> to
-                                <code>60</code> seconds or less to prevent stale results.
+                                <code>60</code> seconds or less to prevent stale results.</div>
                             </div>
                         </div>
-                    </div>
-
                     <div class="style-rule">
                         <div class="style-rule-header">Trust technical competence</div>
                         <div class="style-example">
@@ -2493,8 +2489,6 @@
                                 replica. Use the secondary replica only for read operations.</div>
                         </div>
                     </div>
-
-
                     <div class="style-rule">
                         <div class="style-rule-header">Every word earns its place</div>
                         <div class="style-example">
@@ -3103,6 +3097,14 @@ and scaling documentation practices across AWS.`,
         // Style Guide Tab Switching
         const styleGuideTabs = document.querySelectorAll('.style-guide-tab');
         const styleGuideSections = document.querySelectorAll('.style-guide-section');
+        const styleGuideContent = document.querySelector('.style-guide-content');
+
+        function setStyleGuideContentVisibility(forTab) {
+            // Keep the wrapper visible for all tabs. Individual sections already
+            // toggle their own `.active` class to show/hide content.
+            if (!styleGuideContent) return;
+            styleGuideContent.style.display = '';
+        }
 
         styleGuideTabs.forEach(tab => {
             tab.addEventListener('click', () => {
@@ -3117,8 +3119,19 @@ and scaling documentation practices across AWS.`,
                         section.classList.add('active');
                     }
                 });
+
+                // Show or hide the surrounding `.style-guide-content` wrapper based on
+                // the selected tab. Keep syntax visible; hide for other tabs (e.g. colors).
+                setStyleGuideContentVisibility(targetTab);
             });
         });
+
+        // Initialize the wrapper visibility according to the currently active tab
+        (function initStyleGuideContent() {
+            const activeTab = document.querySelector('.style-guide-tab.active');
+            const current = activeTab ? activeTab.dataset.tab : 'syntax';
+            setStyleGuideContentVisibility(current);
+        })();
 
         // Sidebar Toggle Functionality
         const sidebarToggle = document.getElementById('sidebarToggle');
