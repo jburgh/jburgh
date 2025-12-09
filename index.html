@@ -600,7 +600,7 @@
         .terminal-input-line {
             display: flex;
             align-items: center;
-            gap: var(--space-sm);
+            gap: var(--space-xs);
             margin-top: var(--space-sm);
             padding: var(--space-sm) var(--space-md);
             background: rgba(0, 0, 0, 0.2);
@@ -2268,7 +2268,7 @@
                         I help developers <span class="highlight">succeed</span> through exceptional documentation
                     </h1>
                     <p class="hero-subtitle">
-                        Senior Documentation Manager at AWS. I lead teams, build AI-powered content tools, and create
+                        Senior Documentation Manager at AWS. I lead teams, build AI&#8209;powered content tools, and create
                         documentation that reduces time-to-first-success for millions of developers.
                     </p>
                     <div class="hero-meta">
@@ -2280,6 +2280,14 @@
                             <i data-lucide="briefcase"></i>
                             AWS
                         </div>
+                        <a href="https://github.com/jburgh" target="_blank" class="meta-item">
+                            <i data-lucide="github"></i>
+                            GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/jillshaheen" target="_blank" class="meta-item">
+                            <i data-lucide="linkedin"></i>
+                            LinkedIn
+                        </a>
                     </div>
                     <div class="hero-cta">
                         <a href="#work" class="btn btn-primary">
@@ -2396,12 +2404,11 @@
                 </div>
                 <div class="terminal-input-line">
                     <span class="terminal-prompt">$</span>
-                    <input type="text" class="terminal-input" id="terminalInput" placeholder="Type a command..."
-                        autocomplete="off">
                     <span class="terminal-cursor">_</span>
+                    <input type="text" class="terminal-input" id="terminalInput" placeholder="Type a command [skills, contact, experience, education, projects, help, clear]"
+                        autocomplete="off">
                 </div>
             </div>
-            <p class="terminal-hint">Try: skills, contact, experience, education, projects, help, or clear</p>
         </div>
     </section>
 
