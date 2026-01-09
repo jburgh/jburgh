@@ -41,6 +41,40 @@
 
       <p>Thanks for reading, and... docs, or it didn't happen!</p>
     </article>
+    <!-- Post navigation: previous / next (populated by JS using blog/index.html order) -->
+    <nav id="post-nav" style="margin-top:2rem;display:flex;justify-content:space-between;gap:1rem;align-items:center">
+      <div id="prev-post"></div>
+      <div id="post-nav-center" style="color:#94a3b8">&nbsp;</div>
+      <div id="next-post" style="text-align:right"></div>
+    </nav>
+    <script>
+      (async function(){
+        try{
+          const resp = await fetch('index.html');
+          if(!resp.ok) return;
+          const html = await resp.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html,'text/html');
+          const anchors = Array.from(doc.querySelectorAll('.post h2 a')).map(a=>({href:a.getAttribute('href'),title:a.textContent.trim()}));
+          const current = location.pathname.split('/').pop();
+          const idx = anchors.findIndex(a=>a.href === current || a.href === './'+current || a.href.endsWith('/'+current));
+          const prevEl = document.getElementById('prev-post');
+          const nextEl = document.getElementById('next-post');
+          if(idx>0){
+            const p = anchors[idx-1];
+            prevEl.innerHTML = '<a href="'+p.href+'">← '+p.title+'</a>';
+          }
+          if(idx>=0 && idx<anchors.length-1){
+            const n = anchors[idx+1];
+            nextEl.innerHTML = '<a href="'+n.href+'">'+n.title+' →</a>';
+          }
+          // hide nav if neither prev nor next
+          if(!prevEl.innerHTML && !nextEl.innerHTML){
+            document.getElementById('post-nav').style.display='none';
+          }
+        }catch(e){console.warn('post-nav load failed',e)}
+      })();
+    </script>
   </div>
 </body>
 </html>
