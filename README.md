@@ -1,4 +1,4 @@
-# Hi there 👋 I'm Jill Shaheen
+# Hi there 👋 I'm Jill 
 
 Technical writing leader | Content strategist | AI-powered documentation expert | 📍 Pittsburgh, PA
 
