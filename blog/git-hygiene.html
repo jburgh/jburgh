@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Git hygiene for technical writers: day one survival guide — Jill Shaheen</title>
+    <meta name="description"
+        content="A former direct report reached out last night: Any tips for someone starting a job that does docs as code? Here's what I learned through trial, error, and years of working with teams at AWS.">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent: #f59e0b;
+            --accent-hover: #fbbf24;
+            --border: #334155;
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --transition-fast: 150ms ease;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 80px 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        /* Navigation Header */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: var(--space-md) 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .nav-brand span {
+            color: var(--accent);
+        }
+
+        .nav-brand:hover {
+            color: var(--accent-hover);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* Mobile hamburger menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: var(--transition-fast);
+            display: block;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumb-separator {
+            color: var(--border);
+        }
+
+        /* Article Header */
+        article header {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 0 0 1rem;
+            color: var(--text-muted);
+            letter-spacing: -0.015em;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .meta-icon {
+            width: 18px;
+            height: 18px;
+            opacity: 0.7;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--bg-secondary);
+            color: var(--text-muted);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+
+        /* Article Content */
+        article p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        article p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        article h3,
+        article h4 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin: 2.5rem 0 1rem;
+            letter-spacing: -0.015em;
+        }
+
+        article h3 {
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+            scroll-margin-top: 100px;
+        }
+
+        article h4 {
+            font-size: 1.25rem;
+        }
+
+        article ul,
+        article ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        article li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        article ul.checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        article ul.checklist li {
+            padding-left: 1.75rem;
+            position: relative;
+        }
+
+        article ul.checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        article table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        article th {
+            text-align: left;
+            padding: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        article td {
+            padding: 1rem 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-secondary);
+        }
+
+        article hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        /* Post Navigation */
+        .post-nav {
+            margin: 4rem 0 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .post-nav-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .post-nav-item {
+            display: block;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .post-nav-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .post-nav-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-nav-title {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .post-nav-next {
+            text-align: right;
+        }
+
+        .post-nav-next .post-nav-label {
+            justify-content: flex-end;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-top: 2rem;
+            padding: 0.75rem 0;
+            transition: all 0.2s ease;
+        }
+
+        .back-to-blog:hover {
+            color: var(--accent);
+            gap: 0.75rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                border-bottom: 1px solid var(--border);
+                transform: translateY(-100%);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav-link {
+                padding: 0.75rem 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-link.active::after {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .post-nav-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .post-nav-next {
+                text-align: left;
+            }
+
+            .post-nav-next .post-nav-label {
+                justify-content: flex-start;
+            }
+
+            .breadcrumb {
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Reading Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--accent);
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
+        /* Article Feature Image */
+        article .feature-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2.5rem 0 2.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Code Blocks */
+        article pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        article pre code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Inline Code */
+        article code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            background: var(--bg-secondary);
+            color: var(--accent);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        article pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: var(--text-secondary);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand"  rel="noopener noreferrer">Jill <span>Shaheen</span></a>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/" class="nav-link"  rel="noopener noreferrer">Home</a></li>
+                <li><a href="/blog/index.html" class="nav-link active" rel="noopener noreferrer">Blog</a></li>
+                <li><a href="/#contact" class="nav-link" rel="noopener noreferrer">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">→</span>
+            <a href="index.html">Blog</a>
+            <span class="breadcrumb-separator">→</span>
+            <span>Article</span>
+        </nav>
+
+        <article>
+            <header>
+                <h1>Git hygiene for technical writers</h1>
+                <h2>Day one survival guide</h2>
+
+                <div class="article-meta">
+                    <div class="meta-item">
+                        <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <time datetime="2026-01-20">January 20, 2026</time>
+                    </div>
+                    <div class="meta-item">
+                        <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>12 min read</span>
+                    </div>
+                </div>
+
+                <div class="article-tags">
+                     <span class="tag">Git</span>
+                     <span class="tag">Docs as code</span>
+                     <span class="tag">Technical writing</span>
+                </div>
+
+            </header>
+            <p>A former colleague reached out last night: "Any tips for someone starting a job that does docs as code?" That first week in a Git-based documentation environment can feel overwhelming. Branches everywhere, merge conflicts appearing out of nowhere, and that nagging feeling you're about to break something important.</p>
+
+            <p>Here's what I learned through trial, error, and years of working with teams at AWS who'd been doing this far longer than I had.</p>
+
+            <img src="images/git-stream.png" alt="Illustration: Git workflow stream" class="feature-image">
+
+
+            <h3>Start with a cheat sheet, keep it forever</h3>
+
+            <p>The single best thing I did, and kept doing until my last day, was maintain a Git cheat sheet. Not a generic one from the internet. <em>Your</em> cheat sheet, with the exact commands you use in your specific environment.</p>
+
+            <p>Keep it open constantly. Update it every time you discover a better way to do something. You'll reference it daily at first, then weekly, then occasionally, but you'll never stop finding it useful.</p>
+
+            <p>Here's a starter template:</p>
+
+<pre><code># DAILY SETUP
+cd ~/projects/docs
+git fetch --all --prune
+git pull origin main
+
+# STARTING NEW WORK
+git checkout main
+git pull origin main
+git checkout -b js-descriptive-name
+
+# WORKING ON FEATURE BRANCH
+git add .
+git commit -m "[TICKET-123] Brief description of change"
+git push origin js-branch-name
+
+# SYNCING YOUR BRANCH WITH LATEST MAIN
+git checkout js-your-branch
+git fetch origin main
+git merge origin/main
+# resolve any conflicts, then:
+git add .
+git commit -m "Merge main into feature branch"
+
+# AFTER PR IS MERGED
+git checkout main
+git pull origin main
+git branch -d js-merged-branch
+git push origin --delete js-merged-branch
+
+# OH SHIT COMMANDS
+git reflog                    # Find lost commits
+git stash                     # Quick-save changes
+git stash pop                 # Restore stashed changes
+git reset --hard origin/main  # Nuclear option - start over
+git log --oneline --graph     # Visualize history</code></pre>
+
+            <h3>Automate your morning routine</h3>
+
+            <p>Identify the commands you type every single morning and put them in a script.</p>
+
+            <p>Mine looked like this:</p>
+
+<pre><code>cd ~/cloud-desktop
+bash daily.sh</code></pre>
+
+            <p>That script handled authentication, workspace sync, and pulling changes from remote. Five minutes of setup work that saved me from forgetting critical steps every morning. <a href="#sample-script">You can find a sample script here</a>.</p>
+
+            <h3>The five rules of Git hygiene</h3>
+
+            <p>These practices came from years of collective experience across our teams at AWS. Some learned from writers who'd been doing docs-as-code for decades, others from painful mistakes we made along the way. We documented them on our team wiki as onboarding material. New hires could read them before their first commit. We reinforced them in team meetings and 1-on-1s. Eventually, they became part of org-wide standardization.</p>
+
+            <p>They also prevent disasters.</p>
+
+            <h4>1. Never commit directly to main</h4>
+
+            <p>Always work on feature branches. Main should only receive changes through merged pull requests that have been reviewed.</p>
+
+            <p>This single rule prevents most catastrophic mistakes.</p>
+
+            <h4>2. Pull frequently, push infrequently</h4>
+
+            <p>Always be pulling from remote and merging into your feature branches. Do this at least weekly for idle branches. Do it throughout the day for active work.</p>
+
+            <p>The more often you pull and merge, the less likely you are to face massive conflicts.</p>
+
+            <p><strong>Why this matters:</strong> I once worked with a writer who let branches go stale for weeks. When merge conflicts appeared, they'd panic and blindly accept their changes over everyone else's. They deleted entire pages of content written by other team members. We worked extensively to build better habits, but when the same data loss happened again months later, we had to part ways.</p>
+
+            <h4>3. Resolve conflicts carefully</h4>
+
+            <p>When you see conflict markers in your file, stop and think:</p>
+
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (your changes)
+Configure IAM roles before enabling encryption.
+=======
+Enable encryption first, then configure IAM roles.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; main (their changes)</code></pre>
+
+            <p>Don't just delete one side. Ask yourself:</p>
+
+            <ul>
+                <li>What was I trying to accomplish?</li>
+                <li>What were they trying to accomplish?</li>
+                <li>Which version is technically correct?</li>
+                <li>Do both changes need to coexist somehow?</li>
+            </ul>
+
+            <p>When in doubt, talk to the other writer before resolving the conflict. Five minutes of conversation prevents hours of recovery work.</p>
+
+            <p>After resolving conflicts manually in your editor:</p>
+
+<pre><code>git add .
+git commit -m "Resolve merge conflict in security-setup.md"</code></pre>
+
+            <h4>4. Follow the pull request workflow</h4>
+
+            <p>The typical docs-as-code workflow looks like this:</p>
+
+            <p><strong>Create your feature branch:</strong></p>
+
+<pre><code>git checkout main
+git pull origin main
+git checkout -b js-new-feature</code></pre>
+
+            <p><strong>Do your work, commit frequently:</strong></p>
+
+<pre><code>git add .
+git commit -m "[DOC-1234] Add security configuration guide"
+git push origin js-new-feature</code></pre>
+
+            <p><strong>Open a pull request.</strong> If you're working with PRs, write a clear description of what changed and why.</p>
+
+            <p><strong>Address review feedback:</strong></p>
+
+<pre><code># Make requested changes
+git add .
+git commit -m "Address review feedback - clarify IAM setup"
+git push origin js-new-feature
+
+# PR automatically updates with new commits</code></pre>
+
+            <p><strong>After approval, merge.</strong> Most teams use "Squash and merge" or "Create a merge commit" depending on their preferences.</p>
+
+            <p><strong>Clean up immediately:</strong></p>
+
+<pre><code>git checkout main
+git pull origin main
+git branch -d js-new-feature
+git push origin --delete js-new-feature</code></pre>
+
+            <h4>5. Write searchable commit messages</h4>
+
+            <p>You will need to find that update that you made six months ago. Someone will ask "why did you make this change?"</p>
+
+            <p>Be specific. Use words you can see yourself searching for later. Include ticket numbers.</p>
+
+            <p><strong>Good commit messages:</strong></p>
+
+            <ul>
+                <li><code>[DOC-1234] Add troubleshooting guide for encryption errors</code></li>
+                <li><code>Fix broken links in security setup guide</code></li>
+                <li><code>Update IAM role examples to use new policy format per security team review</code></li>
+            </ul>
+
+            <p><strong>Bad commit messages:</strong></p>
+
+            <ul>
+                <li><code>changes for Joe</code></li>
+                <li><code>fix stuff</code></li>
+                <li><code>Ready for review</code></li>
+            </ul>
+
+            <p><strong>This is why I never adopted rebase.</strong> The argument for rebase is cleaner history (linear commits instead of merge noise). But I <em>like</em> that merge noise. I want to see the minutiae of commit history. Why take the time to write meaningful commit messages if you're going to squash them into some sanitized version of what actually happened?</p>
+
+            <h3>Small commits, clear names, quick cleanup</h3>
+
+            <p><strong>Commit often.</strong> Finished a section? Reorganized a list? Commit. Small commits keep messages concise and meaningful. They reduce merge conflict probability.</p>
+
+            <p><strong>Name branches well.</strong> Prefix with your initials. Use consistent conventions:</p>
+
+            <ul>
+                <li>Ticket numbers: <code>js-DOC1234</code></li>
+                <li>Plain language: <code>js-security-access-control</code></li>
+                <li>Hybrid: <code>js-DOC1234-security-access-control</code></li>
+            </ul>
+
+            <p><strong>Delete merged branches immediately.</strong> Stale branches clutter your workspace, trick you into thinking work is still in progress, and cause you to accidentally branch from the wrong starting point.</p>
+
+            <h3>It becomes muscle memory</h3>
+
+            <p>Once you get into a rhythm that works, these habits become automatic. They prevented data loss on my teams. They kept commit history complete. They made collaboration smoother.</p>
+
+            <p>The perfect workflow is the one you'll actually follow consistently.</p>
+
+            <h3>The learning curve is real</h3>
+
+            <p>This probably feels like a lot on day one. Save it somewhere. Re-read it periodically. It will keep making more sense.</p>
+
+            <p>The transition from traditional CMSs to docs-as-code requires a mindset shift. You're not just a writer anymore. Now you're managing version control, handling merge conflicts, thinking about how your change history will read six months from now. Your decisions affect everyone working in the same repository.</p>
+
+            <p>But once these habits become muscle memory, you'll wonder how you ever worked any other way.</p>
+
+            <p>Just don't let your branches go stale.</p>
+
+            <hr>
+
+            <h3 id="sample-script">Sample script</h3>
+
+            <p>Save this as <code>~/daily-git-setup.sh</code> and run it each morning:</p>
+
+<pre><code>#!/bin/bash
+# Daily Git setup script for technical writers
+
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+echo -e "${GREEN}Starting daily Git setup...${NC}\n"
+
+# Navigate to your docs repository
+cd ~/projects/docs || exit 1
+
+echo -e "${YELLOW}Fetching latest changes...${NC}"
+git fetch --all --prune
+
+echo -e "${YELLOW}Current branch:${NC}"
+git branch --show-current
+
+echo -e "${YELLOW}Cleaning up merged branches...${NC}"
+git branch --merged main | grep -v "main" | xargs -r git branch -d
+
+echo -e "${YELLOW}Your active branches:${NC}"
+git branch | grep "js-" || echo "No active branches found"
+
+echo -e "\n${GREEN}Setup complete!${NC}"</code></pre>
+
+            <p>Make it executable: <code>chmod +x ~/daily-git-setup.sh</code></p>
+
+            <p>Customize the <code>cd</code> path and the <code>grep "js-"</code> to match your initials.</p>
+
+            <p>(Optional) Create an alias in your shell config:</p>
+
+            <p>Add this line to your <code>~/.bashrc</code> or <code>~/.zshrc</code>:</p>
+
+            <pre><code>alias gitdaily="~/daily-git-setup.sh"</code></pre>
+
+            <p>Then you can just type:</p>
+
+            <pre><code>gitdaily</code></pre>
+
+            <hr>
+
+            <p><em>Have Git hygiene practices that saved you? I'd love to hear them. These are the habits that worked for me and my teams, but every environment teaches you something new.</em></p>
+
+</article>
+
+        <!-- Post navigation -->
+        <nav class="post-nav">
+            <div class="post-nav-grid">
+                <div id="prev-post"></div>
+                <div id="next-post"></div>
+            </div>
+        </nav>
+
+        <a href="index.html" class="back-to-blog" rel="noopener noreferrer">
+            <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to all posts
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = event.target.closest('.nav');
+            if (!isClickInsideNav && navLinks.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Reading progress bar
+        window.addEventListener('scroll', function () {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+
+        // Post navigation
+        (async function () {
+            try {
+                const resp = await fetch('index.html');
+                if (!resp.ok) return;
+                const html = await resp.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const anchors = Array.from(doc.querySelectorAll('.post-title a')).map(a => ({
+                    href: a.getAttribute('href'),
+                    title: a.textContent.trim()
+                }));
+                const current = location.pathname.split('/').pop();
+                const idx = anchors.findIndex(a => a.href === current || a.href === './' + current || a.href.endsWith('/' + current));
+
+                const prevEl = document.getElementById('prev-post');
+                const nextEl = document.getElementById('next-post');
+
+                if (idx > 0) {
+                    const p = anchors[idx - 1];
+                    prevEl.innerHTML = `
+                        <a href="${p.href}" class="post-nav-item post-nav-prev">
+                            <div class="post-nav-label">
+                                <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                                </svg>
+                                Previous
+                            </div>
+                            <div class="post-nav-title">${p.title}</div>
+                        </a>
+                    `;
+                }
+                if (idx >= 0 && idx < anchors.length - 1) {
+                    const n = anchors[idx + 1];
+                    nextEl.innerHTML = `
+                        <a href="${n.href}" class="post-nav-item post-nav-next">
+                            <div class="post-nav-label">
+                                Next
+                                <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </div>
+                            <div class="post-nav-title">${n.title}</div>
+                        </a>
+                    `;
+                }
+            } catch (e) {
+                console.warn('post-nav load failed', e);
+            }
+        })();
+    </script>
+</body>
+
+</html>
