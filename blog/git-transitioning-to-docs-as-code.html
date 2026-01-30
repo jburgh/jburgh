@@ -731,18 +731,26 @@ git pull origin main</code></pre>
 
 <p><strong>Best practice:</strong> Commit often with small, meaningful changes. Pull from main throughout the day to avoid nasty merge conflicts later. The more frequently you pull and merge, the easier conflicts are to resolve.</p>
 
-<h4>Afternoon: Get feedback (maybe)</h4>
+
+<h4>Afternoon: Get feedback</h4>
 
 <pre><code># Push your branch to the server
 git push origin js-add-authentication-docs</code></pre>
 
-<p>Here's where workflows vary widely. Some teams require pull requests (PRs, aka Change Requests or CRs) for every change. Others don't.</p>
+<p>This is the stage where you seek feedback from technical reviewers, editors, or peer writers. The process is often iterative:</p>
 
-<p><strong>My experience:</strong> Most writers in our org merged their own work without CR review. If you were the solo writer for your service package, you were trusted to merge directly. One team set up a CR workflow where writers reviewed each other's work, but that was the exception, not the rule.</p>
+<ol>
+    <li>Submit your changes for review (via pull request, change request, or shared branch).</li>
+    <li>Reviewers (tech leads, editors, or peers) provide comments, suggestions, or edits.</li>
+    <li>You incorporate their feedback, make revisions, and update your branch.</li>
+    <li>Repeat the review cycle as needed until all feedback is addressed and reviewers approve the changes.</li>
+</ol>
 
-<p>When an editor was involved, they'd pull down your working branch and create a new branch called something like <code>edit-your-branch-name</code> with editing markup that Oxygen could read. Then you'd merge their edits.</p>
+<p>Depending on your team, this may involve multiple rounds of feedback, especially for complex or high-visibility documentation. Editors may create a separate branch for markup, or leave inline comments in your pull request. Peer review is common in larger teams, while solo writers may self-review or rely on editor feedback.</p>
 
-<p><strong>What this means:</strong> Don't assume pull request review is mandatory everywhere. Ask about review workflows in interviews. Some places trust writers to self-review. Others require peer review for everything.</p>
+<p><strong>Best practice:</strong> Treat feedback as a collaborative process. Ask clarifying questions, discuss suggestions, and make sure all technical and editorial concerns are resolved before merging.</p>
+
+<p>Only after all feedback is incorporated and reviewers are satisfied should you proceed to merge and deploy your changes.</p>
 
 <h4>End of day: Merge and deploy</h4>
 
