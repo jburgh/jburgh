@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Transitioning to Docs as Code — Jill Shaheen</title>
+    <meta name="description"
+        content="A tech writer's field guide to Git workflows. What to expect when transitioning to docs-as-code, including tools, workflows, and tips for success.">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent: #f59e0b;
+            --accent-hover: #fbbf24;
+            --border: #334155;
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --transition-fast: 150ms ease;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 80px 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        /* Navigation Header */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: var(--space-md) 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .nav-brand span {
+            color: var(--accent);
+        }
+
+        .nav-brand:hover {
+            color: var(--accent-hover);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* Mobile hamburger menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: var(--transition-fast);
+            display: block;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumb-separator {
+            color: var(--border);
+        }
+
+        /* Article Header */
+        article header {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 0 0 1rem;
+            color: var(--text-muted);
+            letter-spacing: -0.015em;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .meta-icon {
+            width: 18px;
+            height: 18px;
+            opacity: 0.7;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--bg-secondary);
+            color: var(--text-muted);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+
+        /* Article Content */
+        article p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        article p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        article h3,
+        article h4 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin: 2.5rem 0 1rem;
+            letter-spacing: -0.015em;
+        }
+
+        article h3 {
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+            scroll-margin-top: 100px;
+        }
+
+        article h4 {
+            font-size: 1.25rem;
+        }
+
+        article ul,
+        article ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        article li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        article ul.checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        article ul.checklist li {
+            padding-left: 1.75rem;
+            position: relative;
+        }
+
+        article ul.checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        article table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        article th {
+            text-align: left;
+            padding: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        article td {
+            padding: 1rem 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-secondary);
+        }
+
+        article hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        /* Post Navigation */
+        .post-nav {
+            margin: 4rem 0 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .post-nav-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .post-nav-item {
+            display: block;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .post-nav-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .post-nav-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-nav-title {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .post-nav-next {
+            text-align: right;
+        }
+
+        .post-nav-next .post-nav-label {
+            justify-content: flex-end;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-top: 2rem;
+            padding: 0.75rem 0;
+            transition: all 0.2s ease;
+        }
+
+        .back-to-blog:hover {
+            color: var(--accent);
+            gap: 0.75rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                border-bottom: 1px solid var(--border);
+                transform: translateY(-100%);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav-link {
+                padding: 0.75rem 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-link.active::after {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .post-nav-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .post-nav-next {
+                text-align: left;
+            }
+
+            .post-nav-next .post-nav-label {
+                justify-content: flex-start;
+            }
+
+            .breadcrumb {
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Reading Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--accent);
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
+        /* Article Feature Image */
+        article .feature-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2.5rem 0 2.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Code Blocks */
+        article pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        article pre code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Inline Code */
+        article code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            background: var(--bg-secondary);
+            color: var(--accent);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        article pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: var(--text-secondary);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand"  rel="noopener noreferrer">Jill <span>Shaheen</span></a>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/" class="nav-link"  rel="noopener noreferrer">Home</a></li>
+                <li><a href="/blog/index.html" class="nav-link active" rel="noopener noreferrer">Blog</a></li>
+                <li><a href="/#contact" class="nav-link" rel="noopener noreferrer">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">→</span>
+            <a href="index.html">Blog</a>
+            <span class="breadcrumb-separator">→</span>
+            <span>Article</span>
+        </nav>
+
+        <article>
+                    <header>
+                        <h1>What to expect when you're expecting docs-as-code</h1>
+                        <h2>A tech writer's field guide to Git workflows</h2>
+
+                        <div class="article-meta">
+                            <div class="meta-item">
+                                <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <time datetime="2026-01-29">January 29, 2026</time>
+                            </div>
+                            <div class="meta-item">
+                                <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>12 min read</span>
+                            </div>
+                        </div>
+
+                        <div class="article-tags">
+                             <span class="tag">Git</span>
+                             <span class="tag">Docs as code</span>
+                             <span class="tag">Technical writing</span>
+                        </div>
+                    </header>
+
+
+                <p>Docs-as-code. Version control. Git workflows. Pull requests. CI/CD pipelines.</p>
+
+<p>If those terms make your stomach flip, you're not alone. Many technical writers worry they need to become developers to work in docs-as-code environments. They don't.</p>
+
+<p>Here's what docs-as-code actually means in practice and what your day will look like.</p>
+
+<img src="images/git-workflow.png" alt="Illustration: Git workflow for tech writers" class="feature-image">
+
+<h3>What docs-as-code means</h3>
+
+<p>Docs-as-code means treating documentation like software developers treat code:</p>
+
+<ul>
+    <li>Files live in version control (usually Git)</li>
+    <li>Changes go through review processes (pull requests)</li>
+    <li>Multiple people work on the same files simultaneously</li>
+    <li>Automated systems build and deploy your content</li>
+</ul>
+
+<p>That's it. You're learning developer workflows, not becoming a developer.</p>
+
+<p>What you get:</p>
+
+<ul>
+    <li>Complete change history (who changed what, when, and why)</li>
+    <li>The ability to work in parallel without stepping on each other</li>
+    <li>Automated quality checks before content goes live</li>
+    <li>Integration with the same systems engineers use</li>
+</ul>
+
+<h3>The toolchain: What you  need</h3>
+
+<h4>Required tools</h4>
+
+<p><strong>Git</strong> - Version control system that tracks changes to your files</p>
+<ul>
+    <li>Think of it as Track Changes on steroids</li>
+    <li>Works from command line or GUI tools</li>
+    <li>Stores complete history of every change</li>
+</ul>
+
+<p><strong>Text editor or IDE</strong> - Where you write</p>
+<ul>
+    <li>VS Code is popular (free, extensions for everything)</li>
+    <li>Oxygen XML Editor (powerful but pricey)</li>
+    <li>Atom, Sublime, IntelliJ, or whatever you like</li>
+    <li>Key feature: integration with Git</li>
+</ul>
+
+<p><strong>My experience:</strong>  I used Oxygen XML Editor at my job, which has built-in Git integration. You could commit, push, and pull right from the editor without touching the command line. Now that I'm exploring other companies' toolchains, I'm finding VS Code with extensions gives you similar functionality for free. The adjustment is mostly learning different keyboard shortcuts.</p>
+
+<p><strong>Markdown or similar</strong> - Lightweight markup language</p>
+<ul>
+    <li>Plain text with simple formatting codes</li>
+    <li><code>**bold**</code> becomes <strong>bold</strong></li>
+    <li><code># Heading</code> becomes a heading</li>
+    <li>Learn the basics in 30 minutes</li>
+</ul>
+
+<p><strong>XML (or similar structured markup)</strong> - More robust markup for complex documentation</p>
+<ul>
+    <li>DocBook XML is common for technical documentation</li>
+    <li>DITA (Darwin Information Typing Architecture) for modular content</li>
+    <li>Custom XML schemas specific to your company</li>
+    <li>More verbose than Markdown but handles complex structure better</li>
+</ul>
+
+<p><strong>My experience:</strong> My team used a customized version of DocBook XML, which Oxygen XML Editor handled beautifully. The verbosity takes getting used to after Markdown, but XML schemas enforce consistency and enable sophisticated content reuse. Many companies are moving toward Markdown for simplicity, but XML is still prevalent in enterprise documentation.</p>
+
+<h4>Common additional tools</h4>
+
+<p><strong>GitHub/GitLab/Bitbucket</strong> - Web platforms for Git repositories</p>
+<ul>
+    <li>Where your files live</li>
+    <li>Where you submit changes for review</li>
+    <li>Where you collaborate with team</li>
+    <li><strong>Note:</strong> Some companies use internal Git servers instead of public platforms</li>
+</ul>
+
+<p><strong>My experience:</strong> We had an internal Git farm (not GitHub), so everything lived behind the corporate firewall. The Git commands were identical, but the web interface was custom-built. Now I'm relearning GitHub-specific features like Actions, Projects, and the slightly different pull request workflow. The core concepts transfer completely. It's just the UI that's different.</p>
+
+<p><strong>Build tools</strong> - Systems that turn your source files into websites</p>
+<ul>
+    <li>Hugo, Jekyll, Sphinx, or custom systems</li>
+    <li>Usually configured by someone else</li>
+    <li>You just need to know basic commands</li>
+    <li><strong>Critical reality check:</strong> Some builds are fast (seconds), some are slow (hours)</li>
+</ul>
+
+<p><strong>My experience:</strong> We had a custom build system that could take hours to fully propagate changes to the public docs site. You'd push a change in the morning and check back after lunch to see if it appeared. This meant you couldn't iterate quickly. Every change required planning. Some companies have builds that complete in seconds. Ask about this in interviews. Build speed dramatically affects your workflow and stress levels.</p>
+
+<p><strong>Static site generators</strong> - Create websites from your Markdown</p>
+<ul>
+    <li>Convert your files to HTML</li>
+    <li>Apply styling automatically</li>
+    <li>Generate navigation and search</li>
+</ul>
+
+<h3>Your typical day: Actual workflow</h3>
+
+<p>Here's what working in docs-as-code actually looks like:</p>
+
+<h4>Morning: Sync and plan</h4>
+
+<pre><code># Update your local copy with latest changes
+git pull origin main
+
+# See what changed overnight
+git log --oneline --since="yesterday"</code></pre>
+
+<p>You're checking what your teammates changed while you slept. No different from checking email or Slack. Takes 30 seconds.</p>
+
+<h4>Mid-morning: Create your working branch</h4>
+
+<pre><code># Create a branch for your work
+git checkout -b js-add-authentication-docs</code></pre>
+
+<p>Branches let you work independently. You can make any changes you want without affecting anyone else. Your teammates do the same. When everyone's ready, you merge the changes together.</p>
+
+<p><strong>Branch naming tip:</strong> Prefix with your initials and use descriptive names like <code>js-add-authentication-docs</code> or <code>js-DOC1234-authentication</code>. You'll be juggling multiple branches, and good names help you find the right one quickly.</p>
+
+<h4>All day: Write and commit</h4>
+
+<pre><code>&lt;!-- You write in your text editor --&gt;
+&lt;!-- In Markdown: --&gt;
+# API Authentication
+
+To authenticate requests, include your API key in the header:
+
+`Authorization: Bearer YOUR_API_KEY`
+
+&lt;!-- Or in DocBook XML: --&gt;
+&lt;section xml:id="api-authentication"&gt;
+  &lt;title&gt;API Authentication&lt;/title&gt;
+  &lt;para&gt;To authenticate requests, include your API key in the header:&lt;/para&gt;
+  &lt;programlisting&gt;Authorization: Bearer YOUR_API_KEY&lt;/programlisting&gt;
+&lt;/section&gt;</code></pre>
+
+<pre><code># Save your changes periodically
+git add .
+git commit -m "Add authentication section to API docs"
+
+# Pull from main frequently to stay current
+git pull origin main</code></pre>
+
+<p>Committing is like saving versions of your Word doc, except each version has a description of what changed. You can always go back to any previous version.</p>
+
+<p><strong>Best practice:</strong> Commit often with small, meaningful changes. Pull from main throughout the day to avoid nasty merge conflicts later. The more frequently you pull and merge, the easier conflicts are to resolve.</p>
+
+<h4>Afternoon: Get feedback (maybe)</h4>
+
+<pre><code># Push your branch to the server
+git push origin js-add-authentication-docs</code></pre>
+
+<p>Here's where workflows vary widely. Some teams require pull requests (PRs, aka Change Requests or CRs) for every change. Others don't.</p>
+
+<p><strong>My experience:</strong> Most writers in our org merged their own work without CR review. If you were the solo writer for your service package, you were trusted to merge directly. One team set up a CR workflow where writers reviewed each other's work, but that was the exception, not the rule.</p>
+
+<p>When an editor was involved, they'd pull down your working branch and create a new branch called something like <code>edit-your-branch-name</code> with editing markup that Oxygen could read. Then you'd merge their edits.</p>
+
+<p><strong>What this means:</strong> Don't assume pull request review is mandatory everywhere. Ask about review workflows in interviews. Some places trust writers to self-review. Others require peer review for everything.</p>
+
+<h4>End of day: Merge and deploy</h4>
+
+<p>Once your work is ready, you merge your branch. Your changes go live.</p>
+
+<p>Automated systems:</p>
+<ul>
+    <li>Run quality checks</li>
+    <li>Build the documentation site</li>
+    <li>Deploy to production</li>
+</ul>
+
+<p>You watch it happen. You don't make it happen.</p>
+
+<p><strong>Important:</strong> Delete your branch immediately after merging, both locally and on the remote. Do it right then while you're thinking about it. Otherwise you'll accumulate dozens of stale branches cluttering your workspace.</p>
+
+<pre><code># After merge, delete the branch
+git branch -d js-add-authentication-docs
+git push origin --delete js-add-authentication-docs</code></pre>
+
+<h3>The learning curve: What gets easier</h3>
+
+<p><strong>Week 1:</strong> Everything feels awkward</p>
+<ul>
+    <li>You'll use cheat sheets constantly</li>
+    <li>Every command requires looking something up</li>
+    <li>You'll accidentally commit things you shouldn't</li>
+</ul>
+
+<p><strong>Month 1:</strong> Basic workflows become automatic</p>
+<ul>
+    <li>Clone, branch, commit, push feels natural</li>
+    <li>You stop panicking about merge conflicts</li>
+    <li>You can help newer teammates</li>
+</ul>
+
+<p><strong>Month 3:</strong> You're spotting efficiency gains</p>
+<ul>
+    <li>You know when to rebase vs. merge</li>
+    <li>You create aliases for common commands</li>
+    <li>You're suggesting workflow improvements</li>
+</ul>
+
+<p><strong>Month 6:</strong> You forget you were ever intimidated</p>
+<ul>
+    <li>Git becomes invisible infrastructure</li>
+    <li>You focus on content, not tools</li>
+    <li>You wonder how you ever worked without it</li>
+</ul>
+
+<p><strong>Navigation tip:</strong> Learn the repository structure early. Know where docs live vs. code.</p>
+
+
+<h3>Working with other writers: Collaboration patterns</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Pattern</th>
+            <th>Description</th>
+            <th>Works well when</th>
+            <th>Watch out for</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>File-level ownership</td>
+            <td>Each writer owns specific files. You rarely edit the same file simultaneously.</td>
+            <td>Documentation is modular and clearly divided.</td>
+            <td>Shared files like navigation or configuration.</td>
+        </tr>
+        <tr>
+            <td>Topic branches</td>
+            <td>Each feature or update gets its own branch. Multiple writers can work on different branches simultaneously.</td>
+            <td>Changes are independent and don't overlap.</td>
+            <td>Long-lived branches that diverge from main.</td>
+        </tr>
+        <tr>
+            <td>Self-merge (trust model)</td>
+            <td>Writers merge their own work without peer review. Common when writers are solo owners of their documentation packages.</td>
+            <td>Writers are experienced, documentation is clearly divided, and quality is maintained through other means (style guides, automated checks).</td>
+            <td>Errors that a second pair of eyes would catch. Consider occasional spot checks or retrospective reviews.</td>
+        </tr>
+        <tr>
+            <td>Editor branch workflow</td>
+            <td>When an editor is involved, they pull down your working branch and create a new branch with their edits (like <code>edit-your-branch-name</code>).</td>
+            <td>Your authoring tool supports editing markup (like Oxygen's track changes), and you want detailed editorial feedback.</td>
+            <td>Branch proliferation. Clean up edit branches after merging.</td>
+        </tr>
+        <tr>
+            <td>Review rotation</td>
+            <td>Writers review each other's pull requests on rotation.</td>
+            <td>Team size is 3-8 people and you want consistent peer accountability.</td>
+            <td>Review bottlenecks. Set expectations for response time.</td>
+        </tr>
+        <tr>
+            <td>Sync meetings</td>
+            <td>Quick daily or weekly syncs where everyone says what they're working on.</td>
+            <td>Prevents two people updating the same section without knowing.</td>
+            <td>Keep short: 15 minutes max. Just awareness, not detailed review.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>What success looks like</h3>
+
+<p>After three months in docs-as-code, you should:</p>
+
+<ul>
+    <li>Clone a repository without looking up commands</li>
+    <li>Create branches, commit changes, and push them confidently</li>
+    <li>Review pull requests and leave meaningful comments</li>
+    <li>Resolve simple merge conflicts independently</li>
+    <li>Know when to ask for help vs. Google it</li>
+</ul>
+
+<p>You won't know everything. Nobody does. Developers who've used Git for years still Google commands.</p>
+
+<p>The goal isn't Git expertise. The goal is comfortable productivity.</p>
+
+<h3>Making the transition</h3>
+
+<h4>If you're just starting</h4>
+
+<ol>
+    <li><strong>Install Git and a text editor</strong> (VS Code is fine)</li>
+    <li><strong>Take a GitHub Skills course</strong> (free, interactive, 30 minutes)</li>
+    <li><strong>Practice with a personal project</strong> before touching work files</li>
+    <li><strong>Ask teammates for their cheat sheets</strong> (everyone has them)</li>
+    <li><strong>Commit early and often</strong> (small commits are easier to understand)</li>
+</ol>
+
+<h4>If you're switching platforms</h4>
+
+<p>Moving from one docs-as-code system to another? Here's what I'm learning:</p>
+
+<ol>
+    <li><strong>Core Git skills transfer perfectly</strong> - commit, branch, merge, pull, push work identically</li>
+    <li><strong>Platform features don't transfer</strong> - GitHub Actions ≠ my old internal build triggers</li>
+    <li><strong>Give yourself grace</strong> - You're not starting over, but you are learning new tools</li>
+    <li><strong>Your editor might change</strong> - Oxygen → VS Code means relearning keyboard shortcuts</li>
+    <li><strong>Build times might shock you</strong> - Hours → seconds feels magical; seconds → hours feels painful</li>
+</ol>
+
+<p><strong>What I wish I'd known:</strong> When I started interviewing, I undersold my Git experience because I'd only used an internal system, not GitHub. That was a mistake. Git is Git. The commands are identical. I just needed to learn GitHub's UI, which took about a week.</p>
+
+<p><strong>Questions to ask:</strong> When interviewing at new companies, ask about their review process. "Do writers merge their own work or is peer review required?" and "How are edits handled?" These answers reveal team culture, trust levels, and your actual day-to-day workflow.</p>
+
+<h4>If you're struggling</h4>
+
+<ol>
+    <li><strong>You're not alone</strong> - Every writer goes through this</li>
+    <li><strong>GUI tools help</strong> - GitHub Desktop, Sourcetree, GitKraken make it visual</li>
+    <li><strong>Command line comes later</strong> - Start with GUI, graduate to terminal when ready</li>
+    <li><strong>Mistakes are recoverable</strong> - Almost nothing is permanent</li>
+    <li><strong>Your teammates want you to succeed</strong> - They've been exactly where you are</li>
+</ol>
+
+<h4>Resources that help</h4>
+
+<p><strong>For Git basics:</strong></p>
+<ul>
+    <li>GitHub Skills (interactive tutorials)</li>
+    <li>"Git for Humans" by David Demaree (book)</li>
+    <li>Oh Shit, Git!?! (ohshitgit.com) - fixes for common mistakes</li>
+</ul>
+
+<p><strong>For Markdown:</strong></p>
+<ul>
+    <li>Markdown Guide (markdownguide.org)</li>
+    <li>Your first draft (just start writing, look up syntax as needed)</li>
+</ul>
+
+<p><strong>For XML/DocBook:</strong></p>
+<ul>
+    <li>DocBook: The Definitive Guide (docbook.org)</li>
+    <li>Your company's schema documentation (every implementation is different)</li>
+    <li>Oxygen XML Editor tutorials (if you're using Oxygen)</li>
+</ul>
+
+<p><strong>For build tools:</strong></p>
+<ul>
+    <li>Your team's documentation (every system is different)</li>
+    <li>README.md in your repository (usually has setup instructions)</li>
+</ul>
+
+<h3>The benefit nobody talks about</h3>
+
+<p>Docs-as-code gives you one thing that traditional tools don't: <strong>evidence of your work</strong>.</p>
+
+<p>Your Git history becomes a portfolio. Every commit shows:</p>
+
+<ul>
+    <li>What you changed</li>
+    <li>Why you changed it</li>
+    <li>How it improved the docs</li>
+</ul>
+
+<p>When performance review comes, you have metrics. When you apply for your next job, you can point to real contributions in public repositories.</p>
+
+<p>Traditional docs tools hide this evidence. Docs-as-code makes it visible.</p>
+
+<h3>You've got this</h3>
+
+<p>Docs-as-code isn't about becoming a developer. It's about using developer tools to make collaboration easier and documentation better.</p>
+
+<p>The learning curve is real. But it's not steep. And the payoff (better collaboration, clearer history, automated quality checks) makes the investment worth it.</p>
+
+<p>Whether you're starting fresh, switching from traditional tools, or moving between docs-as-code platforms (like I am), the fundamentals stay the same. Git is Git. The platforms just wrap different features around it.</p>
+
+<p>Start small. Be patient with yourself. Ask questions.</p>
+
+<p>In six months, you'll wonder why anyone still uses anything else.</p>
+
+<p><strong>A note on platform switching:</strong> If you're experienced with one docs-as-code system and worried about learning another, don't be. I spent years in an internal ecosystem with Oxygen and custom build tools. Now I'm relearning GitHub. The Git commands are identical. I'm just learning different UI buttons and platform features. Your docs-as-code experience absolutely transfers. You're just learning a new interface on skills you already have.</p>
+
+<hr>
+
+<p><em>Looking for specific Git workflows for technical writers? Check out my post on <a href="git-hygiene.html">Git hygiene for technical writers</a> for the commands and workflows that make docs-as-code work.</em></p>
+
+                <div class="article-meta">
+                    <div class="meta-item">
+                        <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <time datetime="2026-01-29">January 29, 2026</time>
+                    </div>
+                    <div class="meta-item">
+                        <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>12 min read</span>
+                    </div>
+                </div>
+
+                <div class="article-tags">
+                     <span class="tag">Git</span>
+                     <span class="tag">Docs as code</span>
+                     <span class="tag">Technical writing</span>
+                </div>
+
+            </header>
+            
+
+
+</article>
+
+        <!-- Post navigation -->
+        <nav class="post-nav">
+            <div class="post-nav-grid">
+                <div id="prev-post"></div>
+                <div id="next-post"></div>
+            </div>
+        </nav>
+
+        <a href="index.html" class="back-to-blog" rel="noopener noreferrer">
+            <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to all posts
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = event.target.closest('.nav');
+            if (!isClickInsideNav && navLinks.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Reading progress bar
+        window.addEventListener('scroll', function () {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+
+        // Post navigation
+        (async function () {
+            try {
+                const resp = await fetch('index.html');
+                if (!resp.ok) return;
+                const html = await resp.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const anchors = Array.from(doc.querySelectorAll('.post-title a')).map(a => ({
+                    href: a.getAttribute('href'),
+                    title: a.textContent.trim()
+                }));
+                const current = location.pathname.split('/').pop();
+                const idx = anchors.findIndex(a => a.href === current || a.href === './' + current || a.href.endsWith('/' + current));
+
+                const prevEl = document.getElementById('prev-post');
+                const nextEl = document.getElementById('next-post');
+
+                if (idx > 0) {
+                    const p = anchors[idx - 1];
+                    prevEl.innerHTML = `
+                        <a href="${p.href}" class="post-nav-item post-nav-prev">
+                            <div class="post-nav-label">
+                                <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                                </svg>
+                                Previous
+                            </div>
+                            <div class="post-nav-title">${p.title}</div>
+                        </a>
+                    `;
+                }
+                if (idx >= 0 && idx < anchors.length - 1) {
+                    const n = anchors[idx + 1];
+                    nextEl.innerHTML = `
+                        <a href="${n.href}" class="post-nav-item post-nav-next">
+                            <div class="post-nav-label">
+                                Next
+                                <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </div>
+                            <div class="post-nav-title">${n.title}</div>
+                        </a>
+                    `;
+                }
+            } catch (e) {
+                console.warn('post-nav load failed', e);
+            }
+        })();
+    </script>
+</body>
+
+</html>
