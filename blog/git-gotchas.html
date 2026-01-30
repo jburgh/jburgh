@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Transitioning to Docs as Code — Jill Shaheen</title>
+    <title>Git gotchas for technical writers — Jill Shaheen</title>
     <meta name="description"
         content="A tech writer's field guide to Git workflows. What to expect when transitioning to docs-as-code, including tools, workflows, and tips for success.">
     <!-- Favicons -->
@@ -554,7 +554,7 @@
 
         <article>
                     <header>
-                        <h1>12 docs-as-code gotchas for technical writers</h1>
+                        <h1>8 docs-as-code gotchas for technical writers</h1>
                         <h2>And how to fix them before they break your build</h2>
 
                         <div class="article-meta">
@@ -563,7 +563,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
-                                <time datetime="2026-01-29">January 30, 2026</time>
+                                <time datetime="2026-01-30">January 30, 2026</time>
                             </div>
                             <div class="meta-item">
                                 <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -605,15 +605,55 @@
     <li><a href="#gotcha-8">Platform-specific features don't transfer</a></li>
 </ol>
 
-<h3 id="gotcha-1">Gotcha #1: The hidden .gitignore file</h3>
+    <h3 id="gotcha-1">The hidden <code>.gitignore</code> file</h3>
 
-<p>There's a file called <code>.gitignore</code> that tells Git what NOT to track. This file is invisible in most file browsers because it starts with a dot.</p>
+  <p>
+    <code>.gitignore</code> tells Git which files <strong>not to track or commit</strong>. In docs-as-code workflows, this usually includes generated build files, dependency folders, caches, logs, and local configuration files. These files are either machine-specific or automatically generated, so they don’t belong in version control.
+  </p>
 
-<p><strong>Why it matters:</strong> If your builds keep failing or files aren't appearing, check if they're listed in .gitignore.</p>
+  <p>
+    <strong>Why it matters:</strong> If a file isn’t showing up in <code>git status</code>, or a change seems to disappear, it may be intentionally ignored. This helps keep pull requests focused on real documentation changes and prevents accidental commits of noisy or sensitive files.
+  </p>
 
-<p><strong>How to see it:</strong> Use Command (⌘) + Shift + Period (.) in Finder on MacOS,  "Show hidden files" on Windows, or <code>ls -la</code> on Linux.</p>
+  <p>
+    <strong>Common examples in docs projects:</strong>
+  </p>
+  <ul>
+    <li>Build output folders like <code>/build</code>, <code>/site</code>, or <code>/public</code></li>
+    <li>Dependency folders like <code>node_modules</code></li>
+    <li>Temporary files, caches, and logs</li>
+    <li>Local environment files such as <code>.env</code></li>
+  </ul>
 
-<h3 id="gotcha-2">Gotcha #2: Your editor config matters</h3>
+  <h4>How to use it</h4>
+  <p>
+    You usually don’t need to create a <code>.gitignore</code> from scratch. Most repos include one already, tailored to the tools they use. As a tech writer, your job is to understand what it’s doing—not to fight it.
+  </p>
+  <ul>
+    <li>
+      If a file isn’t being tracked, check <code>.gitignore</code> before assuming Git is broken.
+    </li>
+    <li>
+      Don’t remove ignore rules just to “make Git see” a file—ask whether that file should really be committed.
+    </li>
+    <li>
+      When adding new tools (for example, a local preview server or build step), you may need to add new ignore rules for their generated files.
+    </li>
+  </ul>
+
+  <p>
+    <strong>Learn more:</strong>
+    <a href="https://git-scm.com/docs/gitignore" target="_blank" rel="noopener noreferrer">
+      Official Git documentation on <code>.gitignore</code>
+    </a>
+    and
+    <a href="https://github.com/github/gitignore" target="_blank" rel="noopener noreferrer">
+      GitHub’s collection of <code>.gitignore</code> templates
+    </a>
+    are excellent references when you’re unsure what should (or shouldn’t) be ignored.
+  </p>
+  
+  <h3 id="gotcha-2">Gotcha #2: Your editor config matters</h3>
 
 <p>Different editors have different defaults for tabs vs. spaces, file encoding, and line endings.</p>
 
@@ -757,7 +797,7 @@ npm run build
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
-                        <time datetime="2026-01-29">January 30, 2026</time>
+                        <time datetime="2026-01-30">January 30, 2026</time>
                     </div>
                     <div class="meta-item">
                         <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
