@@ -6,15 +6,25 @@
                 // Minimal subset of PROJECTS_DATA copied from external script
                 const PROJECTS_DATA = [
   {
-    "id": "nbs-guide-reorganization",
-    "title": "Guide reorganization: Restructuring 50 pages under active clearance review",
-    "projectType": "Content Strategy, Federal Documentation",
-    "description": "Redesigned a federal deployment guide's IA around audience intent instead of content type. Rewrote the clearance request to isolate structural changes from content changes, avoiding a full re-review of 50+ already-cleared pages.",
-    "fullDescription": "Redesigned a federal deployment guide's top-level structure around audience intent — evaluation, deployment, and maintenance — instead of the ad hoc, content-type structure it had grown into. Audited 50+ pages to decide what moved, merged, or split, then wrote the clearance request to separate structural changes from content changes so reviewers weren't re-reviewing already-cleared procedural text page by page. Produced a full URL redirect map for QA.",
-    "skills": ["Information architecture", "Federal clearance navigation", "Migration and QA planning"],
-    "results": "Approved with minimal review friction despite touching the majority of the guide. Unblocked a new decision-support chapter that had been waiting on a place to live, and gave future contributors a structure that scales instead of requiring another rebuild.",
+    "id": "nbs-phased-clearance",
+    "title": "Sequencing a guide rebuild around what clearance actually requires",
+    "projectType": "Content Strategy, Federal Clearance Strategy",
+    "description": "Split an inherited guide's rebuild into two clearance passes: a structural-only reorganization first, then a full content revision once structure was approved, avoiding a wasted clearance cycle on content already slated for rewrite.",
+    "fullDescription": "I inherited a guide with uncleared content from a previous contractor, and a new chapter (Before You Deploy) that needed a place to live. Rather than bundling structure and content into one clearance request, I split the work deliberately: first, a structural-only reorganization (new information architecture, front matter, and section naming) submitted for clearance without touching the actual procedural content, since that content was already slated for a full rewrite. Once the structure cleared, I followed with a complete content revision pass across the guide, correcting technical accuracy issues and bringing every page into compliance with federal content standards.",
+    "skills": ["Federal clearance strategy and sequencing", "Information architecture", "Large-scale technical and editorial revision"],
+    "results": "Avoided burning a clearance cycle on content that was about to be rewritten anyway, gave the incoming BYD chapter a home immediately instead of waiting on a full content overhaul first, and left the guide on a technically accurate, standards-compliant foundation for future work.",
     "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/",
     "tags": ["Content Strategy", "Technical Writing", "CDC/NBS"]
+  },
+  {
+    "id": "nbs-multicloud-deployment",
+    "title": "Rebuilding deployment documentation for a second cloud platform",
+    "projectType": "Developer Documentation, Platform Expansion",
+    "description": "Extended deployment documentation from AWS-only to AWS and Azure: a further structural pass plus a full content rewrite across the deployment chapter, including new quickstart guides and revised architecture documentation for both platforms.",
+    "fullDescription": "Working from the compliant baseline established in the prior clearance pass, I led a second, larger restructuring effort to extend deployment documentation from AWS-only to AWS and Azure. This meant a further structural pass to accommodate parallel deployment paths, combined with a full content rewrite across the deployment chapter: new quickstart guides for each platform, revised architecture documentation, and updated procedural content throughout.",
+    "skills": ["Multi-platform technical documentation", "Information architecture at scale", "Managing a large-scope documentation epic"],
+    "results": "Took the guide from supporting a single hosting path to supporting two, without duplicating content or forking the guide into separate tracks. State and local IT teams can now deploy on whichever platform fits their environment from one coherent source.",
+    "tags": ["Developer Docs", "Technical Writing", "CDC/NBS"]
   },
   {
     "id": "nbs-docs-as-code",
@@ -42,8 +52,8 @@
     "id": "nbs-compatibility-matrix",
     "title": "Compatibility matrix: Turning an inaccessible image into a source of truth",
     "projectType": "UX Writing, Accessibility",
-    "description": "Rebuilt a static, unlinkable compatibility reference as an accessible Markdown table, fixing two Section 508 violations — empty cells and unlabeled “X” marks — and making it the linkable source of truth.",
-    "fullDescription": "The canonical version-compatibility reference existed only as a static image in an internal Word doc — unlinkable, un-readable by screen readers, and out of date. Rebuilt it as a Markdown table living directly in the guide, resolving two concrete accessibility failures: empty cells with no explicit state, and “X” marks with no accessible equivalent. Verified current values with the technical SME before publishing.",
+    "description": "Rebuilt a static, unlinkable compatibility reference as an accessible Markdown table, fixing two Section 508 violations (empty cells and unlabeled “X” marks) and making it the linkable source of truth.",
+    "fullDescription": "The canonical version-compatibility reference existed only as a static image in an internal Word doc: unlinkable, un-readable by screen readers, and out of date. Rebuilt it as a Markdown table living directly in the guide, resolving two concrete accessibility failures: empty cells with no explicit state, and “X” marks with no accessible equivalent. Verified current values with the technical SME before publishing.",
     "skills": ["Section 508 / WCAG remediation", "Structured content design", "SME collaboration"],
     "results": "Became the single linkable source of truth for version compatibility across the guide and related release documentation, replacing a static image with an accessible, maintainable table.",
     "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/supported-versions.html",
@@ -54,7 +64,7 @@
     "title": "AI assistant design: Domain-aware tooling for a moving target",
     "projectType": "AI-Powered Documentation",
     "description": "Designed a structured AI knowledge system that survived a full platform migration, and rewrote a UX microcopy assistant that over-asked and under-delivered into one that defaults to a single clear recommendation.",
-    "fullDescription": "Designed two AI assistant systems: a structured project knowledge base capturing architecture rules, terminology, and stakeholder context that stayed current as the project evolved — and survived a full platform migration when a regulatory requirement forced a mid-project move — and a UX microcopy assistant rewritten to fix over-asking and indecisive output, so it defaulted to one clear recommendation instead of a menu of options.",
+    "fullDescription": "Designed two AI assistant systems. The first was a structured project knowledge base capturing architecture rules, terminology, and stakeholder context that stayed current as the project evolved, and that survived a full platform migration when a regulatory requirement forced a mid-project move. The second was a UX microcopy assistant, rewritten to fix over-asking and indecisive output so it defaulted to one clear recommendation instead of a menu of options.",
     "skills": ["AI system design and prompt engineering", "Instruction iteration from observed failure modes", "Knowledge management architecture"],
     "results": "The knowledge system cut ramp-up time on AI-assisted work across a project spanning clearance requirements and shifting technical architecture. The microcopy assistant went from needing constant correction to producing usable output by default.",
     "link": "https://partyrock.aws/u/jillshaheen/OE9I1Jj9K/NBS-7-UI-text-helper/",
@@ -65,7 +75,7 @@
     "title": "Preview pipeline: Automated staging for pre-clearance review",
     "projectType": "Developer Documentation, Tooling",
     "description": "Built a GitHub Actions workflow that auto-publishes content to a staging site on every push to a preview branch, letting federal reviewers see fully rendered pages instead of raw Markdown diffs.",
-    "fullDescription": "Content awaiting federal clearance can't go live, but stakeholders still need to review it as it will actually render — not as a Markdown diff. Built a GitHub Actions workflow that triggers on push to a preview branch, builds the site, and publishes it to a staging environment automatically, giving reviewers a fully navigable version of in-progress content.",
+    "fullDescription": "Content awaiting federal clearance can't go live, but stakeholders still need to review it as it will actually render, not as a Markdown diff. Built a GitHub Actions workflow that triggers on push to a preview branch, builds the site, and publishes it to a staging environment automatically, giving reviewers a fully navigable version of in-progress content.",
     "skills": ["CI/CD pipeline design", "Staging environment architecture", "Review workflow design"],
     "results": "Shifted stakeholder review from reading raw text changes to evaluating the guide as end users would experience it, catching rendering and navigation issues a diff view would miss entirely.",
     "link": "https://github.com/CDCgov/NEDSS-SystemAdminGuide/blob/main/.github/workflows/jekyll.yml",
@@ -100,6 +110,7 @@
     "fullDescription": "Drafted a site-wide glossary for the guide to serve as a durable acronym reference, reducing the need to spell out terms like HL7, API, and ELR on every page submitted for clearance. Midway through, CDC requested a significant rescope: all system-specific framing had to be removed so entries would stay accurate as the underlying system evolves. Ran a full pass across every entry to strip that framing, then added scope guidance to contributor docs to prevent the same drift in future edits. Also researched and implemented inline tooltip functionality in the Jekyll/Just the Docs theme, adapting an existing pattern to the site's structure and testing across browsers, so definitions surface without pulling readers off the page.",
     "skills": ["Glossary and reference design", "Custom JS/CSS implementation in a static site theme", "Scope management under stakeholder rescoping"],
     "results": "Delivered a durable, system-agnostic glossary now in clearance submission, plus inline tooltips that reduce cognitive load for readers without adding page weight or navigation steps.",
+    "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/glossary.html",
     "tags": ["Content Strategy", "UX Writing", "CDC/NBS"]
   },
   {
@@ -113,14 +124,14 @@
     "tags": ["Content Strategy", "Process Design", "Leadership", "CDC/NBS"]
   },
   {
-    "id": "nbs-internal-tooling",
-    "title": "Internal tooling: A text generator and a home for shared team resources",
-    "projectType": "AI-Powered Documentation, Team Enablement",
-    "description": "Designed a UI text generator for the team's content workflows and built an internal hub consolidating resources scattered across two separate systems into one place.",
-    "fullDescription": "Designed a UI text generator application to support the team's microcopy and content workflows, then built an internal project hub to consolidate resources that had been scattered across CDC SharePoint and a separate Skylight Google account into one accessible location. The hub hosts the text generator, the eClearance rubric, and links to key project materials.",
-    "skills": ["Internal tool design", "Information architecture for team resources", "Reducing fragmentation across disconnected systems"],
+    "id": "nbs-project-hub",
+    "title": "Internal project hub: One home for scattered team resources",
+    "projectType": "Team Enablement, Information Architecture",
+    "description": "Built an internal hub consolidating team resources that had been split across CDC SharePoint and a separate Skylight Google account, giving the team one discoverable place for shared tools and project materials.",
+    "fullDescription": "Team resources were split across CDC SharePoint and a separate Skylight Google account, so finding anything meant knowing which of two disconnected systems to check. I built an internal project hub to consolidate them into one accessible location, bringing together the UI text generator, the eClearance rubric, and links to key project materials under a single structure.",
+    "skills": ["Information architecture for team resources", "Internal tool design", "Reducing fragmentation across disconnected systems"],
     "results": "Gave the team a single, discoverable location for shared tools and materials that previously required knowing which of two separate systems to check, reducing friction for teammates trying to find what they needed.",
-    "tags": ["AI/ML", "Leadership", "CDC/NBS"]
+    "tags": ["Content Strategy", "Leadership", "CDC/NBS"]
   },
   {
     "id": "nbs-rds-backup-restore",
@@ -130,6 +141,7 @@
     "fullDescription": "Identified and closed a documented gap in the guide: state and local health department IT teams had no end-to-end guidance for the console steps required before an Amazon RDS backup or restore operation could succeed. Researched and wrote the procedure from scratch, added an AWS services reference section to the deployment page, corrected inaccurate entries in the existing provisioning table, and removed a troubleshooting callout that SME review confirmed was giving incorrect guidance.",
     "skills": ["Technical procedure writing", "Gap analysis and content auditing", "SME verification and correction"],
     "results": "Closed a real operational gap that had left IT teams without a path to complete a required task, and corrected existing content that was actively steering readers wrong.",
+    "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/maintain-nbs7/rds-backup-restore.html",
     "tags": ["AWS", "Technical Writing", "Developer Docs", "CDC/NBS"]
   },
                    { 
@@ -137,7 +149,7 @@
     "title": "Multi-version CMS: Eliminating maintenance overhead", 
     "projectType": "Documentation Systems, Content Infrastructure", 
     "description": "Built single-source CMS that auto-generates documentation across 4 editions and 15 versions. System remained in production four years after departure, preventing dead links and routing users to correct content.",
-    "fullDescription": "Designed custom CMS using SugarCRM to eliminate hours of redundant maintenance per release cycle. Built single-source system with conditional content divs that auto-generate all version/edition combinations. Created 'smart links' and persistent page jumper widget with cookie-based version detection for seamless navigation. System continues automatically routing users to correct documentation and preventing dead links from version deprecation—four years after implementation.", 
+    "fullDescription": "Designed custom CMS using SugarCRM to eliminate hours of redundant maintenance per release cycle. Built single-source system with conditional content divs that auto-generate all version/edition combinations. Created 'smart links' and persistent page jumper widget with cookie-based version detection for seamless navigation. System continues automatically routing users to correct documentation and preventing dead links from version deprecation, four years after implementation.", 
     "skills": ["Information architecture and CMS design", "Single-source content strategy", "User experience optimization", "System design and implementation"], 
     "results": "Eliminated hours of redundant maintenance per release cycle. Reduced content errors from manual duplication. System remains in production four years after departure.", 
     "link": "https://support.sugarcrm.com/documentation/", 
@@ -180,7 +192,7 @@
     "title": "HBase Write-Ahead Logs: Enabling day-one adoption", 
     "projectType": "Feature Launch Documentation", 
     "description": "Created complete documentation suite for HBase Write-Ahead Logs from scratch, launching simultaneously with feature. Became definitive resource for EMR WAL implementation.",
-    "fullDescription": "Created complete documentation suite for Amazon EMR's HBase Write-Ahead Logs feature from scratch. WAL prevents data loss during system failures—a critical data protection capability. Worked with engineering to understand distributed database architecture and translated it into developer-friendly guides. Wrote step-by-step implementation docs, CLI reference, service-linked roles configuration, and troubleshooting scenarios. Launched simultaneously with feature, enabling immediate customer adoption.", 
+    "fullDescription": "Created complete documentation suite for Amazon EMR's HBase Write-Ahead Logs feature from scratch. WAL prevents data loss during system failures, a critical data protection capability. Worked with engineering to understand distributed database architecture and translated it into developer-friendly guides. Wrote step-by-step implementation docs, CLI reference, service-linked roles configuration, and troubleshooting scenarios. Launched simultaneously with feature, enabling immediate customer adoption.", 
     "skills": ["Net-new feature documentation", "Complex technical concept explanation", "CLI documentation", "Decision tree design", "Troubleshooting content"], 
     "results": "Launched with feature. Became definitive resource for EMR WAL implementation. Enabled day-one customer adoption.", 
     "link": "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-wal.html", 
@@ -213,8 +225,8 @@
     "id": "service-linked-roles", 
     "title": "Service-linked roles: Implementing least-privilege access", 
     "projectType": "Security Documentation", 
-    "description": "Documented service-linked roles for EMR—critical for customers managing security and compliance. Provided clear guidance on IAM security model for correct least-privilege implementation.",
-    "fullDescription": "Documented service-linked roles for Amazon EMR—IAM roles linked directly to AWS services. Explained when they're created, what permissions they include, how to edit them, and how to delete them. Critical for customers managing security and compliance requirements. Provided clear guidance that helped customers implement least-privilege access correctly.", 
+    "description": "Documented service-linked roles for EMR, critical for customers managing security and compliance. Provided clear guidance on IAM security model for correct least-privilege implementation.",
+    "fullDescription": "Documented service-linked roles for Amazon EMR, the IAM roles linked directly to AWS services. Explained when they're created, what permissions they include, how to edit them, and how to delete them. Critical for customers managing security and compliance requirements. Provided clear guidance that helped customers implement least-privilege access correctly.", 
     "skills": ["Security and IAM documentation", "Permission and role documentation", "Audience-appropriate technical depth", "Procedural writing"], 
     "results": "Provided clear guidance on IAM security model. Helped customers implement least-privilege access correctly.", 
     "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/using-service-linked-roles-wal.html", 
@@ -237,7 +249,7 @@
     "title": "EMR error messages: Transforming cryptic errors into self-service resolution", 
     "projectType": "Content Strategy, UX Writing", 
     "description": "Led initiative to refactor top 20 EMR console errors. Changed product architecture to add plain-language messages. Reduced support case volume through actionable guidance.",
-    "fullDescription": "Led initiative to refactor the top 20 most-emitted Amazon EMR console errors. Worked with engineering to change error structure—adding new plain-language ErrorMessage field where previously only programmatic ErrorCode existed. Wrote customer-facing error messages and created corresponding troubleshooting pages. Designed reusable framework adopted across EMR service. Transformed cryptic errors into actionable guidance, enabling customers to self-resolve issues and reducing support case volume.", 
+    "fullDescription": "Led initiative to refactor the top 20 most-emitted Amazon EMR console errors. Worked with engineering to change error structure, adding a new plain-language ErrorMessage field where previously only programmatic ErrorCode existed. Wrote customer-facing error messages and created corresponding troubleshooting pages. Designed reusable framework adopted across EMR service. Transformed cryptic errors into actionable guidance, enabling customers to self-resolve issues and reducing support case volume.", 
     "skills": ["Error message design", "Self-service content strategy", "Cross-functional influence", "Reusable framework creation"], 
     "results": "Transformed cryptic errors into actionable guidance. Reduced support case volume. Framework adopted as standard across EMR service.", 
     "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-troubleshoot-error-errordetail.html", 
@@ -261,7 +273,7 @@
     "title": "AWS AI transformation: Changing workflows for 200+ writers", 
     "projectType": "AI Transformation, Training Program", 
     "description": "Contributed to AI transformation program for 200+ AWS writers. Built GenAI tool achieving thousands of executions. Increased writer efficiency while maintaining quality.",
-    "fullDescription": "Contributed to design and implementation of AI transformation program for 200+ AWS technical writers. Built internal GenAI tool for content creation and review—achieved thousands of executions across AWS services. Created organization-wide AI context files and training materials for content automation. Established best practices for AI-assisted writing workflows and quality assurance. Increased writer efficiency while maintaining quality standards and establishing framework for responsible AI use.", 
+    "fullDescription": "Contributed to design and implementation of AI transformation program for 200+ AWS technical writers. Built internal GenAI tool for content creation and review, achieving thousands of executions across AWS services. Created organization-wide AI context files and training materials for content automation. Established best practices for AI-assisted writing workflows and quality assurance. Increased writer efficiency while maintaining quality standards and establishing framework for responsible AI use.", 
     "skills": ["AI tool development", "Organizational change management", "Training material creation", "Quality assurance framework", "Best practices development"], 
     "results": "GenAI tool achieved thousands of uses. Increased writer efficiency while maintaining quality. Established framework for responsible AI use.", 
     "tags": ["AI/ML", "Leadership", "AWS"] 
@@ -333,7 +345,7 @@
     "title": "Team permissions documentation: Supporting enterprise compliance", 
     "projectType": "Security Documentation", 
     "description": "Documented SugarCRM's team-based security model. Enabled administrators to correctly implement team-based security for complex organizational structures.",
-    "fullDescription": "Documented SugarCRM's team-based security and permissions model. Explained how to create teams, assign users, configure role permissions, and implement data access controls—critical for enterprises with complex organizational structures and security requirements. Enabled administrators to correctly implement team-based security supporting enterprise compliance.", 
+    "fullDescription": "Documented SugarCRM's team-based security and permissions model. Explained how to create teams, assign users, configure role permissions, and implement data access controls. This is critical for enterprises with complex organizational structures and security requirements. Enabled administrators to correctly implement team-based security supporting enterprise compliance.", 
     "skills": ["Security and permissions documentation", "Enterprise documentation", "Technical procedural writing", "Conceptual explanation"], 
     "results": "Enabled correct team-based security implementation. Supported enterprise compliance requirements.", 
     "link": "https://support.sugarcrm.com/smartlinks/administration_guide/team_management/", 
@@ -409,7 +421,7 @@
                             '</div>' +
                             '<div class="project-detail-skills"><h4>Skills Demonstrated:</h4><ul>' + (project.skills ? project.skills.map(s => '<li>' + s + '</li>').join('') : '') + '</ul></div>' +
                             '<div class="project-detail-results"><h4>Results/Impact:</h4><p>' + (project.results || '') + '</p></div>' +
-                            (project.link ? '<div class="project-detail-link"><a href="' + project.link + '" target="_blank" class="btn btn-primary">View project</a></div>' : '') +
+                            (project.link ? '<div class="project-detail-link"><a href="' + project.link + '" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View project</a></div>' : '') +
                             '</div>';
                         $('#projectModalBody').html(content);
                         $('#projectModal').addClass('active');
