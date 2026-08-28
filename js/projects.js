@@ -6,6 +6,16 @@
                 // Minimal subset of PROJECTS_DATA copied from external script
                 const PROJECTS_DATA = [
   {
+    "id": "wiki-refactor", 
+    "title": "Knowledge platform transformation for self-service at scale", 
+    "projectType": "Platform Transformation, Content Governance, Information Architecture", 
+    "description": "Transformed platform serving 300 technical writers into self-service infrastructure for thousands of AWS engineers and product managers. Redesigned with persistent navigation, role-based guides, and embedded AI tools.",
+    "fullDescription": "Transformed AWS Technical Content Experience wiki from specialist platform serving 300 technical writers into self-service infrastructure for thousands of AWS engineers and product managers. Audited and restructured 2,000+ pages of content to remove writer-specific workflows, creating audience-agnostic resources for engineering and product teams. Redesigned complete platform with persistent navigation, role-based getting started guides, FAQs, and embedded single-job AI tools for non-writer users. Established new taxonomy structure, governance framework, and access controls ensuring platform sustainability. Implemented content lifecycle policies and maintenance schedule to prevent drift at scale. Managed 8-week, 4-workstream delivery with cross-functional team of 10 contributors.",
+    "skills": ["Platform transformation", "Audience transformation (specialist to generalist)", "Content governance at scale", "Information architecture", "Site redesign and UX", "AI tool integration", "Access control and permissions", "Program management", "Cross-functional leadership"], 
+    "results": "Enabled self-service documentation for thousands of AWS engineers and PMs. Established governance framework preventing drift at scale. Created sustainable platform for organization-wide use.", 
+    "tags": ["Content Strategy", "Leadership", "AWS", "Platform Engineering"] 
+  },
+  {
     "id": "nbs-phased-clearance",
     "title": "Sequencing a guide rebuild around what clearance actually requires",
     "projectType": "Content Strategy, Federal Clearance Strategy",
@@ -24,7 +34,40 @@
     "fullDescription": "Working from the compliant baseline established in the prior clearance pass, I led a second, larger restructuring effort to extend deployment documentation from AWS-only to AWS and Azure. This meant a further structural pass to accommodate parallel deployment paths, combined with a full content rewrite across the deployment chapter: new quickstart guides for each platform, revised architecture documentation, and updated procedural content throughout.",
     "skills": ["Multi-platform technical documentation", "Information architecture at scale", "Managing a large-scope documentation epic"],
     "results": "Took the guide from supporting a single hosting path to supporting two, without duplicating content or forking the guide into separate tracks. State and local IT teams can now deploy on whichever platform fits their environment from one coherent source.",
+    "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/deploy-nbs7/full-deploy.html",
     "tags": ["Developer Docs", "Technical Writing", "CDC/NBS"]
+  },
+  {
+    "id": "multi-version-cms", 
+    "title": "Multi-version CMS: Eliminating maintenance overhead", 
+    "projectType": "Documentation Systems, Content Infrastructure", 
+    "description": "Built single-source CMS that auto-generates documentation across 4 editions and 15 versions. System remained in production four years after departure, preventing dead links and routing users to correct content.",
+    "fullDescription": "Designed custom CMS using SugarCRM to eliminate hours of redundant maintenance per release cycle. Built single-source system with conditional content divs that auto-generate all version/edition combinations. Created 'smart links' and persistent page jumper widget with cookie-based version detection for seamless navigation. System continues automatically routing users to correct documentation and preventing dead links from version deprecation, four years after implementation.", 
+    "skills": ["Information architecture and CMS design", "Single-source content strategy", "User experience optimization", "System design and implementation"], 
+    "results": "Eliminated hours of redundant maintenance per release cycle. Reduced content errors from manual duplication. System remains in production four years after departure.", 
+    "link": "https://support.sugarcrm.com/documentation/", 
+    "tags": ["Technical Writing", "SugarCRM", "CMS Design", "Systems Architecture"] 
+  },
+  {
+    "id": "sugarcrm-release-management", 
+    "title": "Multi-version release management: Maintaining quality across 150 annual releases", 
+    "projectType": "Content Strategy, Release Management", 
+    "description": "Managed content strategy for 150+ annual releases across 24 concurrent versions at SugarCRM. Built reusable templates and governance frameworks that enabled team to scale without sacrificing quality.",
+    "fullDescription": "Managed content strategy for 150+ annual software releases (averaging 3 per week) across 24 concurrent product versions and 5 editions. Built reusable templates, version-specific workflows, and governance frameworks that maintained quality and consistency across complex product matrix. Established processes for version deprecation, feature parity tracking, and edition-specific content that reduced documentation overhead while improving customer experience. Maintained 100% team retention through sustained high-velocity release cycles.", 
+    "skills": ["Content strategy", "Release management", "Information architecture", "Version control systems", "Workflow design", "Content reuse patterns"], 
+    "results": "Maintained documentation quality across 24 versions while scaling to 150+ annual releases. Reduced customer confusion about version-specific features. Maintained 100% team retention.", 
+    "link": "https://support.sugarcrm.com/documentation", 
+    "tags": ["Content Strategy", "Technical Writing", "SugarCRM", "Process Design"] 
+  },
+  {
+    "id": "ai-upskilling", 
+    "title": "AWS AI transformation: Changing workflows for 200+ writers", 
+    "projectType": "AI Transformation, Training Program", 
+    "description": "Contributed to AI transformation program for 200+ AWS writers. Built GenAI tool achieving thousands of executions. Increased writer efficiency while maintaining quality.",
+    "fullDescription": "Contributed to design and implementation of AI transformation program for 200+ AWS technical writers. Built internal GenAI tool for content creation and review, achieving thousands of executions across AWS services. Created organization-wide AI context files and training materials for content automation. Established best practices for AI-assisted writing workflows and quality assurance. Increased writer efficiency while maintaining quality standards and establishing framework for responsible AI use.", 
+    "skills": ["AI tool development", "Organizational change management", "Training material creation", "Quality assurance framework", "Best practices development"], 
+    "results": "GenAI tool achieved thousands of uses. Increased writer efficiency while maintaining quality. Established framework for responsible AI use.", 
+    "tags": ["AI/ML", "Leadership", "AWS"] 
   },
   {
     "id": "nbs-docs-as-code",
@@ -38,37 +81,15 @@
     "tags": ["Developer Docs", "Automation", "CDC/NBS"]
   },
   {
-    "id": "nbs-decision-support",
-    "title": "Decision-support content: Writing through a mid-project model change",
-    "projectType": "Developer Documentation, Decision Support",
-    "description": "Wrote a jurisdiction-facing decision guide from scratch, then ran a full impact analysis across every page when CDC reframed two major components mid-project. Shipped under the new model without losing prior work.",
-    "fullDescription": "Wrote a decision-support chapter from scratch to help jurisdictions choose which system components to adopt and in what order. Midway through, CDC reframed two major components from optional up-front choices into sequential deployment phases. Ran a full impact analysis across every affected page, categorized rewrites by effort, and surfaced genuinely open decisions to stakeholders instead of guessing.",
-    "skills": ["Decision-support content design", "Cross-team impact analysis", "Writing for non-expert technical audiences"],
-    "results": "Shipped under the new model without restarting from scratch or losing prior work. The impact-tracking method became the standard approach for later content reframes on the same guide.",
-    "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/before-you-deploy.html",
-    "tags": ["Technical Writing", "Content Strategy", "CDC/NBS"]
-  },
-  {
-    "id": "nbs-compatibility-matrix",
-    "title": "Compatibility matrix: Turning an inaccessible image into a source of truth",
-    "projectType": "UX Writing, Accessibility",
-    "description": "Rebuilt a static, unlinkable compatibility reference as an accessible Markdown table, fixing two Section 508 violations (empty cells and unlabeled “X” marks) and making it the linkable source of truth.",
-    "fullDescription": "The canonical version-compatibility reference existed only as a static image in an internal Word doc: unlinkable, un-readable by screen readers, and out of date. Rebuilt it as a Markdown table living directly in the guide, resolving two concrete accessibility failures: empty cells with no explicit state, and “X” marks with no accessible equivalent. Verified current values with the technical SME before publishing.",
-    "skills": ["Section 508 / WCAG remediation", "Structured content design", "SME collaboration"],
-    "results": "Became the single linkable source of truth for version compatibility across the guide and related release documentation, replacing a static image with an accessible, maintainable table.",
-    "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/supported-versions.html",
-    "tags": ["UX Writing", "Technical Writing", "CDC/NBS"]
-  },
-  {
-    "id": "nbs-ai-assistants",
-    "title": "AI assistant design: Domain-aware tooling for a moving target",
-    "projectType": "AI-Powered Documentation",
-    "description": "Designed a structured AI knowledge system that survived a full platform migration, and rewrote a UX microcopy assistant that over-asked and under-delivered into one that defaults to a single clear recommendation.",
-    "fullDescription": "Designed two AI assistant systems. The first was a structured project knowledge base capturing architecture rules, terminology, and stakeholder context that stayed current as the project evolved, and that survived a full platform migration when a regulatory requirement forced a mid-project move. The second was a UX microcopy assistant, rewritten to fix over-asking and indecisive output so it defaulted to one clear recommendation instead of a menu of options.",
-    "skills": ["AI system design and prompt engineering", "Instruction iteration from observed failure modes", "Knowledge management architecture"],
-    "results": "The knowledge system cut ramp-up time on AI-assisted work across a project spanning clearance requirements and shifting technical architecture. The microcopy assistant went from needing constant correction to producing usable output by default.",
-    "link": "https://partyrock.aws/u/jillshaheen/OE9I1Jj9K/NBS-7-UI-text-helper/",
-    "tags": ["AI/ML", "Content Strategy", "CDC/NBS"]
+    "id": "release-notes", 
+    "title": "Release notes automation: Hours to one button click", 
+    "projectType": "Process Automation, Release Communication", 
+    "description": "Automated EMR release documentation using Python scripts that read manifests and populate XML templates. Reduced release documentation from hours of manual table updates to one button click.",
+    "fullDescription": "Automated EMR release documentation generation using Python scripts that read service team manifests and Apache Bigtop files. Created XML templates with entity-based content injection that eliminated manual data entry across multiple page types. Writers now only input custom content via standardized entities. Eliminated transcription errors and freed writers to focus on feature documentation rather than data entry.", 
+    "skills": ["Process automation and scripting", "Systems design and architecture", "Documentation infrastructure", "XML/entity-based content management"], 
+    "results": "Reduced release documentation from hours to single button click. Eliminated transcription errors. Freed writers for feature documentation.", 
+    "link": "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-7x.html", 
+    "tags": ["Developer Docs", "Technical Writing", "AWS", "Python", "Automation"] 
   },
   {
     "id": "nbs-preview-pipeline",
@@ -93,14 +114,73 @@
     "tags": ["Developer Docs", "Automation", "CDC/NBS"]
   },
   {
-    "id": "nbs-ga-day-tagging",
-    "title": "GA day: Catching a release-tagging gap before it broke every deploy instruction",
-    "projectType": "Content Strategy, Release Management, Cross-Team Coordination",
-    "description": "The guide's URLs depended on every repo sharing one version tag. On GA day, tags diverged and several repos had none at all. Tracked every gap against the live release in real time and pushed engineering to a consistent fix before publishing.",
-    "fullDescription": "The guide's deployment instructions were built on one assumption: every referenced repository would carry a matching version tag, driven by a single Liquid variable so each release only required a one-value change instead of a manual sweep across dozens of URLs. On GA day for 7.13, that assumption broke. Tag naming diverged across the release (v7.13.0 vs. v7.13.0-GA), several repositories had no release or tag at all, one had only a prerelease tag, and a build artifact the guide depended on wasn't published for the new version. I tracked every affected link against the live repo state in real time, flagged each blocker to the engineering team as it surfaced, and pushed for a consistent tagging decision across the full set of repositories rather than letting docs silently drift out of sync with what had actually shipped.",
-    "skills": ["Cross-team release coordination", "Real-time link and dependency auditing", "Advocating for documentation requirements in an engineering-led process"],
-    "results": "Identified and resolved gaps across roughly six repositories before publishing, preventing what would have been broken download links and missing build artifacts across the deployment guide. Without that intervention, the tag-consistency assumption the entire guide's URL system depended on would have failed silently on the first release it was tested against.",
-    "tags": ["Content Strategy", "Process Design", "CDC/NBS"]
+    "id": "nbs-ai-assistants",
+    "title": "AI assistant design: Domain-aware tooling for a moving target",
+    "projectType": "AI-Powered Documentation",
+    "description": "Designed a structured AI knowledge system that survived a full platform migration, and rewrote a UX microcopy assistant that over-asked and under-delivered into one that defaults to a single clear recommendation.",
+    "fullDescription": "Designed two AI assistant systems. The first was a structured project knowledge base capturing architecture rules, terminology, and stakeholder context that stayed current as the project evolved, and that survived a full platform migration when a regulatory requirement forced a mid-project move. The second was a UX microcopy assistant, rewritten to fix over-asking and indecisive output so it defaulted to one clear recommendation instead of a menu of options.",
+    "skills": ["AI system design and prompt engineering", "Instruction iteration from observed failure modes", "Knowledge management architecture"],
+    "results": "The knowledge system cut ramp-up time on AI-assisted work across a project spanning clearance requirements and shifting technical architecture. The microcopy assistant went from needing constant correction to producing usable output by default.",
+    "link": "https://partyrock.aws/u/jillshaheen/OE9I1Jj9K/NBS-7-UI-text-helper/",
+    "tags": ["AI/ML", "Content Strategy", "CDC/NBS"]
+  },
+  {
+    "id": "nbs-reference-pages",
+    "title": "Designing two reference pages from a vague ask and a broken source",
+    "projectType": "UX Writing, Accessibility, Design Systems",
+    "description": "Rebuilt an inaccessible compatibility matrix as a linkable table, then designed a release history page from scratch off a one-line ask: badges matched to the NBS UI, tooltips explaining each state, and a sitewide style sweep the design work surfaced.",
+    "fullDescription": "Rebuilt the version-compatibility matrix (previously a static, outdated Word doc image with empty cells and unlabeled “X” marks) as an accessible, linkable Markdown table. Designed the release history page from scratch off a one-line stakeholder ask, building a badge system matched to the NBS modernized UI, with tooltips explaining each support state and linking through to the compatibility matrix. The badge design surfaced UI inconsistencies elsewhere in the guide, prompting a full site-wide style sweep.",
+    "skills": ["Section 508 / WCAG remediation", "Original page and component design from ambiguous requirements", "Design system consistency (site-wide style sweep)"],
+    "results": "Replaced an inaccessible, unlinkable image with a source-of-truth table, and turned a one-line ask into a reusable badge-and-tooltip pattern that drove a sitewide UI consistency audit.",
+    "links": [{"label": "Compatibility matrix", "url": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/supported-versions.html"}, {"label": "Release history", "url": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/nbs7-introduction/release-history.html"}],
+    "tags": ["UX Writing", "Design Systems", "CDC/NBS"]
+  },
+  {
+    "id": "emr-console-redesign", 
+    "title": "EMR console redesign: Reducing user errors in cluster configuration", 
+    "projectType": "UX Writing for AWS Console", 
+    "description": "Led content design for complete EMR console redesign. Wrote all interface text for cluster creation/modification workflows serving millions of AWS developers.",
+    "fullDescription": "Led content design for complete redesign of Amazon EMR's cluster creation and modification workflows. Wrote all interface text including section titles, field labels, help panels, descriptions, and navigational elements. Collaborated with product designers through multiple Figma iterations, ensuring content aligned with CloudScape design system and AWS Style Guide standards. Improved clarity of cluster configuration process and reduced user errors through clearer labeling and contextual help.", 
+    "skills": ["UX writing for complex technical workflows", "Cross-functional collaboration", "Design system implementation (CloudScape)", "Progressive disclosure", "Accessibility and inclusive language"], 
+    "results": "Improved clarity for millions of AWS developers. Reduced user errors through clearer labeling and contextual help.", 
+    "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/whats-new-in-console.html", 
+    "image": "projects/emr-console-thumb.png", 
+    "tags": ["UX Writing", "Design Systems", "AWS"] 
+  },
+  {
+    "id": "emr-error-messages", 
+    "title": "EMR error messages: Transforming cryptic errors into self-service resolution", 
+    "projectType": "Content Strategy, UX Writing", 
+    "description": "Led initiative to refactor top 20 EMR console errors. Changed product architecture to add plain-language messages. Reduced support case volume through actionable guidance.",
+    "fullDescription": "Led initiative to refactor the top 20 most-emitted Amazon EMR console errors. Worked with engineering to change error structure, adding a new plain-language ErrorMessage field where previously only programmatic ErrorCode existed. Wrote customer-facing error messages and created corresponding troubleshooting pages. Designed reusable framework adopted across EMR service. Transformed cryptic errors into actionable guidance, enabling customers to self-resolve issues and reducing support case volume.", 
+    "skills": ["Error message design", "Self-service content strategy", "Cross-functional influence", "Reusable framework creation"], 
+    "results": "Transformed cryptic errors into actionable guidance. Reduced support case volume. Framework adopted as standard across EMR service.", 
+    "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-troubleshoot-error-errordetail.html", 
+    "image": "projects/error-thumb.png", 
+    "tags": ["UX Writing", "Content Strategy", "AWS"] 
+  },
+  {
+    "id": "notebooks-workspaces", 
+    "title": "Notebooks to Workspaces migration: Enabling smooth transition", 
+    "projectType": "UX Writing, Change Management", 
+    "description": "Wrote in-product guidance for major conceptual changes in EMR Studio console. Enabled smooth migration without extensive support burden.",
+    "fullDescription": "Wrote in-product guidance to educate users on major conceptual changes in redesigned EMR Studio console. The product shifted from 'Notebooks' model to 'Workspaces' model, requiring clear explanation of new concepts, migration paths, and updated workflows. Created content for landing page, action panels, and contextual help that enabled smooth migration without requiring extensive support.", 
+    "skills": ["Conceptual explanation", "Change management through content", "User education in-product", "Action-oriented writing"], 
+    "results": "Enabled smooth migration from legacy to new experience. Users understood new model without extensive support.", 
+    "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-migration.html", 
+    "image": "projects/notebooks.png", 
+    "tags": ["UX Writing", "Content Strategy", "AWS"] 
+  },
+  {
+    "id": "nbs-decision-support",
+    "title": "Decision-support content: Writing through a mid-project model change",
+    "projectType": "Developer Documentation, Decision Support",
+    "description": "Wrote a jurisdiction-facing decision guide from scratch, then ran a full impact analysis across every page when CDC reframed two major components mid-project. Shipped under the new model without losing prior work.",
+    "fullDescription": "Wrote a decision-support chapter from scratch to help jurisdictions choose which system components to adopt and in what order. Midway through, CDC reframed two major components from optional up-front choices into sequential deployment phases. Ran a full impact analysis across every affected page, categorized rewrites by effort, and surfaced genuinely open decisions to stakeholders instead of guessing.",
+    "skills": ["Decision-support content design", "Cross-team impact analysis", "Writing for non-expert technical audiences"],
+    "results": "Shipped under the new model without restarting from scratch or losing prior work. The impact-tracking method became the standard approach for later content reframes on the same guide.",
+    "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/before-you-deploy.html",
+    "tags": ["Technical Writing", "Content Strategy", "CDC/NBS"]
   },
   {
     "id": "nbs-site-glossary",
@@ -124,6 +204,16 @@
     "tags": ["Content Strategy", "Process Design", "Leadership", "CDC/NBS"]
   },
   {
+    "id": "nbs-ga-day-tagging",
+    "title": "GA day: Catching a release-tagging gap before it broke every deploy instruction",
+    "projectType": "Content Strategy, Release Management, Cross-Team Coordination",
+    "description": "The guide's URLs depended on every repo sharing one version tag. On GA day, tags diverged and several repos had none at all. Tracked every gap against the live release in real time and pushed engineering to a consistent fix before publishing.",
+    "fullDescription": "The guide's deployment instructions were built on one assumption: every referenced repository would carry a matching version tag, driven by a single Liquid variable so each release only required a one-value change instead of a manual sweep across dozens of URLs. On GA day for 7.13, that assumption broke. Tag naming diverged across the release (v7.13.0 vs. v7.13.0-GA), several repositories had no release or tag at all, one had only a prerelease tag, and a build artifact the guide depended on wasn't published for the new version. I tracked every affected link against the live repo state in real time, flagged each blocker to the engineering team as it surfaced, and pushed for a consistent tagging decision across the full set of repositories rather than letting docs silently drift out of sync with what had actually shipped.",
+    "skills": ["Cross-team release coordination", "Real-time link and dependency auditing", "Advocating for documentation requirements in an engineering-led process"],
+    "results": "Identified and resolved gaps across roughly six repositories before publishing, preventing what would have been broken download links and missing build artifacts across the deployment guide. Without that intervention, the tag-consistency assumption the entire guide's URL system depended on would have failed silently on the first release it was tested against.",
+    "tags": ["Content Strategy", "Process Design", "CDC/NBS"]
+  },
+  {
     "id": "nbs-project-hub",
     "title": "Internal project hub: One home for scattered team resources",
     "projectType": "Team Enablement, Information Architecture",
@@ -132,6 +222,71 @@
     "skills": ["Information architecture for team resources", "Internal tool design", "Reducing fragmentation across disconnected systems"],
     "results": "Gave the team a single, discoverable location for shared tools and materials that previously required knowing which of two separate systems to check, reducing friction for teammates trying to find what they needed.",
     "tags": ["Content Strategy", "Leadership", "CDC/NBS"]
+  },
+  {
+    "id": "task-migration", 
+    "title": "Task management migration: Reducing overhead across 15+ verticals", 
+    "projectType": "Process Improvement, Change Management", 
+    "description": "Led pilot transitioning AWS documentation intake from legacy system to modern platform. Analyzed feedback, documented 40 recommendations, improved collaboration workflows.",
+    "fullDescription": "Led pilot program transitioning AWS documentation intake from legacy SIM ticket system to modern Taskei platform. Analyzed feedback from 15+ service verticals and documented 40 data-driven recommendations for organization-wide rollout. Created comprehensive training materials and migration checklists. Reduced task processing overhead and improved cross-team collaboration workflows.", 
+    "skills": ["Process analysis and improvement", "Stakeholder feedback synthesis", "Training material creation", "Change management", "Data-driven recommendations"], 
+    "results": "Reduced task processing overhead. Improved cross-team collaboration. Recommendations informed org-wide migration.", 
+    "tags": ["Content Strategy", "Leadership", "AWS"] 
+  },
+  {
+    "id": "multi-company", 
+    "title": "Documentation consolidation: Maintaining quality through 3 acquisitions", 
+    "projectType": "Content Consolidation, Change Management", 
+    "description": "Managed documentation consolidation during 3 SugarCRM acquisitions. Standardized content across 150+ annual releases. Maintained 100% team retention while reducing support cases 30%.",
+    "fullDescription": "Managed documentation consolidation during 3 SugarCRM product acquisitions. Standardized content processes across 150+ annual releases and 20+ product versions. Integrated newly acquired product documentation into existing content ecosystem while maintaining quality and team morale. Maintained 100% team retention through 3 acquisitions and reduced customer support case volume by 30% through strategic content improvements.", 
+    "skills": ["M&A documentation management", "Content standardization at scale", "Process design", "Team leadership", "Quality management"], 
+    "results": "Maintained 100% team retention through 3 acquisitions. Integrated all acquired documentation. Reduced support cases 30%.", 
+    "tags": ["Content Strategy", "Leadership", "SugarCRM"] 
+  },
+  {
+    "id": "hbase-wal", 
+    "title": "HBase Write-Ahead Logs: Enabling day-one adoption", 
+    "projectType": "Feature Launch Documentation", 
+    "description": "Created complete documentation suite for HBase Write-Ahead Logs from scratch, launching simultaneously with feature. Became definitive resource for EMR WAL implementation.",
+    "fullDescription": "Created complete documentation suite for Amazon EMR's HBase Write-Ahead Logs feature from scratch. WAL prevents data loss during system failures, a critical data protection capability. Worked with engineering to understand distributed database architecture and translated it into developer-friendly guides. Wrote step-by-step implementation docs, CLI reference, service-linked roles configuration, and troubleshooting scenarios. Launched simultaneously with feature, enabling immediate customer adoption.", 
+    "skills": ["Net-new feature documentation", "Complex technical concept explanation", "CLI documentation", "Decision tree design", "Troubleshooting content"], 
+    "results": "Launched with feature. Became definitive resource for EMR WAL implementation. Enabled day-one customer adoption.", 
+    "link": "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-wal.html", 
+    "tags": ["Developer Docs", "Technical Writing", "AWS"] 
+  },
+  {
+    "id": "aurora-encryption", 
+    "title": "Aurora DSQL encryption: Supporting compliant implementations", 
+    "projectType": "Security Documentation", 
+    "description": "Documented Aurora DSQL encryption at launch. Provided developers clear guidance on implementing encryption correctly for compliance-sensitive workloads.",
+    "fullDescription": "Created comprehensive documentation for Aurora DSQL's data encryption feature from launch. Worked directly with engineering to understand encryption architecture, key management, and security model. Wrote developer guide explaining encryption at rest, in transit, and key rotation procedures. Included code examples and CLI reference that enabled developers to implement encryption correctly for compliance-sensitive workloads.", 
+    "skills": ["Security and compliance documentation", "Developer audience writing", "Code sample creation", "Collaboration with engineering"], 
+    "results": "Launched with feature. Provided developers clear guidance for compliance-sensitive workloads.", 
+    "link": "https://docs.aws.amazon.com/aurora-dsql/latest/userguide/data-encryption.html", 
+    "tags": ["Developer Docs", "Security", "AWS"] 
+  },
+  {
+    "id": "s3-access-grants", 
+    "title": "S3 Access Grants integration: Reducing configuration errors", 
+    "projectType": "Integration Documentation", 
+    "description": "Documented EMR and S3 Access Grants integration enabling fine-grained access control. Clear documentation reduced configuration errors for advanced security implementations.",
+    "fullDescription": "Documented the integration between Amazon EMR and S3 Access Grants, enabling fine-grained access control for S3 data. Explained concepts, configuration steps, IAM permissions, and troubleshooting. Created workflow diagrams (collaborated with visual designer) and code examples that enabled customers to implement advanced S3 access controls correctly.", 
+    "skills": ["Integration documentation", "Cross-service technical writing", "Conceptual explanation", "Procedural documentation"], 
+    "results": "Enabled customers to implement advanced S3 access controls with EMR. Reduced configuration errors.", 
+    "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-access-grants.html", 
+    "image": "projects/s3.png", 
+    "tags": ["Developer Docs", "API Documentation", "AWS"] 
+  },
+  {
+    "id": "service-linked-roles", 
+    "title": "Service-linked roles: Implementing least-privilege access", 
+    "projectType": "Security Documentation", 
+    "description": "Documented service-linked roles for EMR, critical for customers managing security and compliance. Provided clear guidance on IAM security model for correct least-privilege implementation.",
+    "fullDescription": "Documented service-linked roles for Amazon EMR, the IAM roles linked directly to AWS services. Explained when they're created, what permissions they include, how to edit them, and how to delete them. Critical for customers managing security and compliance requirements. Provided clear guidance that helped customers implement least-privilege access correctly.", 
+    "skills": ["Security and IAM documentation", "Permission and role documentation", "Audience-appropriate technical depth", "Procedural writing"], 
+    "results": "Provided clear guidance on IAM security model. Helped customers implement least-privilege access correctly.", 
+    "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/using-service-linked-roles-wal.html", 
+    "tags": ["Security", "Admin Docs", "AWS"] 
   },
   {
     "id": "nbs-rds-backup-restore",
@@ -144,141 +299,27 @@
     "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/maintain-nbs7/rds-backup-restore.html",
     "tags": ["AWS", "Technical Writing", "Developer Docs", "CDC/NBS"]
   },
-                   { 
-    "id": "multi-version-cms", 
-    "title": "Multi-version CMS: Eliminating maintenance overhead", 
-    "projectType": "Documentation Systems, Content Infrastructure", 
-    "description": "Built single-source CMS that auto-generates documentation across 4 editions and 15 versions. System remained in production four years after departure, preventing dead links and routing users to correct content.",
-    "fullDescription": "Designed custom CMS using SugarCRM to eliminate hours of redundant maintenance per release cycle. Built single-source system with conditional content divs that auto-generate all version/edition combinations. Created 'smart links' and persistent page jumper widget with cookie-based version detection for seamless navigation. System continues automatically routing users to correct documentation and preventing dead links from version deprecation, four years after implementation.", 
-    "skills": ["Information architecture and CMS design", "Single-source content strategy", "User experience optimization", "System design and implementation"], 
-    "results": "Eliminated hours of redundant maintenance per release cycle. Reduced content errors from manual duplication. System remains in production four years after departure.", 
-    "link": "https://support.sugarcrm.com/documentation/", 
-    "tags": ["Technical Writing", "SugarCRM", "CMS Design", "Systems Architecture"] 
+  {
+    "id": "aerotech-crm-implementation", 
+    "title": "Enterprise CRM implementation: Consolidating fragmented contact management", 
+    "projectType": "Systems Implementation, Change Management", 
+    "description": "Led end-to-end CRM implementation across 5 business segments. Migrated 70,000+ facilities and 100,000+ contacts. Achieved 90%+ adoption. System remained in production 10+ years.",
+    "fullDescription": "Led complete lifecycle of enterprise CRM implementation at Aerotech: evaluated and selected platform, designed custom system architecture for manufacturing workflows, migrated legacy data (70,000+ facilities, 100,000+ contacts), integrated service ticketing system documenting 10,000+ support inquiries. Managed vendor relationships, coordinated with consultant developers, administered ongoing maintenance. Achieved 90%+ user adoption across 5 global business segments. Successfully consolidated fragmented contact management into unified system. Integrated service ticketing reducing response time and improving case tracking. System remained in production 10+ years.", 
+    "skills": ["System architecture and design", "Legacy data migration", "Vendor management", "Change management at scale", "System administration"], 
+    "results": "Achieved 90%+ adoption across 5 segments. Consolidated fragmented contact management. System remained in production 10+ years.", 
+    "tags": ["Systems Architecture", "Admin Docs", "Leadership"] 
   },
-  { 
-    "id": "wiki-refactor", 
-    "title": "Knowledge platform transformation for self-service at scale", 
-    "projectType": "Platform Transformation, Content Governance, Information Architecture", 
-    "description": "Transformed platform serving 300 technical writers into self-service infrastructure for thousands of AWS engineers and product managers. Redesigned with persistent navigation, role-based guides, and embedded AI tools.",
-    "fullDescription": "Transformed AWS Technical Content Experience wiki from specialist platform serving 300 technical writers into self-service infrastructure for thousands of AWS engineers and product managers. Audited and restructured 2,000+ pages of content to remove writer-specific workflows, creating audience-agnostic resources for engineering and product teams. Redesigned complete platform with persistent navigation, role-based getting started guides, FAQs, and embedded single-job AI tools for non-writer users. Established new taxonomy structure, governance framework, and access controls ensuring platform sustainability. Implemented content lifecycle policies and maintenance schedule to prevent drift at scale. Managed 8-week, 4-workstream delivery with cross-functional team of 10 contributors.",
-    "skills": ["Platform transformation", "Audience transformation (specialist to generalist)", "Content governance at scale", "Information architecture", "Site redesign and UX", "AI tool integration", "Access control and permissions", "Program management", "Cross-functional leadership"], 
-    "results": "Enabled self-service documentation for thousands of AWS engineers and PMs. Established governance framework preventing drift at scale. Created sustainable platform for organization-wide use.", 
-    "tags": ["Content Strategy", "Leadership", "AWS", "Platform Engineering"] 
+  {
+    "id": "aerotech-crm-training", 
+    "title": "CRM training program: Maintaining 90%+ adoption over 7 years", 
+    "projectType": "Training Program, User Enablement", 
+    "description": "Created 7-year training program for 120+ global CRM users. Built integrated system with onboarding, refreshers, and change management campaigns that drove consistent feature adoption.",
+    "fullDescription": "Created enterprise-wide CRM training program at Aerotech encompassing initial rollout, new hire onboarding (1-on-1 sessions), annual refreshers, and ongoing enablement. Developed all training materials including user guides, video tutorials, quick reference cards, and process documentation. Implemented change management campaigns for feature launches using in-app tools (banners, news feeds), email campaigns, and webinars. Evangelized new features through promotional activities that drove feature adoption. Maintained 90%+ system adoption over 7 years while reducing support burden through self-sufficiency.", 
+    "skills": ["Training program design", "Video tutorial production", "Change management campaigns", "Internal marketing and evangelism", "Multi-format content delivery"], 
+    "results": "Maintained 90%+ adoption over 7 years. Ensured immediate new hire productivity. Drove consistent feature adoption. Reduced support burden.", 
+    "tags": ["Content Strategy", "Leadership", "End-User Docs"] 
   },
-    { 
-    "id": "release-notes", 
-    "title": "Release notes automation: Hours to one button click", 
-    "projectType": "Process Automation, Release Communication", 
-    "description": "Automated EMR release documentation using Python scripts that read manifests and populate XML templates. Reduced release documentation from hours of manual table updates to one button click.",
-    "fullDescription": "Automated EMR release documentation generation using Python scripts that read service team manifests and Apache Bigtop files. Created XML templates with entity-based content injection that eliminated manual data entry across multiple page types. Writers now only input custom content via standardized entities. Eliminated transcription errors and freed writers to focus on feature documentation rather than data entry.", 
-    "skills": ["Process automation and scripting", "Systems design and architecture", "Documentation infrastructure", "XML/entity-based content management"], 
-    "results": "Reduced release documentation from hours to single button click. Eliminated transcription errors. Freed writers for feature documentation.", 
-    "link": "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-7x.html", 
-    "tags": ["Developer Docs", "Technical Writing", "AWS", "Python", "Automation"] 
-  },
-  { 
-    "id": "sugarcrm-release-management", 
-    "title": "Multi-version release management: Maintaining quality across 150 annual releases", 
-    "projectType": "Content Strategy, Release Management", 
-    "description": "Managed content strategy for 150+ annual releases across 24 concurrent versions at SugarCRM. Built reusable templates and governance frameworks that enabled team to scale without sacrificing quality.",
-    "fullDescription": "Managed content strategy for 150+ annual software releases (averaging 3 per week) across 24 concurrent product versions and 5 editions. Built reusable templates, version-specific workflows, and governance frameworks that maintained quality and consistency across complex product matrix. Established processes for version deprecation, feature parity tracking, and edition-specific content that reduced documentation overhead while improving customer experience. Maintained 100% team retention through sustained high-velocity release cycles.", 
-    "skills": ["Content strategy", "Release management", "Information architecture", "Version control systems", "Workflow design", "Content reuse patterns"], 
-    "results": "Maintained documentation quality across 24 versions while scaling to 150+ annual releases. Reduced customer confusion about version-specific features. Maintained 100% team retention.", 
-    "link": "https://support.sugarcrm.com/documentation", 
-    "tags": ["Content Strategy", "Technical Writing", "SugarCRM", "Process Design"] 
-  },
-  { 
-    "id": "hbase-wal", 
-    "title": "HBase Write-Ahead Logs: Enabling day-one adoption", 
-    "projectType": "Feature Launch Documentation", 
-    "description": "Created complete documentation suite for HBase Write-Ahead Logs from scratch, launching simultaneously with feature. Became definitive resource for EMR WAL implementation.",
-    "fullDescription": "Created complete documentation suite for Amazon EMR's HBase Write-Ahead Logs feature from scratch. WAL prevents data loss during system failures, a critical data protection capability. Worked with engineering to understand distributed database architecture and translated it into developer-friendly guides. Wrote step-by-step implementation docs, CLI reference, service-linked roles configuration, and troubleshooting scenarios. Launched simultaneously with feature, enabling immediate customer adoption.", 
-    "skills": ["Net-new feature documentation", "Complex technical concept explanation", "CLI documentation", "Decision tree design", "Troubleshooting content"], 
-    "results": "Launched with feature. Became definitive resource for EMR WAL implementation. Enabled day-one customer adoption.", 
-    "link": "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-wal.html", 
-    "tags": ["Developer Docs", "Technical Writing", "AWS"] 
-  },
-  { 
-    "id": "aurora-encryption", 
-    "title": "Aurora DSQL encryption: Supporting compliant implementations", 
-    "projectType": "Security Documentation", 
-    "description": "Documented Aurora DSQL encryption at launch. Provided developers clear guidance on implementing encryption correctly for compliance-sensitive workloads.",
-    "fullDescription": "Created comprehensive documentation for Aurora DSQL's data encryption feature from launch. Worked directly with engineering to understand encryption architecture, key management, and security model. Wrote developer guide explaining encryption at rest, in transit, and key rotation procedures. Included code examples and CLI reference that enabled developers to implement encryption correctly for compliance-sensitive workloads.", 
-    "skills": ["Security and compliance documentation", "Developer audience writing", "Code sample creation", "Collaboration with engineering"], 
-    "results": "Launched with feature. Provided developers clear guidance for compliance-sensitive workloads.", 
-    "link": "https://docs.aws.amazon.com/aurora-dsql/latest/userguide/data-encryption.html", 
-    "tags": ["Developer Docs", "Security", "AWS"] 
-  },
-  { 
-    "id": "s3-access-grants", 
-    "title": "S3 Access Grants integration: Reducing configuration errors", 
-    "projectType": "Integration Documentation", 
-    "description": "Documented EMR and S3 Access Grants integration enabling fine-grained access control. Clear documentation reduced configuration errors for advanced security implementations.",
-    "fullDescription": "Documented the integration between Amazon EMR and S3 Access Grants, enabling fine-grained access control for S3 data. Explained concepts, configuration steps, IAM permissions, and troubleshooting. Created workflow diagrams (collaborated with visual designer) and code examples that enabled customers to implement advanced S3 access controls correctly.", 
-    "skills": ["Integration documentation", "Cross-service technical writing", "Conceptual explanation", "Procedural documentation"], 
-    "results": "Enabled customers to implement advanced S3 access controls with EMR. Reduced configuration errors.", 
-    "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-access-grants.html", 
-    "image": "projects/s3.png", 
-    "tags": ["Developer Docs", "API Documentation", "AWS"] 
-  },
-  { 
-    "id": "service-linked-roles", 
-    "title": "Service-linked roles: Implementing least-privilege access", 
-    "projectType": "Security Documentation", 
-    "description": "Documented service-linked roles for EMR, critical for customers managing security and compliance. Provided clear guidance on IAM security model for correct least-privilege implementation.",
-    "fullDescription": "Documented service-linked roles for Amazon EMR, the IAM roles linked directly to AWS services. Explained when they're created, what permissions they include, how to edit them, and how to delete them. Critical for customers managing security and compliance requirements. Provided clear guidance that helped customers implement least-privilege access correctly.", 
-    "skills": ["Security and IAM documentation", "Permission and role documentation", "Audience-appropriate technical depth", "Procedural writing"], 
-    "results": "Provided clear guidance on IAM security model. Helped customers implement least-privilege access correctly.", 
-    "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/using-service-linked-roles-wal.html", 
-    "tags": ["Security", "Admin Docs", "AWS"] 
-  },
-  { 
-    "id": "emr-console-redesign", 
-    "title": "EMR console redesign: Reducing user errors in cluster configuration", 
-    "projectType": "UX Writing for AWS Console", 
-    "description": "Led content design for complete EMR console redesign. Wrote all interface text for cluster creation/modification workflows serving millions of AWS developers.",
-    "fullDescription": "Led content design for complete redesign of Amazon EMR's cluster creation and modification workflows. Wrote all interface text including section titles, field labels, help panels, descriptions, and navigational elements. Collaborated with product designers through multiple Figma iterations, ensuring content aligned with CloudScape design system and AWS Style Guide standards. Improved clarity of cluster configuration process and reduced user errors through clearer labeling and contextual help.", 
-    "skills": ["UX writing for complex technical workflows", "Cross-functional collaboration", "Design system implementation (CloudScape)", "Progressive disclosure", "Accessibility and inclusive language"], 
-    "results": "Improved clarity for millions of AWS developers. Reduced user errors through clearer labeling and contextual help.", 
-    "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/whats-new-in-console.html", 
-    "image": "projects/emr-console-thumb.png", 
-    "tags": ["UX Writing", "Design Systems", "AWS"] 
-  },
-  { 
-    "id": "emr-error-messages", 
-    "title": "EMR error messages: Transforming cryptic errors into self-service resolution", 
-    "projectType": "Content Strategy, UX Writing", 
-    "description": "Led initiative to refactor top 20 EMR console errors. Changed product architecture to add plain-language messages. Reduced support case volume through actionable guidance.",
-    "fullDescription": "Led initiative to refactor the top 20 most-emitted Amazon EMR console errors. Worked with engineering to change error structure, adding a new plain-language ErrorMessage field where previously only programmatic ErrorCode existed. Wrote customer-facing error messages and created corresponding troubleshooting pages. Designed reusable framework adopted across EMR service. Transformed cryptic errors into actionable guidance, enabling customers to self-resolve issues and reducing support case volume.", 
-    "skills": ["Error message design", "Self-service content strategy", "Cross-functional influence", "Reusable framework creation"], 
-    "results": "Transformed cryptic errors into actionable guidance. Reduced support case volume. Framework adopted as standard across EMR service.", 
-    "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-troubleshoot-error-errordetail.html", 
-    "image": "projects/error-thumb.png", 
-    "tags": ["UX Writing", "Content Strategy", "AWS"] 
-  },
-  { 
-    "id": "notebooks-workspaces", 
-    "title": "Notebooks to Workspaces migration: Enabling smooth transition", 
-    "projectType": "UX Writing, Change Management", 
-    "description": "Wrote in-product guidance for major conceptual changes in EMR Studio console. Enabled smooth migration without extensive support burden.",
-    "fullDescription": "Wrote in-product guidance to educate users on major conceptual changes in redesigned EMR Studio console. The product shifted from 'Notebooks' model to 'Workspaces' model, requiring clear explanation of new concepts, migration paths, and updated workflows. Created content for landing page, action panels, and contextual help that enabled smooth migration without requiring extensive support.", 
-    "skills": ["Conceptual explanation", "Change management through content", "User education in-product", "Action-oriented writing"], 
-    "results": "Enabled smooth migration from legacy to new experience. Users understood new model without extensive support.", 
-    "link": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-migration.html", 
-    "image": "projects/notebooks.png", 
-    "tags": ["UX Writing", "Content Strategy", "AWS"] 
-  },
-  { 
-    "id": "ai-upskilling", 
-    "title": "AWS AI transformation: Changing workflows for 200+ writers", 
-    "projectType": "AI Transformation, Training Program", 
-    "description": "Contributed to AI transformation program for 200+ AWS writers. Built GenAI tool achieving thousands of executions. Increased writer efficiency while maintaining quality.",
-    "fullDescription": "Contributed to design and implementation of AI transformation program for 200+ AWS technical writers. Built internal GenAI tool for content creation and review, achieving thousands of executions across AWS services. Created organization-wide AI context files and training materials for content automation. Established best practices for AI-assisted writing workflows and quality assurance. Increased writer efficiency while maintaining quality standards and establishing framework for responsible AI use.", 
-    "skills": ["AI tool development", "Organizational change management", "Training material creation", "Quality assurance framework", "Best practices development"], 
-    "results": "GenAI tool achieved thousands of uses. Increased writer efficiency while maintaining quality. Established framework for responsible AI use.", 
-    "tags": ["AI/ML", "Leadership", "AWS"] 
-  },
-    { 
+  {
     "id": "wandb-tutorial", 
     "title": "Weights & Biases tutorial: Improving comprehension and completion", 
     "projectType": "Content Revision", 
@@ -289,47 +330,7 @@
     "link": "https://github.com/wandb/docs/pull/1385", 
     "tags": ["Content Strategy", "Developer Docs", "AI/ML"] 
   },
-  { 
-    "id": "task-migration", 
-    "title": "Task management migration: Reducing overhead across 15+ verticals", 
-    "projectType": "Process Improvement, Change Management", 
-    "description": "Led pilot transitioning AWS documentation intake from legacy system to modern platform. Analyzed feedback, documented 40 recommendations, improved collaboration workflows.",
-    "fullDescription": "Led pilot program transitioning AWS documentation intake from legacy SIM ticket system to modern Taskei platform. Analyzed feedback from 15+ service verticals and documented 40 data-driven recommendations for organization-wide rollout. Created comprehensive training materials and migration checklists. Reduced task processing overhead and improved cross-team collaboration workflows.", 
-    "skills": ["Process analysis and improvement", "Stakeholder feedback synthesis", "Training material creation", "Change management", "Data-driven recommendations"], 
-    "results": "Reduced task processing overhead. Improved cross-team collaboration. Recommendations informed org-wide migration.", 
-    "tags": ["Content Strategy", "Leadership", "AWS"] 
-  },
-  { 
-    "id": "multi-company", 
-    "title": "Documentation consolidation: Maintaining quality through 3 acquisitions", 
-    "projectType": "Content Consolidation, Change Management", 
-    "description": "Managed documentation consolidation during 3 SugarCRM acquisitions. Standardized content across 150+ annual releases. Maintained 100% team retention while reducing support cases 30%.",
-    "fullDescription": "Managed documentation consolidation during 3 SugarCRM product acquisitions. Standardized content processes across 150+ annual releases and 20+ product versions. Integrated newly acquired product documentation into existing content ecosystem while maintaining quality and team morale. Maintained 100% team retention through 3 acquisitions and reduced customer support case volume by 30% through strategic content improvements.", 
-    "skills": ["M&A documentation management", "Content standardization at scale", "Process design", "Team leadership", "Quality management"], 
-    "results": "Maintained 100% team retention through 3 acquisitions. Integrated all acquired documentation. Reduced support cases 30%.", 
-    "tags": ["Content Strategy", "Leadership", "SugarCRM"] 
-  },
-  { 
-    "id": "aerotech-crm-implementation", 
-    "title": "Enterprise CRM implementation: Consolidating fragmented contact management", 
-    "projectType": "Systems Implementation, Change Management", 
-    "description": "Led end-to-end CRM implementation across 5 business segments. Migrated 70,000+ facilities and 100,000+ contacts. Achieved 90%+ adoption. System remained in production 10+ years.",
-    "fullDescription": "Led complete lifecycle of enterprise CRM implementation at Aerotech: evaluated and selected platform, designed custom system architecture for manufacturing workflows, migrated legacy data (70,000+ facilities, 100,000+ contacts), integrated service ticketing system documenting 10,000+ support inquiries. Managed vendor relationships, coordinated with consultant developers, administered ongoing maintenance. Achieved 90%+ user adoption across 5 global business segments. Successfully consolidated fragmented contact management into unified system. Integrated service ticketing reducing response time and improving case tracking. System remained in production 10+ years.", 
-    "skills": ["System architecture and design", "Legacy data migration", "Vendor management", "Change management at scale", "System administration"], 
-    "results": "Achieved 90%+ adoption across 5 segments. Consolidated fragmented contact management. System remained in production 10+ years.", 
-    "tags": ["Systems Architecture", "Admin Docs", "Leadership"] 
-  },
-  { 
-    "id": "aerotech-crm-training", 
-    "title": "CRM training program: Maintaining 90%+ adoption over 7 years", 
-    "projectType": "Training Program, User Enablement", 
-    "description": "Created 7-year training program for 120+ global CRM users. Built integrated system with onboarding, refreshers, and change management campaigns that drove consistent feature adoption.",
-    "fullDescription": "Created enterprise-wide CRM training program at Aerotech encompassing initial rollout, new hire onboarding (1-on-1 sessions), annual refreshers, and ongoing enablement. Developed all training materials including user guides, video tutorials, quick reference cards, and process documentation. Implemented change management campaigns for feature launches using in-app tools (banners, news feeds), email campaigns, and webinars. Evangelized new features through promotional activities that drove feature adoption. Maintained 90%+ system adoption over 7 years while reducing support burden through self-sufficiency.", 
-    "skills": ["Training program design", "Video tutorial production", "Change management campaigns", "Internal marketing and evangelism", "Multi-format content delivery"], 
-    "results": "Maintained 90%+ adoption over 7 years. Ensured immediate new hire productivity. Drove consistent feature adoption. Reduced support burden.", 
-    "tags": ["Content Strategy", "Leadership", "End-User Docs"] 
-  },
-  { 
+  {
     "id": "sugarbpm", 
     "title": "SugarBPM administrator guide: Enabling successful process configuration", 
     "projectType": "Administrator Documentation", 
@@ -340,7 +341,7 @@
     "link": "https://support.sugarcrm.com/smartlinks/administration_guide/sugarbpm/", 
     "tags": ["Admin Docs", "Technical Writing", "SugarCRM"] 
   },
-  { 
+  {
     "id": "team-permissions", 
     "title": "Team permissions documentation: Supporting enterprise compliance", 
     "projectType": "Security Documentation", 
@@ -351,7 +352,7 @@
     "link": "https://support.sugarcrm.com/smartlinks/administration_guide/team_management/", 
     "tags": ["Security", "Admin Docs", "SugarCRM"] 
   },
-  { 
+  {
     "id": "status-tracking", 
     "title": "Status duration tracking tutorial: Solving common reporting need", 
     "projectType": "Tutorial", 
@@ -362,7 +363,7 @@
     "link": "https://support.sugarcrm.com/knowledge_base/sugarbpm/capturing_how_long_a_record_spends_in_each_status_using_sugarbpm/", 
     "tags": ["Admin Docs", "Technical Writing", "SugarCRM"] 
   },
-  { 
+  {
     "id": "upsert-products", 
     "title": "Marketplace product descriptions: Supporting sales through clear value communication", 
     "projectType": "Product Marketing", 
@@ -372,7 +373,8 @@
     "results": "Supported product sales on SugarCRM Marketplace. Communicated value proposition to potential customers.", 
     "link": "https://upsertconsulting.com/#/plugins", 
     "tags": ["Content Strategy", "Marketing", "SugarCRM"] 
-  }  ];
+  },
+  ];
 
                 function renderProjects(projects) {
                     const $grid = $('#projectsGrid');
@@ -421,7 +423,9 @@
                             '</div>' +
                             '<div class="project-detail-skills"><h4>Skills Demonstrated:</h4><ul>' + (project.skills ? project.skills.map(s => '<li>' + s + '</li>').join('') : '') + '</ul></div>' +
                             '<div class="project-detail-results"><h4>Results/Impact:</h4><p>' + (project.results || '') + '</p></div>' +
-                            (project.link ? '<div class="project-detail-link"><a href="' + project.link + '" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View project</a></div>' : '') +
+                            (project.links && project.links.length
+                                ? '<div class="project-detail-link">' + project.links.map(l => '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer" class="btn btn-primary">' + l.label + '</a>').join('') + '</div>'
+                                : project.link ? '<div class="project-detail-link"><a href="' + project.link + '" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View project</a></div>' : '') +
                             '</div>';
                         $('#projectModalBody').html(content);
                         $('#projectModal').addClass('active');
