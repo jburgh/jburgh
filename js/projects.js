@@ -197,11 +197,12 @@
     "id": "nbs-eclearance-rubric",
     "title": "eClearance rubric: Turning tribal review knowledge into a checklist",
     "projectType": "Content Strategy, Process Design, Team Enablement",
-    "description": "Built a rubric encoding CDC clearance standards into a checklist any team member could apply independently, then expanded its scope as team needs grew. Reduces review friction by surfacing known issues before submission.",
-    "fullDescription": "Federal clearance review flags content against a defined set of criteria, but knowing how to apply that standard consistently had lived in individual reviewers' heads. I built a reusable rubric encoding CDC clearance standards and Skylight content conventions into a checklist any team member could apply independently, then expanded its scope beyond its original use case to cover a broader range of content types as the team's needs grew.",
-    "skills": ["Content governance and standards documentation", "Process design for regulatory review", "Reducing single-point-of-failure expertise"],
-    "results": "Reduced review friction by letting content arrive at clearance with known issues already identified and rationale already documented, and removed dependence on any one person's institutional knowledge of what clearance reviewers look for.",
-    "tags": ["Content Strategy", "Process Design", "Leadership", "Civic Tech"]
+    "description": "Built a rubric encoding CDC clearance standards into a checklist any team member could apply independently, then trained a shared Claude project on it so a team member can upload a draft and get back the specific violations in their own text, feeding an interactive form that prints as the submission cover page.",
+    "fullDescription": "Federal clearance review flags content against a defined set of criteria, but knowing how to apply that standard consistently had lived in individual reviewers' heads. I built a reusable rubric encoding CDC clearance standards and Skylight content conventions into a checklist any team member could apply independently, then expanded its scope beyond its original use case to cover a broader range of content types as the team's needs grew. To make the rubric usable without reading it end to end, I set up a shared Claude project in the HHS Claude environment trained on the rubric: a team member uploads their draft and gets back a list of the specific violations found in the actual text, then carries those into an interactive web form that prints as the cover page for the clearance submission.",
+    "skills": ["Content governance and standards documentation", "Process design for regulatory review", "AI-assisted review tooling", "Reducing single-point-of-failure expertise"],
+    "results": "Reduced review friction by letting content arrive at clearance with known issues already identified and rationale already documented, and removed dependence on any one person's institutional knowledge of what clearance reviewers look for. That workflow turned the rubric from a document someone had to read into a review of their own draft that produces the submission cover page as a byproduct.",
+    "links": [{"label": "Pre-clearance checklist", "url": "https://jburgh.github.io/cdc/artifacts/preclearance-checklist/"}],
+    "tags": ["Content Strategy", "Process Design", "Leadership", "AI/ML", "Civic Tech"]
   },
   {
     "id": "nbs-ga-day-tagging",
