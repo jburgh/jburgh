@@ -1980,6 +1980,31 @@ input:focus+.slider {
     font-weight: 600;
 }
 
+/* Workstreams within a role */
+.timeline-workstream {
+    margin-top: var(--space-lg);
+    padding-left: var(--space-lg);
+    border-left: 2px solid var(--border);
+}
+
+.timeline-workstream + .timeline-workstream {
+    margin-top: var(--space-xl);
+}
+
+.workstream-role {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.workstream-date {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
+}
+
 /* Skills Section */
 .skills-container {
     display: grid;
