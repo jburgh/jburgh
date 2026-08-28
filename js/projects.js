@@ -5,6 +5,76 @@
             (function ($) {
                 // Minimal subset of PROJECTS_DATA copied from external script
                 const PROJECTS_DATA = [
+  {
+    "id": "nbs-guide-reorganization",
+    "title": "Guide reorganization: Restructuring 50 pages under active clearance review",
+    "projectType": "Content Strategy, Federal Documentation",
+    "description": "Redesigned a federal deployment guide's IA around audience intent instead of content type. Rewrote the clearance request to isolate structural changes from content changes, avoiding a full re-review of 50+ already-cleared pages.",
+    "fullDescription": "Redesigned a federal deployment guide's top-level structure around audience intent — evaluation, deployment, and maintenance — instead of the ad hoc, content-type structure it had grown into. Audited 50+ pages to decide what moved, merged, or split, then wrote the clearance request to separate structural changes from content changes so reviewers weren't re-reviewing already-cleared procedural text page by page. Produced a full URL redirect map for QA.",
+    "skills": ["Information architecture", "Federal clearance navigation", "Migration and QA planning"],
+    "results": "Approved with minimal review friction despite touching the majority of the guide. Unblocked a new decision-support chapter that had been waiting on a place to live, and gave future contributors a structure that scales instead of requiring another rebuild.",
+    "tags": ["Content Strategy", "Technical Writing", "CDC/NBS"]
+  },
+  {
+    "id": "nbs-docs-as-code",
+    "title": "Docs-as-code infrastructure: From single point of failure to team-ready system",
+    "projectType": "Content Strategy, Documentation Infrastructure",
+    "description": "Built contributor workflows, a Docker-based preview environment, content templates, and CI checks for a repo that had none. Replaced hardcoded version strings with a single templating variable across the guide.",
+    "fullDescription": "Built the infrastructure a documentation repo needed to support more than one contributor: a documented workflow covering environment setup, branching, and PR review; a Docker-based local preview environment; reusable content templates by type; and CI checks for build validation, markdown linting, and link checking. Replaced hardcoded version strings across the guide with a single templating variable.",
+    "skills": ["Docs-as-code tooling", "CI/CD for documentation", "Contributor experience design"],
+    "results": "Turned a single-maintainer repo into one a team could contribute to without tribal knowledge. Release version updates went from a manual, error-prone find-and-replace sweep to a one-line config change.",
+    "tags": ["Developer Docs", "Automation", "CDC/NBS"]
+  },
+  {
+    "id": "nbs-decision-support",
+    "title": "Decision-support content: Writing through a mid-project model change",
+    "projectType": "Developer Documentation, Decision Support",
+    "description": "Wrote a jurisdiction-facing decision guide from scratch, then ran a full impact analysis across every page when CDC reframed two major components mid-project. Shipped under the new model without losing prior work.",
+    "fullDescription": "Wrote a decision-support chapter from scratch to help jurisdictions choose which system components to adopt and in what order. Midway through, CDC reframed two major components from optional up-front choices into sequential deployment phases. Ran a full impact analysis across every affected page, categorized rewrites by effort, and surfaced genuinely open decisions to stakeholders instead of guessing.",
+    "skills": ["Decision-support content design", "Cross-team impact analysis", "Writing for non-expert technical audiences"],
+    "results": "Shipped under the new model without restarting from scratch or losing prior work. The impact-tracking method became the standard approach for later content reframes on the same guide.",
+    "tags": ["Technical Writing", "Content Strategy", "CDC/NBS"]
+  },
+  {
+    "id": "nbs-compatibility-matrix",
+    "title": "Compatibility matrix: Turning an inaccessible image into a source of truth",
+    "projectType": "UX Writing, Accessibility",
+    "description": "Rebuilt a static, unlinkable compatibility reference as an accessible Markdown table, fixing two Section 508 violations — empty cells and unlabeled “X” marks — and making it the linkable source of truth.",
+    "fullDescription": "The canonical version-compatibility reference existed only as a static image in an internal Word doc — unlinkable, un-readable by screen readers, and out of date. Rebuilt it as a Markdown table living directly in the guide, resolving two concrete accessibility failures: empty cells with no explicit state, and “X” marks with no accessible equivalent. Verified current values with the technical SME before publishing.",
+    "skills": ["Section 508 / WCAG remediation", "Structured content design", "SME collaboration"],
+    "results": "Became the single linkable source of truth for version compatibility across the guide and related release documentation, replacing a static image with an accessible, maintainable table.",
+    "tags": ["UX Writing", "Technical Writing", "CDC/NBS"]
+  },
+  {
+    "id": "nbs-ai-assistants",
+    "title": "AI assistant design: Domain-aware tooling for a moving target",
+    "projectType": "AI-Powered Documentation",
+    "description": "Designed a structured AI knowledge system that survived a full platform migration, and rewrote a UX microcopy assistant that over-asked and under-delivered into one that defaults to a single clear recommendation.",
+    "fullDescription": "Designed two AI assistant systems: a structured project knowledge base capturing architecture rules, terminology, and stakeholder context that stayed current as the project evolved — and survived a full platform migration when a regulatory requirement forced a mid-project move — and a UX microcopy assistant rewritten to fix over-asking and indecisive output, so it defaulted to one clear recommendation instead of a menu of options.",
+    "skills": ["AI system design and prompt engineering", "Instruction iteration from observed failure modes", "Knowledge management architecture"],
+    "results": "The knowledge system cut ramp-up time on AI-assisted work across a project spanning clearance requirements and shifting technical architecture. The microcopy assistant went from needing constant correction to producing usable output by default.",
+    "tags": ["AI/ML", "Content Strategy", "CDC/NBS"]
+  },
+  {
+    "id": "nbs-preview-pipeline",
+    "title": "Preview pipeline: Automated staging for pre-clearance review",
+    "projectType": "Developer Documentation, Tooling",
+    "description": "Built a GitHub Actions workflow that auto-publishes content to a staging site on every push to a preview branch, letting federal reviewers see fully rendered pages instead of raw Markdown diffs.",
+    "fullDescription": "Content awaiting federal clearance can't go live, but stakeholders still need to review it as it will actually render — not as a Markdown diff. Built a GitHub Actions workflow that triggers on push to a preview branch, builds the site, and publishes it to a staging environment automatically, giving reviewers a fully navigable version of in-progress content.",
+    "skills": ["CI/CD pipeline design", "Staging environment architecture", "Review workflow design"],
+    "results": "Shifted stakeholder review from reading raw text changes to evaluating the guide as end users would experience it, catching rendering and navigation issues a diff view would miss entirely.",
+    "tags": ["Developer Docs", "Automation", "CDC/NBS"]
+  },
+  {
+    "id": "nbs-word-automation",
+    "title": "Word doc automation: Removing manual work from clearance submissions",
+    "projectType": "Developer Documentation, Tooling",
+    "description": "Built a custom GitHub Action converting Markdown guide pages to formatted Word docs on demand, keeping Markdown as the single source of truth while meeting clearance's Word-format requirement.",
+    "fullDescription": "Federal clearance required Word document submissions, but the guide is authored in Markdown. Manually reformatting pages for every clearance batch was slow and risked the reviewed version silently drifting from the published source. Built a custom GitHub Action that converts guide pages from Markdown to formatted Word docs on demand, keeping Markdown as the single authoring source of truth.",
+    "skills": ["Custom GitHub Actions development", "Docs-as-code workflow design", "Compliance process automation"],
+    "results": "Removed a manual, error-prone reformatting step from clearance submissions and eliminated the risk of the Word version and the published source diverging.",
+    "tags": ["Developer Docs", "Automation", "CDC/NBS"]
+  },
                    { 
     "id": "multi-version-cms", 
     "title": "Multi-version CMS: Eliminating maintenance overhead", 
