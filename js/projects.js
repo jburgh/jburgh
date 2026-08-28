@@ -82,6 +82,56 @@
     "link": "https://github.com/CDCgov/NEDSS-SystemAdminGuide/blob/main/.github/workflows/review-doc.yml",
     "tags": ["Developer Docs", "Automation", "CDC/NBS"]
   },
+  {
+    "id": "nbs-ga-day-tagging",
+    "title": "GA day: Catching a release-tagging gap before it broke every deploy instruction",
+    "projectType": "Content Strategy, Release Management, Cross-Team Coordination",
+    "description": "The guide's URLs depended on every repo sharing one version tag. On GA day, tags diverged and several repos had none at all. Tracked every gap against the live release in real time and pushed engineering to a consistent fix before publishing.",
+    "fullDescription": "The guide's deployment instructions were built on one assumption: every referenced repository would carry a matching version tag, driven by a single Liquid variable so each release only required a one-value change instead of a manual sweep across dozens of URLs. On GA day for 7.13, that assumption broke. Tag naming diverged across the release (v7.13.0 vs. v7.13.0-GA), several repositories had no release or tag at all, one had only a prerelease tag, and a build artifact the guide depended on wasn't published for the new version. I tracked every affected link against the live repo state in real time, flagged each blocker to the engineering team as it surfaced, and pushed for a consistent tagging decision across the full set of repositories rather than letting docs silently drift out of sync with what had actually shipped.",
+    "skills": ["Cross-team release coordination", "Real-time link and dependency auditing", "Advocating for documentation requirements in an engineering-led process"],
+    "results": "Identified and resolved gaps across roughly six repositories before publishing, preventing what would have been broken download links and missing build artifacts across the deployment guide. Without that intervention, the tag-consistency assumption the entire guide's URL system depended on would have failed silently on the first release it was tested against.",
+    "tags": ["Content Strategy", "Process Design", "CDC/NBS"]
+  },
+  {
+    "id": "nbs-site-glossary",
+    "title": "Site glossary: Building a reference that survives scope creep",
+    "projectType": "Content Strategy, Accessibility, Tooling",
+    "description": "Built a site-wide glossary, then rescoped it entirely at CDC's request to remove system-specific framing so it stays accurate over time. Implemented inline tooltip functionality so definitions surface without leaving the page.",
+    "fullDescription": "Drafted a site-wide glossary for the guide to serve as a durable acronym reference, reducing the need to spell out terms like HL7, API, and ELR on every page submitted for clearance. Midway through, CDC requested a significant rescope: all system-specific framing had to be removed so entries would stay accurate as the underlying system evolves. Ran a full pass across every entry to strip that framing, then added scope guidance to contributor docs to prevent the same drift in future edits. Also researched and implemented inline tooltip functionality in the Jekyll/Just the Docs theme, adapting an existing pattern to the site's structure and testing across browsers, so definitions surface without pulling readers off the page.",
+    "skills": ["Glossary and reference design", "Custom JS/CSS implementation in a static site theme", "Scope management under stakeholder rescoping"],
+    "results": "Delivered a durable, system-agnostic glossary now in clearance submission, plus inline tooltips that reduce cognitive load for readers without adding page weight or navigation steps.",
+    "tags": ["Content Strategy", "UX Writing", "CDC/NBS"]
+  },
+  {
+    "id": "nbs-eclearance-rubric",
+    "title": "eClearance rubric: Turning tribal review knowledge into a checklist",
+    "projectType": "Content Strategy, Process Design, Team Enablement",
+    "description": "Built a rubric encoding CDC clearance standards into a checklist any team member could apply independently, then expanded its scope as team needs grew. Reduces review friction by surfacing known issues before submission.",
+    "fullDescription": "Federal clearance review flags content against a defined set of criteria, but knowing how to apply that standard consistently had lived in individual reviewers' heads. I built a reusable rubric encoding CDC clearance standards and Skylight content conventions into a checklist any team member could apply independently, then expanded its scope beyond its original use case to cover a broader range of content types as the team's needs grew.",
+    "skills": ["Content governance and standards documentation", "Process design for regulatory review", "Reducing single-point-of-failure expertise"],
+    "results": "Reduced review friction by letting content arrive at clearance with known issues already identified and rationale already documented, and removed dependence on any one person's institutional knowledge of what clearance reviewers look for.",
+    "tags": ["Content Strategy", "Process Design", "Leadership", "CDC/NBS"]
+  },
+  {
+    "id": "nbs-internal-tooling",
+    "title": "Internal tooling: A text generator and a home for shared team resources",
+    "projectType": "AI-Powered Documentation, Team Enablement",
+    "description": "Designed a UI text generator for the team's content workflows and built an internal hub consolidating resources scattered across two separate systems into one place.",
+    "fullDescription": "Designed a UI text generator application to support the team's microcopy and content workflows, then built an internal project hub to consolidate resources that had been scattered across CDC SharePoint and a separate Skylight Google account into one accessible location. The hub hosts the text generator, the eClearance rubric, and links to key project materials.",
+    "skills": ["Internal tool design", "Information architecture for team resources", "Reducing fragmentation across disconnected systems"],
+    "results": "Gave the team a single, discoverable location for shared tools and materials that previously required knowing which of two separate systems to check, reducing friction for teammates trying to find what they needed.",
+    "tags": ["AI/ML", "Leadership", "CDC/NBS"]
+  },
+  {
+    "id": "nbs-rds-backup-restore",
+    "title": "RDS documentation: Closing a gap with no existing guidance",
+    "projectType": "Developer Documentation, AWS",
+    "description": "Wrote a net-new backup and restore procedure closing a documented gap, corrected inaccurate entries in the existing provisioning table, and removed a troubleshooting callout confirmed incorrect by SME review.",
+    "fullDescription": "Identified and closed a documented gap in the guide: state and local health department IT teams had no end-to-end guidance for the console steps required before an Amazon RDS backup or restore operation could succeed. Researched and wrote the procedure from scratch, added an AWS services reference section to the deployment page, corrected inaccurate entries in the existing provisioning table, and removed a troubleshooting callout that SME review confirmed was giving incorrect guidance.",
+    "skills": ["Technical procedure writing", "Gap analysis and content auditing", "SME verification and correction"],
+    "results": "Closed a real operational gap that had left IT teams without a path to complete a required task, and corrected existing content that was actively steering readers wrong.",
+    "tags": ["AWS", "Technical Writing", "Developer Docs", "CDC/NBS"]
+  },
                    { 
     "id": "multi-version-cms", 
     "title": "Multi-version CMS: Eliminating maintenance overhead", 
