@@ -13,6 +13,7 @@
     "fullDescription": "Redesigned a federal deployment guide's top-level structure around audience intent — evaluation, deployment, and maintenance — instead of the ad hoc, content-type structure it had grown into. Audited 50+ pages to decide what moved, merged, or split, then wrote the clearance request to separate structural changes from content changes so reviewers weren't re-reviewing already-cleared procedural text page by page. Produced a full URL redirect map for QA.",
     "skills": ["Information architecture", "Federal clearance navigation", "Migration and QA planning"],
     "results": "Approved with minimal review friction despite touching the majority of the guide. Unblocked a new decision-support chapter that had been waiting on a place to live, and gave future contributors a structure that scales instead of requiring another rebuild.",
+    "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/",
     "tags": ["Content Strategy", "Technical Writing", "CDC/NBS"]
   },
   {
@@ -23,6 +24,7 @@
     "fullDescription": "Built the infrastructure a documentation repo needed to support more than one contributor: a documented workflow covering environment setup, branching, and PR review; a Docker-based local preview environment; reusable content templates by type; and CI checks for build validation, markdown linting, and link checking. Replaced hardcoded version strings across the guide with a single templating variable.",
     "skills": ["Docs-as-code tooling", "CI/CD for documentation", "Contributor experience design"],
     "results": "Turned a single-maintainer repo into one a team could contribute to without tribal knowledge. Release version updates went from a manual, error-prone find-and-replace sweep to a one-line config change.",
+    "link": "https://github.com/CDCgov/NEDSS-SystemAdminGuide/blob/main/README.md",
     "tags": ["Developer Docs", "Automation", "CDC/NBS"]
   },
   {
@@ -33,6 +35,7 @@
     "fullDescription": "Wrote a decision-support chapter from scratch to help jurisdictions choose which system components to adopt and in what order. Midway through, CDC reframed two major components from optional up-front choices into sequential deployment phases. Ran a full impact analysis across every affected page, categorized rewrites by effort, and surfaced genuinely open decisions to stakeholders instead of guessing.",
     "skills": ["Decision-support content design", "Cross-team impact analysis", "Writing for non-expert technical audiences"],
     "results": "Shipped under the new model without restarting from scratch or losing prior work. The impact-tracking method became the standard approach for later content reframes on the same guide.",
+    "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/before-you-deploy.html",
     "tags": ["Technical Writing", "Content Strategy", "CDC/NBS"]
   },
   {
@@ -43,6 +46,7 @@
     "fullDescription": "The canonical version-compatibility reference existed only as a static image in an internal Word doc — unlinkable, un-readable by screen readers, and out of date. Rebuilt it as a Markdown table living directly in the guide, resolving two concrete accessibility failures: empty cells with no explicit state, and “X” marks with no accessible equivalent. Verified current values with the technical SME before publishing.",
     "skills": ["Section 508 / WCAG remediation", "Structured content design", "SME collaboration"],
     "results": "Became the single linkable source of truth for version compatibility across the guide and related release documentation, replacing a static image with an accessible, maintainable table.",
+    "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/supported-versions.html",
     "tags": ["UX Writing", "Technical Writing", "CDC/NBS"]
   },
   {
@@ -53,6 +57,7 @@
     "fullDescription": "Designed two AI assistant systems: a structured project knowledge base capturing architecture rules, terminology, and stakeholder context that stayed current as the project evolved — and survived a full platform migration when a regulatory requirement forced a mid-project move — and a UX microcopy assistant rewritten to fix over-asking and indecisive output, so it defaulted to one clear recommendation instead of a menu of options.",
     "skills": ["AI system design and prompt engineering", "Instruction iteration from observed failure modes", "Knowledge management architecture"],
     "results": "The knowledge system cut ramp-up time on AI-assisted work across a project spanning clearance requirements and shifting technical architecture. The microcopy assistant went from needing constant correction to producing usable output by default.",
+    "link": "https://partyrock.aws/u/jillshaheen/OE9I1Jj9K/NBS-7-UI-text-helper/",
     "tags": ["AI/ML", "Content Strategy", "CDC/NBS"]
   },
   {
@@ -63,6 +68,7 @@
     "fullDescription": "Content awaiting federal clearance can't go live, but stakeholders still need to review it as it will actually render — not as a Markdown diff. Built a GitHub Actions workflow that triggers on push to a preview branch, builds the site, and publishes it to a staging environment automatically, giving reviewers a fully navigable version of in-progress content.",
     "skills": ["CI/CD pipeline design", "Staging environment architecture", "Review workflow design"],
     "results": "Shifted stakeholder review from reading raw text changes to evaluating the guide as end users would experience it, catching rendering and navigation issues a diff view would miss entirely.",
+    "link": "https://github.com/CDCgov/NEDSS-SystemAdminGuide/blob/main/.github/workflows/jekyll.yml",
     "tags": ["Developer Docs", "Automation", "CDC/NBS"]
   },
   {
@@ -73,6 +79,7 @@
     "fullDescription": "Federal clearance required Word document submissions, but the guide is authored in Markdown. Manually reformatting pages for every clearance batch was slow and risked the reviewed version silently drifting from the published source. Built a custom GitHub Action that converts guide pages from Markdown to formatted Word docs on demand, keeping Markdown as the single authoring source of truth.",
     "skills": ["Custom GitHub Actions development", "Docs-as-code workflow design", "Compliance process automation"],
     "results": "Removed a manual, error-prone reformatting step from clearance submissions and eliminated the risk of the Word version and the published source diverging.",
+    "link": "https://github.com/CDCgov/NEDSS-SystemAdminGuide/blob/main/.github/workflows/review-doc.yml",
     "tags": ["Developer Docs", "Automation", "CDC/NBS"]
   },
                    { 
