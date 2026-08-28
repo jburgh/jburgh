@@ -17,14 +17,14 @@
   },
   {
     "id": "nbs-phased-clearance",
-    "title": "Sequencing a guide rebuild around what clearance actually requires",
+    "title": "Sequencing a guide rebuild around clearance requirements",
     "projectType": "Content Strategy, Federal Clearance Strategy",
     "description": "Split an inherited guide's rebuild into two clearance passes: a structural-only reorganization first, then a full content revision once structure was approved, avoiding a wasted clearance cycle on content already slated for rewrite.",
     "fullDescription": "I inherited a guide with uncleared content from a previous contractor, and a new chapter (Before You Deploy) that needed a place to live. Rather than bundling structure and content into one clearance request, I split the work deliberately: first, a structural-only reorganization (new information architecture, front matter, and section naming) submitted for clearance without touching the actual procedural content, since that content was already slated for a full rewrite. Once the structure cleared, I followed with a complete content revision pass across the guide, correcting technical accuracy issues and bringing every page into compliance with federal content standards.",
     "skills": ["Federal clearance strategy and sequencing", "Information architecture", "Large-scale technical and editorial revision"],
     "results": "Avoided burning a clearance cycle on content that was about to be rewritten anyway, gave the incoming BYD chapter a home immediately instead of waiting on a full content overhaul first, and left the guide on a technically accurate, standards-compliant foundation for future work.",
     "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/",
-    "tags": ["Content Strategy", "Technical Writing", "CDC/NBS"]
+    "tags": ["Content Strategy", "Technical Writing", "Civic Tech"]
   },
   {
     "id": "nbs-multicloud-deployment",
@@ -35,7 +35,7 @@
     "skills": ["Multi-platform technical documentation", "Information architecture at scale", "Managing a large-scope documentation epic"],
     "results": "Took the guide from supporting a single hosting path to supporting two, without duplicating content or forking the guide into separate tracks. State and local IT teams can now deploy on whichever platform fits their environment from one coherent source.",
     "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/deploy-nbs7/full-deploy.html",
-    "tags": ["Developer Docs", "Technical Writing", "CDC/NBS"]
+    "tags": ["Developer Docs", "Technical Writing", "Civic Tech"]
   },
   {
     "id": "multi-version-cms", 
@@ -78,7 +78,7 @@
     "skills": ["Docs-as-code tooling", "CI/CD for documentation", "Contributor experience design"],
     "results": "Turned a single-maintainer repo into one a team could contribute to without tribal knowledge. Release version updates went from a manual, error-prone find-and-replace sweep to a one-line config change.",
     "link": "https://github.com/CDCgov/NEDSS-SystemAdminGuide/blob/main/README.md",
-    "tags": ["Developer Docs", "Automation", "CDC/NBS"]
+    "tags": ["Developer Docs", "Automation", "Civic Tech"]
   },
   {
     "id": "release-notes", 
@@ -100,18 +100,18 @@
     "skills": ["CI/CD pipeline design", "Staging environment architecture", "Review workflow design"],
     "results": "Shifted stakeholder review from reading raw text changes to evaluating the guide as end users would experience it, catching rendering and navigation issues a diff view would miss entirely.",
     "link": "https://github.com/CDCgov/NEDSS-SystemAdminGuide/blob/main/.github/workflows/jekyll.yml",
-    "tags": ["Developer Docs", "Automation", "CDC/NBS"]
+    "tags": ["Developer Docs", "Automation", "Civic Tech"]
   },
   {
     "id": "nbs-word-automation",
-    "title": "Word doc automation: Removing manual work from clearance submissions",
+    "title": "Web-to-Word doc automation: Removing manual work from clearance submissions",
     "projectType": "Developer Documentation, Tooling",
     "description": "Built a custom GitHub Action converting Markdown guide pages to formatted Word docs on demand, keeping Markdown as the single source of truth while meeting clearance's Word-format requirement.",
     "fullDescription": "Federal clearance required Word document submissions, but the guide is authored in Markdown. Manually reformatting pages for every clearance batch was slow and risked the reviewed version silently drifting from the published source. Built a custom GitHub Action that converts guide pages from Markdown to formatted Word docs on demand, keeping Markdown as the single authoring source of truth.",
     "skills": ["Custom GitHub Actions development", "Docs-as-code workflow design", "Compliance process automation"],
     "results": "Removed a manual, error-prone reformatting step from clearance submissions and eliminated the risk of the Word version and the published source diverging.",
     "link": "https://github.com/CDCgov/NEDSS-SystemAdminGuide/blob/main/.github/workflows/review-doc.yml",
-    "tags": ["Developer Docs", "Automation", "CDC/NBS"]
+    "tags": ["Developer Docs", "Automation", "Civic Tech"]
   },
   {
     "id": "nbs-ai-assistants",
@@ -122,18 +122,18 @@
     "skills": ["AI system design and prompt engineering", "Instruction iteration from observed failure modes", "Knowledge management architecture"],
     "results": "The knowledge system cut ramp-up time on AI-assisted work across a project spanning clearance requirements and shifting technical architecture. The microcopy assistant went from needing constant correction to producing usable output by default.",
     "link": "https://partyrock.aws/u/jillshaheen/OE9I1Jj9K/NBS-7-UI-text-helper/",
-    "tags": ["AI/ML", "Content Strategy", "CDC/NBS"]
+    "tags": ["AI/ML", "Content Strategy", "Civic Tech"]
   },
   {
     "id": "nbs-reference-pages",
-    "title": "Designing two reference pages from a vague ask and a broken source",
+    "title": "Reference page design: Critical resources from a vague ask and a broken source",
     "projectType": "UX Writing, Accessibility, Design Systems",
     "description": "Rebuilt an inaccessible compatibility matrix as a linkable table, then designed a release history page from scratch off a one-line ask: badges matched to the NBS UI, tooltips explaining each state, and a sitewide style sweep the design work surfaced.",
     "fullDescription": "Rebuilt the version-compatibility matrix (previously a static, outdated Word doc image with empty cells and unlabeled “X” marks) as an accessible, linkable Markdown table. Designed the release history page from scratch off a one-line stakeholder ask, building a badge system matched to the NBS modernized UI, with tooltips explaining each support state and linking through to the compatibility matrix. The badge design surfaced UI inconsistencies elsewhere in the guide, prompting a full site-wide style sweep.",
     "skills": ["Section 508 / WCAG remediation", "Original page and component design from ambiguous requirements", "Design system consistency (site-wide style sweep)"],
     "results": "Replaced an inaccessible, unlinkable image with a source-of-truth table, and turned a one-line ask into a reusable badge-and-tooltip pattern that drove a sitewide UI consistency audit.",
     "links": [{"label": "Compatibility matrix", "url": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/supported-versions.html"}, {"label": "Release history", "url": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/nbs7-introduction/release-history.html"}],
-    "tags": ["UX Writing", "Design Systems", "CDC/NBS"]
+    "tags": ["UX Writing", "Design Systems", "Civic Tech"]
   },
   {
     "id": "emr-console-redesign", 
@@ -180,7 +180,7 @@
     "skills": ["Decision-support content design", "Cross-team impact analysis", "Writing for non-expert technical audiences"],
     "results": "Shipped under the new model without restarting from scratch or losing prior work. The impact-tracking method became the standard approach for later content reframes on the same guide.",
     "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/before-you-deploy.html",
-    "tags": ["Technical Writing", "Content Strategy", "CDC/NBS"]
+    "tags": ["Technical Writing", "Content Strategy", "Civic Tech", "Public Health"]
   },
   {
     "id": "nbs-site-glossary",
@@ -191,7 +191,7 @@
     "skills": ["Glossary and reference design", "Custom JS/CSS implementation in a static site theme", "Scope management under stakeholder rescoping"],
     "results": "Delivered a durable, system-agnostic glossary now in clearance submission, plus inline tooltips that reduce cognitive load for readers without adding page weight or navigation steps.",
     "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/glossary.html",
-    "tags": ["Content Strategy", "UX Writing", "CDC/NBS"]
+    "tags": ["Content Strategy", "UX Writing", "Civic Tech", "Public Health"]
   },
   {
     "id": "nbs-eclearance-rubric",
@@ -201,7 +201,7 @@
     "fullDescription": "Federal clearance review flags content against a defined set of criteria, but knowing how to apply that standard consistently had lived in individual reviewers' heads. I built a reusable rubric encoding CDC clearance standards and Skylight content conventions into a checklist any team member could apply independently, then expanded its scope beyond its original use case to cover a broader range of content types as the team's needs grew.",
     "skills": ["Content governance and standards documentation", "Process design for regulatory review", "Reducing single-point-of-failure expertise"],
     "results": "Reduced review friction by letting content arrive at clearance with known issues already identified and rationale already documented, and removed dependence on any one person's institutional knowledge of what clearance reviewers look for.",
-    "tags": ["Content Strategy", "Process Design", "Leadership", "CDC/NBS"]
+    "tags": ["Content Strategy", "Process Design", "Leadership", "Civic Tech"]
   },
   {
     "id": "nbs-ga-day-tagging",
@@ -211,7 +211,7 @@
     "fullDescription": "The guide's deployment instructions were built on one assumption: every referenced repository would carry a matching version tag, driven by a single Liquid variable so each release only required a one-value change instead of a manual sweep across dozens of URLs. On GA day for 7.13, that assumption broke. Tag naming diverged across the release (v7.13.0 vs. v7.13.0-GA), several repositories had no release or tag at all, one had only a prerelease tag, and a build artifact the guide depended on wasn't published for the new version. I tracked every affected link against the live repo state in real time, flagged each blocker to the engineering team as it surfaced, and pushed for a consistent tagging decision across the full set of repositories rather than letting docs silently drift out of sync with what had actually shipped.",
     "skills": ["Cross-team release coordination", "Real-time link and dependency auditing", "Advocating for documentation requirements in an engineering-led process"],
     "results": "Identified and resolved gaps across roughly six repositories before publishing, preventing what would have been broken download links and missing build artifacts across the deployment guide. Without that intervention, the tag-consistency assumption the entire guide's URL system depended on would have failed silently on the first release it was tested against.",
-    "tags": ["Content Strategy", "Process Design", "CDC/NBS"]
+    "tags": ["Content Strategy", "Process Design", "Civic Tech"]
   },
   {
     "id": "nbs-project-hub",
@@ -221,7 +221,7 @@
     "fullDescription": "Team resources were split across CDC SharePoint and a separate Skylight Google account, so finding anything meant knowing which of two disconnected systems to check. I built an internal project hub to consolidate them into one accessible location, bringing together the UI text generator, the eClearance rubric, and links to key project materials under a single structure.",
     "skills": ["Information architecture for team resources", "Internal tool design", "Reducing fragmentation across disconnected systems"],
     "results": "Gave the team a single, discoverable location for shared tools and materials that previously required knowing which of two separate systems to check, reducing friction for teammates trying to find what they needed.",
-    "tags": ["Content Strategy", "Leadership", "CDC/NBS"]
+    "tags": ["Content Strategy", "Leadership", "Civic Tech"]
   },
   {
     "id": "task-migration", 
@@ -297,7 +297,7 @@
     "skills": ["Technical procedure writing", "Gap analysis and content auditing", "SME verification and correction"],
     "results": "Closed a real operational gap that had left IT teams without a path to complete a required task, and corrected existing content that was actively steering readers wrong.",
     "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/maintain-nbs7/rds-backup-restore.html",
-    "tags": ["AWS", "Technical Writing", "Developer Docs", "CDC/NBS"]
+    "tags": ["AWS", "Technical Writing", "Developer Docs", "Civic Tech"]
   },
   {
     "id": "aerotech-crm-implementation", 
