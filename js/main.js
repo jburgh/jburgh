@@ -48,12 +48,12 @@
 `,
 
             projects: `Featured Projects:
-  📄 WAL Implementation Guide - AWS EMR feature docs
-  🎨 EMR Console Redesign - UX writing for AWS console
-  ⚠️ Error Message Framework - Standardized EMR errors
-  🔐 Aurora DSQL Encryption - Security documentation
-  🤖 AI Upskilling Program - GenAI tools for 200+ writers
-  📁 Wiki Infrastructure - Content governance at scale`,
+  📁 Wiki Transformation - Self-service docs at AWS scale
+  🏛️ Federal Guide Rebuild - Clearance-sequenced IA for CDC
+  ☁️ Multi-Cloud Deploy Docs - AWS and Azure, one source
+  📚 Multi-Version CMS - In production 4 years after handoff
+  🚀 Release Management - 150+ releases, 24 versions
+  🤖 AI Upskilling Program - GenAI tools for 200+ writers`,
 
             whoami: `Jill Shaheen
 Staff Content Designer @ Skylight Digital
