@@ -70,6 +70,17 @@
     "tags": ["AI/ML", "Leadership", "AWS"] 
   },
   {
+    "id": "nbs-eclearance-rubric",
+    "title": "eClearance rubric: Automating content review to earn stakeholder trust",
+    "projectType": "Content Strategy, Process Design, Stakeholder Trust",
+    "description": "CDC stakeholders had to carry our content through eClearance for us, so every avoidable defect spent someone else's time. Built a rubric and a Claude project trained on it: upload a draft, get the specific violations, and produce a cover page showing the work was already checked.",
+    "fullDescription": "CDC stakeholders had to carry our content through eClearance on our behalf, which made every avoidable defect a claim on someone else's time and a quiet withdrawal from their confidence in us. Clearance review flags content against a defined set of criteria, but knowing how to apply that standard consistently had lived in individual reviewers' heads. I built a reusable rubric encoding CDC clearance standards and Skylight content conventions into a standard any team member could apply independently, then expanded its scope beyond its original use case as the team's needs grew. To make it usable without reading it end to end, I set up a shared Claude project in the HHS Claude environment trained on the rubric: a team member uploads their draft and gets back a list of the specific violations found in the actual text, then carries those into an interactive web form that prints as the cover page for the clearance submission.",
+    "skills": ["Stakeholder trust and transparency by design", "Content governance and standards documentation", "AI-assisted review tooling", "Reducing single-point-of-failure expertise"],
+    "results": "Content now arrives at clearance with known issues already identified and rationale already documented, and no longer depends on any one person's institutional knowledge of what reviewers look for. The printed cover page makes our self-review visible to the CDC staff sponsoring each submission, turning an opaque handoff into a transparent one and demonstrating that we held ourselves to the standard before spending their time on it.",
+    "links": [{"label": "Pre-clearance checklist", "url": "https://jburgh.github.io/cdc/artifacts/preclearance-checklist/"}],
+    "tags": ["Content Strategy", "Process Design", "Leadership", "AI/ML", "Civic Tech"]
+  },
+  {
     "id": "nbs-docs-as-code",
     "title": "Docs-as-code infrastructure: From single point of failure to team-ready system",
     "projectType": "Content Strategy, Documentation Infrastructure",
@@ -192,17 +203,6 @@
     "results": "Delivered a durable, system-agnostic glossary now in clearance submission, plus inline tooltips that reduce cognitive load for readers without adding page weight or navigation steps.",
     "link": "https://cdcgov.github.io/NEDSS-SystemAdminGuide/docs/glossary.html",
     "tags": ["Content Strategy", "UX Writing", "Civic Tech", "Public Health"]
-  },
-  {
-    "id": "nbs-eclearance-rubric",
-    "title": "eClearance rubric: Automating content review to earn stakeholder trust",
-    "projectType": "Content Strategy, Process Design, Stakeholder Trust",
-    "description": "CDC stakeholders had to carry our content through eClearance for us, so every avoidable defect spent someone else's time. Built a rubric and a Claude project trained on it: upload a draft, get the specific violations, and produce a cover page showing the work was already checked.",
-    "fullDescription": "CDC stakeholders had to carry our content through eClearance on our behalf, which made every avoidable defect a claim on someone else's time and a quiet withdrawal from their confidence in us. Clearance review flags content against a defined set of criteria, but knowing how to apply that standard consistently had lived in individual reviewers' heads. I built a reusable rubric encoding CDC clearance standards and Skylight content conventions into a standard any team member could apply independently, then expanded its scope beyond its original use case as the team's needs grew. To make it usable without reading it end to end, I set up a shared Claude project in the HHS Claude environment trained on the rubric: a team member uploads their draft and gets back a list of the specific violations found in the actual text, then carries those into an interactive web form that prints as the cover page for the clearance submission.",
-    "skills": ["Stakeholder trust and transparency by design", "Content governance and standards documentation", "AI-assisted review tooling", "Reducing single-point-of-failure expertise"],
-    "results": "Content now arrives at clearance with known issues already identified and rationale already documented, and no longer depends on any one person's institutional knowledge of what reviewers look for. The printed cover page makes our self-review visible to the CDC staff sponsoring each submission, turning an opaque handoff into a transparent one and demonstrating that we held ourselves to the standard before spending their time on it.",
-    "links": [{"label": "Pre-clearance checklist", "url": "https://jburgh.github.io/cdc/artifacts/preclearance-checklist/"}],
-    "tags": ["Content Strategy", "Process Design", "Leadership", "AI/ML", "Civic Tech"]
   },
   {
     "id": "nbs-ga-day-tagging",
